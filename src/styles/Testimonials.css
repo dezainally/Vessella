@@ -1,0 +1,230 @@
+/* * TestimonialSection */
+
+/* Section Styling */
+/* Container */
+.testimonial-section {
+    position: relative;
+    /* background: #022E56 !important; */
+    /* background: linear-gradient(180deg, rgba(243, 243, 243, 1) 47%, rgba(2, 46, 86, 1) 80%); */
+    /* background: linear-gradient(360deg, rgba(243, 243, 243, 1) 2%, rgba(2, 46, 86, 1) 66%); */
+    background: linear-gradient(360deg, rgb(21, 21, 21) 44%, rgba(2, 46, 86, 1) 84%);
+    /* background-repeat: no-repeat;
+    background-position: top right; */
+}
+
+.testimonial-swiper .swiper-wrapper {
+    display: flex;
+    align-items: stretch;
+    /* ✅ Make all slides stretch equally */
+}
+
+.testimonial-swiper .swiper-slide {
+    display: flex;
+    height: auto !important;
+    /* ✅ Allow cards to stretch */
+}
+
+.testimonial-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* ✅ Equal height */
+    background: #c1c1c1;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.testimonial-text {
+    flex-grow: 1;
+    /* ✅ Fill space for text */
+}
+
+
+/* Swiper Slides */
+.testimonial-swiper {
+    padding-right: 0;
+    /* ✅ Creates half visible effect */
+}
+
+.testimonial-slide {
+    width: 400px !important;
+    /* ✅ Fixed width to control half visibility */
+    flex-shrink: 0;
+}
+
+/* Card Styling */
+.testimonial-card {
+    background: #c1c1c1;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    height: 100%;
+    overflow: hidden;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Image */
+.testimonial-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Title */
+.testimonial-title {
+    font-size: 1.1rem;
+    color: #1d1d1d;
+}
+
+/* Text */
+.testimonial-text {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Swiper Navigation Buttons */
+.testimonial-card .card-nav-buttons {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.testimonial-card .swiper-button-prev,
+.testimonial-card .swiper-button-next {
+    width: 35px;
+    height: 35px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.testimonial-swiper .swiper-button-next,
+.testimonial-swiper.swiper-button-prev {
+    color: white !important;
+    background: linear-gradient(90deg, rgba(0, 147, 208, 1) 0%, rgba(0, 95, 163, 1) 60%);
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
+    padding: 20px !important;
+    border-radius: 50% !important;
+    width: 56px !important;
+    height: 56px !important;
+    font-size: 5px !important;
+}
+
+.testimonial-swiper.swiper-button-prev:hover {
+    background: linear-gradient(270deg, rgba(0, 147, 208, 1) 0%, rgba(0, 95, 163, 1) 60%);
+
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    font-size: 18px !important;
+}
+
+.testimonial-swiper .swiper-button-prev {
+    display: none !important;
+}
+
+/* Swiper Pagination Dots */
+.swiper-pagination-bullet {
+    background: #ddd;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background: #0d6efd;
+}
+
+/* .testi-outline-img {
+    top: 0;
+    bottom: 0;
+    opacity: 0.1;
+    z-index: -1;
+} */
+
+.testi-logo-bg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0.3;
+    /* light transparency */
+    z-index: 0;
+}
+
+.testi-outline-img {
+    max-width: 70%;
+    height: auto;
+    object-fit: contain;
+}
+
+.testimonial-title,
+.testimonial-text,
+.testimonial-img {
+    position: relative;
+    z-index: 2;
+    /* keep content above logo */
+}
+
+.foldtr {
+    position: relative;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: -5px 7px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.foldbr {
+    position: relative;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: -5px 7px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* folded bottom-right corner */
+.foldbr::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-top: 70px solid #eee;
+    /* light fold shadow */
+    border-right: 70px solid transparent;
+    box-shadow: -7px -7px 7px rgba(0, 0, 0, 0.3);
+}
+
+.foldbr::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 69px solid #022E56;
+    /* main fold color */
+    border-left: 69px solid transparent;
+}
+
+/* hover animation */
+.foldbr:hover {
+    transform: translateY(-5px);
+    box-shadow: -8px 10px 18px rgba(0, 0, 0, 0.4);
+}

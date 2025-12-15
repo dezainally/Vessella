@@ -1,0 +1,31 @@
+.moving-text-section {
+  background-color: #2e363c;
+  display: flex;
+  align-items: center;
+}
+
+
+.text-wrapper {
+  display: flex;
+  white-space: nowrap;
+  animation: moveText 15s linear infinite; 
+}
+
+.moving-text {
+  font-size: 18vw;
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08);
+  margin: 0;
+  padding-right: 5rem; 
+ 
+}
+
+@keyframes moveText {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

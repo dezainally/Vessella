@@ -1,0 +1,111 @@
+/* allow container to size to the full image height (we set this in JS) */
+.ProjectHeader_container {
+    position: relative;
+    width: 100%;
+    /* remove fixed height:100vh; JS will set the exact height to match image */
+    height: auto;
+    min-height: unset;
+    /* keep at least viewport height as fallback */
+    overflow: hidden;
+    /* allow full image height to be visible */
+    display: block;
+}
+
+/* background wrapper sits behind content */
+.ProjectHeader_background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    height: 100%;
+    /* allow full image height to overflow if taller */
+}
+
+/* image wrapper remains transformable; height is controlled by JS to match rendered img */
+.ProjectHeader_image {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* height will be set by JS to match actual image height so transform progress is computed correctly */
+    height: auto;
+    transition: transform 120ms linear;
+
+
+    /* 🔑 NOT absolute */
+    width: 100%;
+    transform-origin: center;
+    will-change: transform;
+}
+
+/* ensure the actual <img> keeps its aspect ratio and renders natural height */
+/* .ProjectHeader_image img {
+    display: block;
+    width: 100%;
+    object-position: center center;
+} */
+
+.ProjectHeader_image picture,
+.ProjectHeader_image img {
+    width: 100%;
+    height: auto;
+    /* 🔑 natural image height */
+    display: block;
+    object-fit: unset;
+    /* 🔑 do NOT crop */
+}
+
+/* main content layer should be positioned relative and stacked above the image */
+.ProjectHeader_main {
+    position: relative;
+    display: none;
+    z-index: 2;
+    /* If image is taller than viewport we still want content positioned relative to the top of the page; adjust as needed. */
+    display: flex;
+    align-items: flex-end;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+/* overlay fills the section */
+.ProjectHeader_overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    /* background still scrolls */
+}
+
+/* sticky container */
+.ProjectHeader_centerContent {
+    position: sticky;
+    top: 50%;
+    transform: translateY(-50%);
+
+    height: fit-content;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    text-align: center;
+    pointer-events: auto;
+    /* enable button clicks */
+}
+
+/* demo styles */
+.hero-title {
+    font-size: 4rem;
+    color: white;
+    margin: 0;
+}
+
+.hero-btn {
+    padding: 12px 28px;
+    font-size: 16px;
+    background: white;
+    color: black;
+    border: none;
+    cursor: pointer;
+}

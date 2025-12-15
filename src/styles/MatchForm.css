@@ -1,0 +1,107 @@
+/* Overall layout */
+.match-section {
+  overflow: hidden;
+  /* background: linear-gradient(360deg, rgb(21, 21, 21) 30%, #2e4b65 70%); */
+  background: linear-gradient(360deg, rgb(21, 21, 21) 30%, #022E56 70%);
+}
+
+/* LEFT SIDE */
+.form-side {
+  /* height: 100vh; */
+  overflow-y: auto;
+  /* allows only form side to scroll if needed */
+}
+
+.form-control {
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  /* font-size: 0.95rem; */
+  padding: 12px 15px;
+}
+
+.form-control:focus {
+  border-color: #000;
+  box-shadow: none;
+}
+
+/* RIGHT SIDE */
+.image-side {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Curved Container (the one that moves) */
+.curved-image-wrapper {
+  position: relative;
+  width: 85%;
+  height: 90%;
+  overflow: hidden;
+  border-top-left-radius: 120px;
+  border-bottom-right-radius: 120px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  background: #000;
+}
+
+.curved-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Gradient overlay */
+.image-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.05),
+    rgba(0, 0, 0, 0.6)
+  );
+}
+
+/* Caption text */
+.image-caption {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  right: 40px;
+  color: #fff;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  font-weight: 400;
+  z-index: 2;
+}
+
+.image-caption strong {
+  font-weight: 600;
+}
+
+/* Mobile fix */
+@media (max-width: 767px) {
+  .match-section {
+    height: auto;
+  }
+
+  .form-side,
+  .image-side {
+    height: auto;
+  }
+
+  .curved-image-wrapper {
+    border-radius: 40px;
+    width: 100%;
+    height: 300px;
+  }
+
+  .image-caption {
+    font-size: 1rem;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+  }
+}

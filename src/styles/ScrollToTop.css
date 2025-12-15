@@ -1,0 +1,64 @@
+.scroll-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+  transition: all 0.35s ease;
+  z-index: 9999;
+}
+
+.scroll-btn.visible {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+/* ICON AT CENTER */
+.scroll-btn .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 10;
+}
+
+/* SVG CIRCLE */
+.progress-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg);
+}
+
+/* BACKGROUND CIRCLE */
+.progress-circle .bg {
+  fill: rgba(0, 0, 0, 0.6);
+  stroke: rgba(255, 255, 255, 0.15);
+  stroke-width: 4;
+}
+
+/* PROGRESS BORDER ANIMATION */
+.progress-circle .progress {
+  fill: transparent;
+  stroke: #005fa3;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 150.72;
+  transition: stroke-dashoffset 0.25s linear;
+}
+
+/* HOVER EFFECTS */
+.scroll-btn:hover .progress {
+  stroke: #1e79c3;
+  filter: drop-shadow(0 0 6px rgba(0, 183, 255, 0.5));
+}
+
+.scroll-btn:hover {
+  transform: scale(1.12);
+}

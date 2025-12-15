@@ -1,0 +1,10 @@
+.about-section {}
+
+.about-info-card {
+    border: 1px solid rgba(128, 128, 128, 0.41);
+}
+
+.about-us-image {
+    height: 250px;
+    opacity: 0.5;
+}

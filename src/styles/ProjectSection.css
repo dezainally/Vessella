@@ -1,0 +1,222 @@
+.projects-section {
+  /* font-family: "Playfair Display", serif; */
+  overflow: hidden;
+  /* background: #f3f3f3; */
+  /* background: linear-gradient(180deg, rgba(243, 243, 243, 1) 47%, #022e56 80%); */
+  background: linear-gradient(180deg, #ffffff 5%, #022e56 90%)
+    /* background: linear-gradient(180deg, rgba(243, 243, 243, 1) 47%, #2e4b65 80%); */
+}
+
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Dropdown same as screenshot */
+.custom-dropdown {
+  background-color: #111;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 0;
+  padding: 14px 24px;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.custom-dropdown:hover,
+.custom-dropdown:focus {
+  background-color: #000;
+  color: #fff;
+}
+
+.arrow-icon {
+  font-size: 1.1rem;
+  transform: translateY(-1px);
+}
+
+.dropdown-menu {
+  border: none;
+  border-radius: 0;
+  font-weight: 500;
+  padding: 0;
+}
+
+.dropdown-item {
+  padding: 10px 15px;
+  color: #000;
+  font-size: 0.95rem;
+}
+
+.dropdown-item:hover {
+  background-color: #f2f2f2;
+}
+
+.dropdown-menu.show {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Staggered Layout */
+.staggered-layout {
+  position: relative;
+
+}
+
+.project-row {
+  /* background: linear-gradient(to bottom, #ffffff 50%, #1A2B56 50%); */
+  /* background: linear-gradient(180deg, rgba(255, 255, 255, 1) 18%, #1A2B56 56%); */
+}
+
+.project-box {
+  position: relative;
+  /* background: linear-gradient(to bottom, #ffffff 55%, #000000 45%); */
+  color: #000;
+  /* text color for white area */
+  padding: 10px;
+  overflow: hidden;
+  border: none;
+  transition: all 0.5s;
+}
+
+.project-box:hover {
+  transform: rotate(2deg) !important;
+}
+
+
+.project-image-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #ffffff3b;
+}
+
+/* Up position - moves image up */
+.up-position .project-image-wrapper {
+  margin-top: 40px;
+  /* Adjust this value to control how much it moves up */
+}
+
+/* Down position - moves image down */
+.down-position .project-image-wrapper {
+  /* margin-top: -40px; */
+  /* Adjust this value to control how much it moves down */
+  margin-bottom: 40px;
+  /* Compensate for the downward movement */
+}
+
+.project-img {
+  /* width: 90%; */
+  height: 420px;
+  object-fit: cover;
+  filter: brightness(95%);
+  transition: transform 0.3s ease;
+}
+
+.project-box:hover .project-img {
+  transform: scale(1.02);
+  /* transform: rotateY(40deg); */
+}
+
+.project-content {
+  position: relative;
+  background-color: #2e4b65;
+
+  padding-top: 1rem;
+  width: 100%;
+  padding-bottom: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-title {
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+
+.project-desc {
+  font-size: 0.9rem;
+  line-height: 1.3;
+  color: #ccc;
+}
+
+
+.project-number {
+  position: absolute;
+  right: 15px;
+  bottom: 10px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.project-number img {
+  width: 22px;
+  transform: rotate(315deg);
+  /* 45° tilted */
+  transition: transform 0.4s ease;
+}
+
+/* hover effect */
+.project-number:hover img {
+  transform: rotate(0deg);
+  /* rotate back to normal */
+}
+
+/* Alternative staggered approach with different heights */
+.alternative-staggered .project-box:nth-child(odd) .project-img {
+  height: 380px;
+  /* Shorter height for odd items */
+  margin-top: 20px;
+}
+
+.alternative-staggered .project-box:nth-child(even) .project-img {
+  height: 460px;
+  /* Taller height for even items */
+  margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+
+
+  .custom-dropdown {
+    width: 100%;
+  }
+
+  .project-img {
+    height: 300px;
+  }
+
+  /* Remove staggered effect on mobile for better layout */
+  .up-position .project-image-wrapper,
+  .down-position .project-image-wrapper {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 575px) {
+  .project-box {
+    min-width: 100%;
+  }
+
+  .project-img {
+    height: 250px;
+
+  }
+}

@@ -1,0 +1,159 @@
+
+
+.offer-left {
+  position: relative;
+}
+
+.offer-left img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.offer-left-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.9));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.text-highlight {
+  color: white;
+}
+
+.discount-badge {
+  background-color: white;
+  color: #000;
+  width: 120px;
+  border-radius: 6px;
+  padding: 0.5rem;
+  line-height: 1.2;
+}
+
+.register-btn {
+  border-radius: 0;
+  font-weight: 500;
+  border-color: #fff;
+  color: #fff;
+}
+
+.register-btn:hover {
+  background-color: white;
+  color: #000;
+  border-color: white;
+}
+
+.reportage-text {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+
+
+.offer-form .form-control,
+.offer-form .form-select {
+  background-color: transparent;
+  border: 1px solid white;
+  color: #fff;
+  padding: 0.6rem 1rem;
+}
+
+.offer-form .form-control:focus,
+.offer-form .form-select:focus {
+  border-color: white;
+  box-shadow: none;
+}
+
+.offer-form .form-check-input {
+  background-color: transparent;
+  border: 1px solid white;
+}
+
+.offer-form .form-check-input:checked {
+  background-color: white;
+  border-color: white;
+}
+
+.btn-warning {
+  background-color: white;
+  border: none;
+  color: #000;
+}
+
+.btn-warning:hover {
+  background-color: black;
+}
+
+
+.floating-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.floating-group label {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  color: #aaa;
+  font-size: 0.9rem;
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.floating-group.active label,
+.floating-group input:focus ~ label,
+.floating-group select:focus ~ label,
+.floating-group textarea:focus ~ label {
+  top: -8px;
+  left: 12px;
+  /* background-color: #1f232a; */
+  padding: 0 6px;
+  font-size: 0.75rem;
+  color: white;
+}
+
+.floating-group input,
+.floating-group select,
+.floating-group textarea {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border-radius: 0px;
+  background-color: #2b3038;
+  border: 1px solid #3d434b;
+  color: #fff;
+  outline: none;
+}
+
+.floating-group textarea {
+  /* border-radius: 12px; */
+  resize: none;
+}
+
+.floating-group input:focus,
+.floating-group select:focus,
+.floating-group textarea:focus {
+  border-color: white;
+  box-shadow: 0 0 0 0.2rem rgba(245, 166, 35, 0.25);
+}
+
+/* Checkbox & Button styling */
+.form-check-input:checked {
+  background-color: black;
+  border-color: black;
+}
+
+.btn-warning {
+  background-color: white;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-warning:hover {
+  background-color: black;
+}
