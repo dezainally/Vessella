@@ -10,7 +10,7 @@ import Intro from "./components/Intro";
 import Home from "./pages/Home";
 import Serene from "./pages/Serene"
 import ScrollToTop from "./components/ScrollToTop";
-import Footer from "./components/Footer";
+import Footer from "./components/MegaFooter";
 import "./styles/style.css";
 
 function App() {

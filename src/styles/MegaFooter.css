@@ -1,0 +1,90 @@
+.mega-footer {
+    background: #000;
+    color: #fff;
+    padding: 80px 6% 30px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* LEFT MENU */
+.footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu li {
+    margin-bottom: 22px;
+}
+
+.footer-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 28px;
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+
+/* RIGHT BRAND */
+.footer-brand {
+    /* text-align: right; */
+}
+
+.footer-brand h1 {
+    font-size: 120px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin: 0;
+    position: relative;
+}
+
+.footer-brand span {
+    font-size: 22px;
+    position: absolute;
+    top: 18px;
+    margin-left: 4px;
+}
+
+.socials {
+    display: flex;
+    gap: 20px;
+    /* justify-content: flex-end; */
+    margin-top: 40px;
+}
+
+.socials a {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+}
+
+/* BOTTOM BAR */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 60px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.legal-links {
+    display: flex;
+    gap: 30px;
+}
+
+.legal-links a {
+    color: #fff;
+    text-decoration: underline;
+}

@@ -10,7 +10,7 @@ import About from "../components/About";
 import Stats from "../components/StatsSection";
 import Form from "../components/Form";
 import Form2 from "../components/MatchForm";
-import Projects from "../components/ProjectSection";
+import Projects from "../components/ProjectNew";
 import ProjectsTwo from "../components/ProjectSectionTwo";
 import Testimonials from "../components/Testimonials";
 import TestimonialsSection from "../components/TestimonialsSection";
@@ -28,6 +28,7 @@ function Home() {
             <HomeBanner />
             {/* <AboutUs /> */}
             <About />
+            <Projects />
             {/* <Stats /> */}
             {/* <Projects /> */}
             <ProjectsTwo />
