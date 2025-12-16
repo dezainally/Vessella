@@ -55,7 +55,7 @@ export default function HeroSection() {
               </motion.span>
 
               <motion.h1
-                className="hero-text"
+                className="hero-text text-white"
                 variants={itemVariants}
               >
                 At Vessella, we design and build spaces that elevate everyday

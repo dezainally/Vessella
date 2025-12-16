@@ -45,8 +45,8 @@ const Intro = () => {
           variants={container}
           initial="hidden"
           animate="show"
-          className="pertili-font display-2 fw-bold col-lg-8"
-          style={{ lineHeight: "1.4em" }}
+          className="pertili-font display-2 mb-lg-5 fw-bold text-white col-lg-8"
+          style={{ textShadow: "5px 5px 5px black" }}
         >
           {words.map((wordText, i) => (
             <motion.span

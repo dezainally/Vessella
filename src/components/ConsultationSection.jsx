@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/ConsultationSection.css";
 
 import arrowIcon from "../assets/images/arrow.png";
-import bgImage from "../assets/images/contact-section-bg.jpg";
+import bgImage from "../assets/images/contact-bg.jpg";
 import vectorImage from "../assets/images/vectorimage1.png";
 
 export default function ConsultationSection() {

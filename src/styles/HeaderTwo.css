@@ -1,0 +1,82 @@
+/* OUTER HEADER (TRANSPARENT) */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 16px 24px;
+  background: transparent;
+}
+
+/* INNER WHITE BAR */
+.header-inner {
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 12px;
+
+  transition: all 0.5s ease;
+}
+
+/* SHADOW ON SCROLL */
+.header-inner.scrolled {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  background: white;
+}
+
+/* LOGO */
+.logo img {
+  /* height: 28px; */
+  width: 150px;
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  gap: 32px;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1a1a;
+  position: relative;
+}
+
+/* ACTIVE LINK */
+.nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: #1a1a1a;
+}
+
+/* RIGHT SIDE */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contact {
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+.menu-btn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 8px;
+  background: #6b4eff;
+  color: #ffffff;
+  cursor: pointer;
+}
