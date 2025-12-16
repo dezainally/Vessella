@@ -1,5 +1,7 @@
 import "../styles/MegaFooter.css";
 import FooterLogo from "../assets/images/logo/footer-logo.png";
+import { Link } from "react-router-dom";
+
 import {
     FaPhone,
     FaEnvelope,
@@ -12,18 +14,21 @@ import {
 } from "react-icons/fa6";
 
 const quickLinks = [
-    "Home",
-    "Our Story",
-    "Our Team",
-    "Contact Us",
+    { label: "Home", link: "/" },
+    { label: "Why Us", link: "https://vessella.com/why-us/" },
+    { label: "Profile", link: "https://vessella.com/profile/" },
+    { label: "Projects", link: "https://vessella.com/projects/" },
+    { label: "Contact", link: "https://vessella.com/contact/" },
 ];
 
 const projects = [
-    "Serene",
-    "Palms",
-    "Meadows",
-    "Woods",
+    { label: "Serene", link: "/" },
+    { label: "Palms", link: "/" },
+    { label: "Woods", link: "https://vessella.com/project/vessella-woods/" },
+    { label: "Meadows", link: "https://vessella.com/project/vessella-woods/" },
+    { label: "Villas", link: "https://vessella.com/project/vessella-villas/" },
 ];
+
 
 export default function MegaFooter() {
     return (
@@ -40,12 +45,23 @@ export default function MegaFooter() {
                         />
 
                         <div className="socials">
-                            <a href="#"><FaFacebookF /></a>
-                            <a href="#"><FaInstagram /></a>
-                            <a href="#"><FaLinkedinIn /></a>
-                            <a href="#"><FaYoutube /></a>
-                            <a href="#"><FaXTwitter /></a>
+                            <a href="https://facebook.com/vessella" target="_blank" rel="noopener noreferrer">
+                                <FaFacebookF />
+                            </a>
+                            <a href="https://instagram.com/vessella" target="_blank" rel="noopener noreferrer">
+                                <FaInstagram />
+                            </a>
+                            <a href="https://linkedin.com/company/vessella" target="_blank" rel="noopener noreferrer">
+                                <FaLinkedinIn />
+                            </a>
+                            <a href="https://youtube.com/@vessella" target="_blank" rel="noopener noreferrer">
+                                <FaYoutube />
+                            </a>
+                            <a href="https://x.com/vessella" target="_blank" rel="noopener noreferrer">
+                                <FaXTwitter />
+                            </a>
                         </div>
+
                     </div>
 
                     {/* Column 2 - Quick Links */}
@@ -54,10 +70,11 @@ export default function MegaFooter() {
                         <ul className="footer-menu">
                             {quickLinks.map((item, index) => (
                                 <li key={index}>
-                                    <a href="#">{item}</a>
+                                    <Link to={item.link}>{item.label}</Link>
                                 </li>
                             ))}
                         </ul>
+
                     </div>
 
                     {/* Column 3 - Projects */}
@@ -66,10 +83,11 @@ export default function MegaFooter() {
                         <ul className="footer-menu">
                             {projects.map((item, index) => (
                                 <li key={index}>
-                                    <a href="#">{item}</a>
+                                    <Link to={item.link}>{item.label}</Link>
                                 </li>
                             ))}
                         </ul>
+
                     </div>
 
                     {/* Column 4 - Enquiry */}
@@ -79,18 +97,18 @@ export default function MegaFooter() {
                         <div className="footer-contact">
                             <p>
                                 <FaPhone />
-                                <a href="tel:+919999999999">Head Office: <br />	040 23014498 / 99</a>
-                                
+                                <a href="tel:040 23014498 ">Head Office: <br />	040 23014498 / 99</a>
+
                             </p>
                             <p>
                                 <FaPhone />
-                                <a href="tel:+919999999999">Marketing Ph: <br />	9121244421 / 03</a>
-                                
+                                <a href="tel:9121244421">Marketing Ph: <br />	9121244421 / 03</a>
+
                             </p>
                             <p>
                                 <FaPhone />
-                                <a href="tel:+919999999999">Fax: <br />040 23014497</a>
-                                
+                                <a href="tel:040 23014497">Fax: <br />040 23014497</a>
+
                             </p>
 
                             <p>

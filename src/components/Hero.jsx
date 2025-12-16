@@ -60,8 +60,10 @@ const Intro = () => {
         </motion.h1>
 
         {/* CTA BUTTON */}
-        <motion.button
-          className="callback-btn"
+
+        <motion.a
+          className="callback-btn text-decaration-none"
+          href="https://vessella.com/projects/"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 2.2, ease: "easeOut" }}
@@ -70,7 +72,7 @@ const Intro = () => {
           <span>
             <img src={arrowIcon} alt="arrow" className="arrow-circle p-2" />
           </span>
-        </motion.button>
+        </motion.a>
 
 
       </div>

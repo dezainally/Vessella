@@ -33,7 +33,7 @@ const itemVariants = {
 export default function HeroSection() {
   return (
     <section className="hero-section">
-      <div className="hero-overlay"></div>
+      {/* <div className="hero-overlay"></div> */}
 
       <div className="container">
         <motion.div
@@ -67,12 +67,12 @@ export default function HeroSection() {
 
           {/* RIGHT IMAGE */}
           <div className="col-lg-5 d-flex align-items-center justify-content-end p-5">
-            <motion.img
+            {/* <motion.img
               src={outlineimage}
               alt=""
               className="hero-outline-img"
               variants={itemVariants}
-            />
+            /> */}
           </div>
         </motion.div>
       </div>

@@ -26,16 +26,16 @@ export default function Header() {
 
         {/* NAV */}
         <nav className="nav">
-          <a className="active" href="#">HOME</a>
-          <a href="#">ABOUT US</a>
-          <a href="#">OPERATIONS</a>
-          <a href="#">INVESTORS</a>
-          <a href="#">SUSTAINABILITY</a>
+          <a className="active" href="/">HOME</a>
+          <a href="https://vessella.com/why-us/">WHY US</a>
+          <a href="https://vessella.com/profile/">PROFIILE</a>
+          <a href="https://vessella.com/projects/">PROJECTS</a>
+          <a href="https://vessella.com/contact/">CONTACT US</a>
         </nav>
 
         {/* RIGHT */}
         <div className="right">
-          <a href="#" className="contact">CONTACT</a>
+          <a href="https://vessella.com/contact/" className="contact">CONTACT</a>
           <button className="menu-btn">☰</button>
         </div>
       </div>

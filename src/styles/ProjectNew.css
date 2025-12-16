@@ -11,6 +11,10 @@
   gap: 32px;
 }
 
+.service-link {
+  text-decoration: none;
+}
+
 .services-badge {
   display: inline-block;
 
