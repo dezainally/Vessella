@@ -1,66 +1,93 @@
 import "../styles/ProjectNew.css";
 
-import VessellaImg from "../assets/images/v.png"
-import VessellaIm from "../assets/images/v.png"
+import VessellaImg from "../assets/images/serene.png"
+import PalmsImg from "../assets/images/palms.png"
+import MeadowsImg from "../assets/images/meadows.png"
+import VillasImg from "../assets/images/villas.png"
+import WoodswsImg from "../assets/images/woods.png"
 
-const projects = [
+
+
+const services = [
     {
-        title: "Real Estate Development",
+        title: "Vessella Serene",
         image: VessellaImg,
     },
     {
-        title: "Project Management",
-        image: VessellaImg,
+        title: "Vessella Palms",
+        image: PalmsImg,
+    },
+    {
+        title: "Vessella Meadows",
+        image: MeadowsImg,
+    },
+    {
+        title: "Vessella Villas",
+        image: VillasImg,
+    },
+    {
+        title: "Vessella Woods",
+        image: WoodswsImg,
     },
     // {
-    //     title: "Investment & Capital",
-    //     image: VessellaImg,
-    // },
-    // {
-    //     title: "Construction Management",
-    //     image: VessellaImg,
-    // },
-    // {
-    //     title: "Architecture & Design",
+    //     title: "Cyber Meadows",
     //     image: VessellaImg,
     // },
 ];
 
 export default function Services() {
     return (
-        <section className="services">
-            <span className="services-badge">WE OFFER</span>
+        <>
+            <section className="services">
+                <span className="services-badge">OUR PROJECTS</span>
 
-            <h2 className="services-title">
-                Take a brief look at <br /> some of the services <br /> we offer
-            </h2>
+                <h2 className="services-title">
+                    Take a brief look at <br /> some of the services <br /> we offer
+                </h2>
 
-            <div className="services-grid row g-4">
-                {projects.map((service, index) => (
-                    <div key={index} className="col-lg-6 col-md-12">
-                        <a
-                            href={`/projects/${service.slug}`}
-                            className="service-link"
-                        >
-                            <div className="service-card position-relative rounded-3 p-4 pb-0">
-                                <span className="service-arrow">↗</span>
-
-                                <h3>{service.title}</h3>
-
-                                <div className="service-image">
-                                    <img src={service.image} alt={service.title} />
+                <div className="services-grid">
+                    {services.map((service, index) => (
+                        <div>
+                            <div
+                                key={index}
+                                className="service-card position-relative"
+                            >
+                                <div className="arrow-card position-absolute">
+                                    <button className="arrow-btn img-fluid">
+                                        <span>↗</span>
+                                    </button>
                                 </div>
+
+                                <div className="position-absolute ">
+
+                                </div>
+
+
+                                <h3>
+                                    {service.title.split("\n").map((line, i) => (
+                                        <span key={i}>
+                                            {line}
+                                            <br />
+                                        </span>
+                                    ))}
+                                </h3>
+
+                                <img src={service.image} alt={service.title} />
                             </div>
-                        </a>
-                    </div>
-                ))}
-            </div>
+                        </div>
 
+                    ))}
+                </div>
 
-            <p className="services-footer">
-                Discover top-tier real estate development services.
-                <a href="#"> View all services</a>
-            </p>
-        </section>
+                <div className="mt-4">
+                    <p className="services-footer text-center fs-5 fw-semibold">
+                        Discover top-tier real estate development services.
+                        <a href="#" className="text-decoration-none text-black"> View all services</a>
+                    </p>
+                </div>
+
+            </section>
+        </>
+
     );
 }
