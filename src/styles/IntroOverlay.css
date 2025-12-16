@@ -1,0 +1,58 @@
+/* Container */
+.intro-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  overflow: hidden;
+}
+
+/* Background */
+.background-layer {
+  position: absolute;
+  inset: 0;
+  background: #1b133a;
+  z-index: 1;
+}
+
+/* Logo */
+.intro-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  filter: blur(14px);
+  transition: filter 0.8s ease-out;
+}
+
+.intro-content img {
+  width: 300px;
+}
+
+/* Clear blur */
+.intro-content.clear {
+  filter: blur(0);
+}
+
+/* ✅ SWEEP LAYER (FIXED) */
+.sweep-layer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(106, 76, 255, 0) 0%,
+    rgba(106, 76, 255, 0.4) 30%,
+    rgba(143, 123, 255, 0.9) 55%,
+    rgba(143, 123, 255, 0.4) 75%,
+    rgba(143, 123, 255, 0) 100%
+  );
+  transform: translateX(-100%);
+  z-index: 3;
+  transition: transform 2.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Move left → right */
+.sweep-layer.run {
+  transform: translateX(100%);
+}

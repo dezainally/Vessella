@@ -47,14 +47,7 @@ const [hideHeader, setHideHeader] = useState(false);
         setIsActive(false);
     };
 
-    // 🔹 Show header shadow / background when scrolling
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //         setVisible(window.scrollY > 20);
-    //     };
-    //     window.addEventListener("scroll", handleScroll);
-    //     return () => window.removeEventListener("scroll", handleScroll);
-    // }, []);
+   
 
     useEffect(() => {
         const handleScroll = () => {
@@ -103,14 +96,6 @@ const [hideHeader, setHideHeader] = useState(false);
 
 
 
-                {/* ✅ FIXED MENU ICON */}
-                {/* <div
-                    className={`menu-icon d-flex align-items-center justify-content-between flex-column ${isActive ? "menu-active" : ""}`}
-                    onClick={toggleMenu}
-                >
-                    <div></div>
-                    <div></div>
-                </div> */}
 
             </motion.header>
 
@@ -164,8 +149,6 @@ const [hideHeader, setHideHeader] = useState(false);
                             {/* 🔹 Social Media Links */}
                             <motion.div
                                 className="sidebar-social d-flex justify-content-end gap-3 mt-5 flex-wrap flex-column"
-                                // initial={{ opacity: 0, x: -50 }}
-                                // animate={{ opacity: 1, x: 0 }}
                                 initial={{ opacity: 0, x: "-100%" }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 1, ease: "easeOut" }}

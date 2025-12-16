@@ -4,6 +4,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { motion } from "framer-motion";
 import "../styles/style.css";
 import Header from "../components/Header";
+import Hero from "../components/Hero";
 import HomeBanner from "../components/HomeBanner";
 import AboutUs from "../components/About-2";
 import About from "../components/About";
@@ -20,27 +21,12 @@ import Map from "../components/MapPins";
 
 
 function Home() {
-
-
     return (
         <section id="home">
-            {/* Header visible only in home */}
-            {/* <Header /> */}
-
-            {/* <HomeBanner /> */}
-            {/* <AboutUs /> */}
+            <Hero />
             <AboutTwo />
             <Projects />
-            {/* <Stats /> */}
-            {/* <Projects /> */}
-            {/* <ProjectsTwo /> */}
-            {/* <Testimonials /> */}
-            {/* <TestimonialsSection /> */}
-            {/* <Form /> */}
-            {/* <Form2 /> */}
-            {/* <Map /> */}
-            {/* <Map /> */}
-            <ContactSection/>
+            <ContactSection />
         </section>
     );
 }
