@@ -81,8 +81,8 @@ export default function Services() {
 
                 <div className="mt-4">
                     <p className="services-footer text-center fs-5 fw-semibold">
-                        Discover top-tier real estate development services.
-                        <a href="#" className="text-decoration-none text-black"> View all services</a>
+                        Discover top-tier real estate development Projects.
+                        <a href="#" className="text-decoration-none text-black"> View all Projects</a>
                     </p>
                 </div>
 

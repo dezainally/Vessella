@@ -8,10 +8,18 @@ import { FiPhoneCall } from "react-icons/fi";
 
 import HeaderLogo from "../assets/images/logo/logo-white.png";
 
+import HeaderLogoWhite from "../assets/images/logo/logo-gray.png";
+import HeaderLogoDark from "../assets/images/logo/logo-gray.png";
+
+
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [visible, setVisible] = useState(false);
     const [isActive, setIsActive] = useState(false);
+
+    const [lastScrollY, setLastScrollY] = useState(0);
+const [hideHeader, setHideHeader] = useState(false);
+
 
     // 🔹 Toggle menu open/close
     const toggleMenu = () => {
@@ -40,6 +48,14 @@ const Header = () => {
     };
 
     // 🔹 Show header shadow / background when scrolling
+    // useEffect(() => {
+    //     const handleScroll = () => {
+    //         setVisible(window.scrollY > 20);
+    //     };
+    //     window.addEventListener("scroll", handleScroll);
+    //     return () => window.removeEventListener("scroll", handleScroll);
+    // }, []);
+
     useEffect(() => {
         const handleScroll = () => {
             setVisible(window.scrollY > 20);
@@ -47,32 +63,45 @@ const Header = () => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+
+
     return (
         <>
             {/* ===== Header Bar ===== */}
-            <motion.header className="main-header position-fixed container d-flex align-items-center justify-content-between px-0 py-3"
+            <motion.header
+                className={`main-header container-fluid d-flex align-items-center justify-content-between px-0 py-3 ${visible ? "header-scrolled" : ""
+                    }`}
                 initial={{ y: -50, opacity: 0 }}
                 animate={{
-                    y: visible ? -60 : 0,    // ✅ hide/show without duplication
+                    y: visible ? -60 : 0,
                     opacity: visible ? 0 : 1,
                 }}
-                transition={{ duration: 0.45, ease: "easeOut" }}>
-                <Link to="/" aria-label="Vessella Home">
-                    <img
-                        src={HeaderLogo}
-                        alt="Vessella logo"
-                        className="header-logo"
-                    />
-                </Link>
+                transition={{ duration: 0.45, ease: "easeOut" }}
+            >
+                <div className="container d-flex align-items-center justify-content-between">
+                    <Link to="/" aria-label="Vessella Home">
+                        <img
+                            src={visible ? HeaderLogoDark : HeaderLogoWhite}
+                            alt="Vessella logo"
+                            className="header-logo"
+                        />
 
-                {/* ✅ FIXED MENU ICON */}
-                <div
-                    className={`menu-icon d-flex align-items-center justify-content-between flex-column ${isActive ? "menu-active" : ""}`}
-                    onClick={toggleMenu}
-                >
-                    <span></span>
-                    <span></span>
+                    </Link>
+
+                    {/* ✅ FIXED MENU ICON */}
+                    <div
+                        className={`menu-icon d-flex align-items-center justify-content-between flex-column 
+  ${isActive ? "menu-active" : ""} 
+  ${visible ? "menu-dark" : ""}`}
+                        onClick={toggleMenu}
+                    >
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
+
+
 
                 {/* ✅ FIXED MENU ICON */}
                 {/* <div

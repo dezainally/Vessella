@@ -1,6 +1,6 @@
 .hero-section {
   position: relative;
-  background: linear-gradient(135deg, #1b133f, #2a1f5c, #1a1433);
+  background: linear-gradient(135deg, #000000, #2a1f5c, #1a1433);
   color: #cfc9e8;
   overflow: hidden;
 }
@@ -10,8 +10,8 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.05) 40%, transparent 70%),
-    linear-gradient(60deg, transparent 30%, rgba(255,255,255,0.03) 30%, transparent 65%);
+    linear-gradient(120deg, transparent 40%, rgba(255, 255, 255, 0.05) 40%, transparent 70%),
+    linear-gradient(60deg, transparent 30%, rgba(255, 255, 255, 0.03) 30%, transparent 65%);
   pointer-events: none;
 }
 
@@ -38,7 +38,7 @@
   bottom: 0;
   width: 100%;
   height: 120px;
-  background: #ffffff;
+  background: #F6F3EC;
   clip-path: polygon(0 60%, 100% 100%, 100% 100%, 0 100%);
 }
 

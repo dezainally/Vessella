@@ -34,16 +34,16 @@
 
 /* BADGE */
 .badge-tag {
-  border: 1px solid #d9f14a;
+  /* border: 1px solid #d9f14a;
   padding: 6px 16px;
-  border-radius: 50px;
+  border-radius: 50px; */
   font-size: 12px;
 }
 
 /* TITLE */
 .title {
   font-size: 36px;
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 
 /* INPUTS */
@@ -85,7 +85,8 @@
   display: inline-flex;
   align-items: center;
   gap: 14px;
-  background: #e6ef5a;
+  color: white;
+  background: #022E56;
   border: none;
   border-radius: 50px;
   padding: 10px 14px 10px 22px;

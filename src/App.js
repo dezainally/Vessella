@@ -62,28 +62,29 @@ function App() {
     }
   };
 
-return (
-  <BrowserRouter>
-    {/* === Intro Animation === */}
-    {!removeIntro && (
-      <Intro hideIntro={hideIntro} onExitIntro={handleIntroExit} />
-    )}
+  return (
+    <BrowserRouter>
+      {/* === Intro Animation === */}
+      {!removeIntro && (
+        <Intro hideIntro={hideIntro} onExitIntro={handleIntroExit} />
+      )}
 
-    {/* === Show header only after intro removed === */}
-    {removeIntro && <Header />}
+      {/* === Show header only after intro removed === */}
+      <Header introActive={!removeIntro} />
 
-    {/* === Main Site === */}
-    <div className={`main-content ${removeIntro ? "show" : "hidden"}`}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/serene" element={<Serene />} />
-      </Routes>
-    </div>
 
-    <ScrollToTop />
-    <Footer />
-  </BrowserRouter>
-);
+      {/* === Main Site === */}
+      <div className={`main-content ${removeIntro ? "show" : "hidden"}`}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/serene" element={<Serene />} />
+        </Routes>
+      </div>
+
+      <ScrollToTop />
+      <Footer />
+    </BrowserRouter>
+  );
 
 }
 

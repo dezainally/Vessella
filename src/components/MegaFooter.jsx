@@ -116,8 +116,8 @@ export default function MegaFooter() {
                     <span>© VESSELLA. All Rights Reserved</span>
 
                     <div className="legal-links">
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms & Conditions</a>
+                        <a className="text-decoration-none" href="#">Privacy Policy</a>
+                        <a className="text-decoration-none" href="#">Terms & Conditions</a>
                     </div>
                 </div>
             </div>
