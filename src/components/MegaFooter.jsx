@@ -45,19 +45,19 @@ export default function MegaFooter() {
                         />
 
                         <div className="socials">
-                            <a href="https://facebook.com/vessella" target="_blank" rel="noopener noreferrer">
+                            <a href="#"  rel="noopener noreferrer">
                                 <FaFacebookF />
                             </a>
-                            <a href="https://instagram.com/vessella" target="_blank" rel="noopener noreferrer">
+                            <a href="#"  rel="noopener noreferrer">
                                 <FaInstagram />
                             </a>
-                            <a href="https://linkedin.com/company/vessella" target="_blank" rel="noopener noreferrer">
+                            <a href="#"  rel="noopener noreferrer">
                                 <FaLinkedinIn />
                             </a>
-                            <a href="https://youtube.com/@vessella" target="_blank" rel="noopener noreferrer">
+                            <a href="#"  rel="noopener noreferrer">
                                 <FaYoutube />
                             </a>
-                            <a href="https://x.com/vessella" target="_blank" rel="noopener noreferrer">
+                            <a href="#"  rel="noopener noreferrer">
                                 <FaXTwitter />
                             </a>
                         </div>
