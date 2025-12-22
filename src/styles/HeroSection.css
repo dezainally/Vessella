@@ -10,12 +10,12 @@
 }
 
 /* subtle geometric overlay */
-.hero-overlay {
+/* .hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(313deg, transparent 40%, rgba(255, 255, 255, 0.05) 40%, transparent 80%), linear-gradient(224deg, transparent 30%, rgba(255, 255, 255, 0.03) 30%, transparent 66%);
   pointer-events: none;
-}
+} */
 
 /* content */
 
@@ -53,3 +53,4 @@
   max-width: 100%;
   height: auto;
 }
+

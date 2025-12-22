@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import "../styles/HeaderTwo.css";
+import vessellaLogo from "../assets/images/logo/vessella-logo.png";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -24,20 +26,78 @@ export default function Header() {
           />
         </div>
 
-        {/* NAV */}
-        <nav className="nav">
-          <a className="active" href="/">HOME</a>
+        {/* DESKTOP NAV */}
+        <nav className="nav desktop-nav">
+          <a className="active" href="/">
+            HOME
+          </a>
           <a href="https://vessella.com/why-us/">WHY US</a>
-          <a href="https://vessella.com/profile/">PROFIILE</a>
+          <a href="https://vessella.com/profile/">PROFILE</a>
           <a href="https://vessella.com/projects/">PROJECTS</a>
           <a href="https://vessella.com/contact/">CONTACT US</a>
         </nav>
 
         {/* RIGHT */}
         <div className="right">
-          <a href="https://vessella.com/contact/" className="contact">CONTACT</a>
-          <button className="menu-btn">☰</button>
+          <a
+            href="https://vessella.com/contact/"
+            className="contact desktop-only"
+          >
+            CONTACT
+          </a>
+
+          <button className="menu-btn" onClick={() => setMenuOpen(!menuOpen)}>
+            ☰
+          </button>
         </div>
+      </div>
+
+      {/* MOBILE MENU */}
+      {/* MOBILE MENU */}
+      <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+        {/* CLOSE BUTTON */}
+
+        <div className="logo">
+          <img
+            src={vessellaLogo}
+            alt="Logo"
+          />
+        </div>
+        <button
+          className="mobile-close"
+          onClick={() => setMenuOpen(false)}
+          aria-label="Close menu"
+        >
+          ✕
+        </button>
+
+        <a href="/" onClick={() => setMenuOpen(false)}>
+          HOME
+        </a>
+        <a
+          href="https://vessella.com/why-us/"
+          onClick={() => setMenuOpen(false)}
+        >
+          WHY US
+        </a>
+        <a
+          href="https://vessella.com/profile/"
+          onClick={() => setMenuOpen(false)}
+        >
+          PROFILE
+        </a>
+        <a
+          href="https://vessella.com/projects/"
+          onClick={() => setMenuOpen(false)}
+        >
+          PROJECTS
+        </a>
+        <a
+          href="https://vessella.com/contact/"
+          onClick={() => setMenuOpen(false)}
+        >
+          CONTACT US
+        </a>
       </div>
     </header>
   );

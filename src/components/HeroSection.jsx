@@ -4,12 +4,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/HeroSection.css";
 import outlineimage from "../assets/images/outlinelogo.png";
 
-/* Parent container animation */
 const containerVariants = {
   hidden: {},
   show: {
     transition: {
-      staggerChildren: 0.25, // one after another
+      staggerChildren: 0.25,
     },
   },
 };

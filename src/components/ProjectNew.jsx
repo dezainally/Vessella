@@ -1,4 +1,6 @@
 import "../styles/ProjectNew.css";
+import { useState } from "react";
+
 
 import VessellaImg from "../assets/images/serene.png"
 import PalmsImg from "../assets/images/palms.png"
@@ -9,89 +11,102 @@ import WoodswsImg from "../assets/images/woods.png"
 import { Link } from "react-router-dom";
 
 
-
 const services = [
-    {
-        title: "Vessella Serene",
-        image: VessellaImg,
-        link: "#",
-    },
-    {
-        title: "Vessella Palms",
-        image: PalmsImg,
-        link: "#",
-    },
-    {
-        title: "Vessella Meadows",
-        image: MeadowsImg,
-        link: "https://vessella.com/project/vessella-meadows/",
-
-    },
-    {
-        title: "Vessella Woods",
-        image: WoodswsImg,
-        link: "https://vessella.com/project/vessella-woods/",
-    },
-    {
-        title: "Vessella Villas",
-        image: VillasImg,
-        link: "https://vessella.com/project/vessella-villas/",
-    },
-
-    // {
-    //     title: "Cyber Meadows",
-    //     image: VessellaImg,
-    // },
+  {
+    title: "Vessella Serene",
+    image: VessellaImg,
+    link: "#",
+    status: "ongoing",
+  },
+  {
+    title: "Vessella Palms",
+    image: PalmsImg,
+    link: "#",
+    status: "upcoming",
+  },
+  {
+    title: "Vessella Meadows",
+    image: MeadowsImg,
+    link: "https://vessella.com/project/vessella-meadows/",
+    status: "completed",
+  },
+  {
+    title: "Vessella Woods",
+    image: WoodswsImg,
+    link: "https://vessella.com/project/vessella-woods/",
+    status: "ongoing",
+  },
+  {
+    title: "Vessella Villas",
+    image: VillasImg,
+    link: "https://vessella.com/project/vessella-villas/",
+    status: "completed",
+  },
 ];
 
 export default function Services() {
-    return (
-        <>
-            <section className="services">
-                <span className="services-badge">OUR PROJECTS</span>
+  const [activeFilter, setActiveFilter] = useState("all");
 
-                <h2 className="services-title">
-                    Take a brief look at <br /> some of the services <br /> we offer
-                </h2>
+  const filteredServices =
+    activeFilter === "all"
+      ? services
+      : services.filter((item) => item.status === activeFilter);
 
-                <div className="services-grid">
-                    {services.map((service, index) => (
-                        <Link
-                            to={service.link}          // e.g. "/services/web-design"
-                            key={index}
-                            className="service-link"
-                        >
-                            <div className="service-card position-relative">
-                                <div className="arrow-card position-absolute">
-                                    <button className="arrow-btn img-fluid">
-                                        <span>↗</span>
-                                    </button>
-                                </div>
+  return (
+    <section className="services">
+      <span className="services-badge">OUR PROJECTS</span>
 
-                                <h3>
-                                    {service.title.split("\n").map((line, i) => (
-                                        <span key={i}>
-                                            {line}
-                                            <br />
-                                        </span>
-                                    ))}
-                                </h3>
+      <h2 className="services-title">
+        Take a brief look at <br /> some of the services <br /> we offer
+      </h2>
 
-                                <img src={service.image} alt={service.title} />
-                            </div>
-                        </Link>
-                    ))}
-                </div>
+      {/* FILTER BUTTONS */}
+      <div className="project-filters">
+        {[
+          { key: "all", label: "All Projects" },
+          { key: "ongoing", label: "Ongoing Projects" },
+          { key: "upcoming", label: "Upcoming Projects" },
+          { key: "completed", label: "Completed Projects" },
+        ].map((btn) => (
+          <button
+            key={btn.key}
+            className={`filter-btns ${
+              activeFilter === btn.key ? "active" : ""
+            }`}
+            onClick={() => setActiveFilter(btn.key)}
+          >
+            {btn.label}
+          </button>
+        ))}
+      </div>
 
-                <div className="mt-4">
-                    <p className="services-footer text-center fs-5 fw-semibold">
-                        Discover top-tier real estate development Projects.
-                        <a href="https://vessella.com/projects/" className="text-decoration-none text-black"> View all Projects</a>
-                    </p>
-                </div>
+      {/* PROJECT GRID */}
+      <div className="services-grid">
+        {filteredServices.map((service, index) => (
+          <Link to={service.link} key={index} className="service-link">
+            <div className="service-card position-relative">
+              <div className="arrow-card position-absolute">
+                <button className="arrow-btn">
+                  <span>↗</span>
+                </button>
+              </div>
 
-            </section>
-        </>
+              <h3>{service.title}</h3>
+              <img src={service.image} alt={service.title} />
+            </div>
+          </Link>
+        ))}
+      </div>
 
-    );
+      <p className="services-footer text-center fs-5 fw-semibold mt-4">
+        Discover top-tier real estate development Projects.
+        <a
+          href="https://vessella.com/projects/"
+          className="text-decoration-none text-black ms-2"
+        >
+          View all Projects
+        </a>
+      </p>
+    </section>
+  );
 }
