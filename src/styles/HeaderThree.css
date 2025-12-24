@@ -1,27 +1,33 @@
 /* ================= HEADER ================= */
-.header {
-    padding: 8px 40px;
-    z-index: 1000;
-    transition: all 0.4s ease;
+.site-header {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 10px;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-container {
+    width: 98%;
+    /* 👈 left & right gap (2% each side) */
+    margin: 0 auto;
+}
+
+
+
+/* Actual header bar */
+.header {
+    border-radius: 5px;
+    padding: 10px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-
-
-    width: 100%;
     transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1),
         background-color 0.3s ease;
-    z-index: 1000;
 }
 
 /* HIDE HEADER */
 .header.hide {
-    transform: translateY(-100%);
+    transform: translateY(-110%);
 }
 
 .header.scrolled {

@@ -110,30 +110,33 @@ export default function HeaderThree() {
     return (
         <>
             {/* HEADER */}
-            <header
-                className={`header 
-    ${scrolled ? "scrolled" : ""} 
-    ${hideHeader ? "hide" : ""}`}
-            >
+            <header className="site-header">
+                <div className="header-container">
+                    <div
+                        className={`header 
+        ${scrolled ? "scrolled" : ""} 
+        ${hideHeader ? "hide" : ""}`}
+                    >
+                        <div className="logo-wrapper">
+                            <img src={HeaderLogo} alt="Logo" />
+                        </div>
 
-                <div className="logo-wrapper">
-                    <img src={HeaderLogo} alt="Logo" />
-                </div>
-
-                <div
-                    className={`menu-btn ${open ? "open" : ""}`}
-                    onClick={toggleMenu}
-                    style={{ cursor: isAnimating ? 'wait' : 'pointer' }}
-                >
-                    <span className="menu-text">{open ? "CLOSE" : "MENU"}</span>
-
-                    <div className="menu-icon-three">
-                        <span />
-                        <span />
-                        <span />
+                        <div
+                            className={`menu-btn ${open ? "open" : ""}`}
+                            onClick={toggleMenu}
+                            style={{ cursor: isAnimating ? 'wait' : 'pointer' }}
+                        >
+                            <span className="menu-text">{open ? "CLOSE" : "MENU"}</span>
+                            <div className="menu-icon-three">
+                                <span />
+                                <span />
+                                <span />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </header>
+
 
             {/* Overlay */}
             <div
