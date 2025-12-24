@@ -1,5 +1,6 @@
 .video-hero {
-  position: relative; /* ✅ normal section */
+  position: relative;
+  /* ✅ normal section */
   height: 100vh;
   overflow: hidden;
 }
@@ -37,4 +38,11 @@
 .intro-btn:hover {
   background: #e9f26d;
   color: #000;
+}
+
+.gradient-overlay {
+  background: linear-gradient(180deg, rgba(31, 23, 64, 0) 0%, rgba(31, 23, 64, 1) 60%);
+  pointer-events: none;
+  top: 0;
+  z-index: 999;
 }

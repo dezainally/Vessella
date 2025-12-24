@@ -84,12 +84,57 @@ export default function ConsultationSection() {
                   <button className="callback-btn">
                     Get A Call Back
                     <span>
-                      <img src={arrowIcon} alt="arrow" className="arrow-circle p-2"/>
+                      <img
+                        src={arrowIcon}
+                        alt="arrow"
+                        className="arrow-circle p-2"
+                      />
                     </span>
                   </button>
                 </div>
               </div>
             </div>
+          </div>
+
+          <div
+            className=""
+            style={{
+              background: "rgb(245, 245, 245)",
+              width: "12%",
+              height: "11%",
+              bottom: "-25px",
+              left: "0px",
+              position: "absolute",
+              borderTopRightRadius: "25px",
+            }}
+          >
+            <div
+              className=""
+              style={{
+                background: "rgb(244, 244, 244)",
+                borderRadius: "100%",
+                width: "40px",
+                height: "40px",
+                top: "-29px",
+                left: "-2px",
+                position: "relative",
+                clipPath: "path('M0 0 Q0,30 30,30 L 0 30 Z')",
+              }}
+            ></div>
+            <div
+              className=""
+              style={{
+                background: "rgb(244, 244, 244)",
+                borderRadius: "100%",
+                width: "40px",
+                height: "40px",
+                bottom: "30px",
+                right: "-153px",
+                position: "relative",
+                clipPath: "path('M0 0 Q0,30 30,30 L 0 30 Z')",
+              }}
+            ></div>
+           
           </div>
         </div>
       </div>

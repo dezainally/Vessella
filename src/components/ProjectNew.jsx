@@ -1,29 +1,16 @@
 import "../styles/ProjectNew.css";
 import { useState } from "react";
-
-
-import VessellaImg from "../assets/images/serene.png"
-import PalmsImg from "../assets/images/palms.png"
-import MeadowsImg from "../assets/images/meadows.png"
-import VillasImg from "../assets/images/villas.png"
-import WoodswsImg from "../assets/images/woods.png"
-
 import { Link } from "react-router-dom";
 
+import VessellaImg from "../assets/images/serene.png";
+import PalmsImg from "../assets/images/palms.png";
+import MeadowsImg from "../assets/images/meadows.png";
+import VillasImg from "../assets/images/villas.png";
+import WoodswsImg from "../assets/images/woods.png";
 
 const services = [
-  {
-    title: "Vessella Serene",
-    image: VessellaImg,
-    link: "#",
-    status: "ongoing",
-  },
-  {
-    title: "Vessella Palms",
-    image: PalmsImg,
-    link: "#",
-    status: "upcoming",
-  },
+  { title: "Vessella Serene", image: VessellaImg, link: "#", status: "ongoing" },
+  { title: "Vessella Palms", image: PalmsImg, link: "#", status: "upcoming" },
   {
     title: "Vessella Meadows",
     image: MeadowsImg,
@@ -60,7 +47,7 @@ export default function Services() {
         Take a brief look at <br /> some of the services <br /> we offer
       </h2>
 
-      {/* FILTER BUTTONS */}
+      {/* FILTERS */}
       <div className="project-filters">
         {[
           { key: "all", label: "All Projects" },
@@ -70,9 +57,7 @@ export default function Services() {
         ].map((btn) => (
           <button
             key={btn.key}
-            className={`filter-btns ${
-              activeFilter === btn.key ? "active" : ""
-            }`}
+            className={`filter-btns ${activeFilter === btn.key ? "active" : ""}`}
             onClick={() => setActiveFilter(btn.key)}
           >
             {btn.label}
@@ -80,25 +65,27 @@ export default function Services() {
         ))}
       </div>
 
-      {/* PROJECT GRID */}
-      <div className="services-grid">
+      {/* PROJECT ROW */}
+      <div className="row g-4">
         {filteredServices.map((service, index) => (
-          <Link to={service.link} key={index} className="service-link">
-            <div className="service-card position-relative">
-              <div className="arrow-card position-absolute">
-                <button className="arrow-btn">
-                  <span>↗</span>
-                </button>
-              </div>
+          <div key={index} className="  col-md-4 text-start">
+            <Link to={service.link} className="service-link">
+              <div className="service-card position-relative h-100">
+                <div className="arrow-card position-absolute">
+                  <button className="arrow-btn">
+                    <span>↗</span>
+                  </button>
+                </div>
 
-              <h3>{service.title}</h3>
-              <img src={service.image} alt={service.title} />
-            </div>
-          </Link>
+                <h3>{service.title}</h3>
+                <img src={service.image} alt={service.title} />
+              </div>
+            </Link>
+          </div>
         ))}
       </div>
 
-      <p className="services-footer text-center fs-5 fw-semibold mt-4">
+      <p className="services-footer text-center fs-5 fw-semibold mt-5">
         Discover top-tier real estate development Projects.
         <a
           href="https://vessella.com/projects/"

@@ -3,20 +3,39 @@ import "../styles/HeaderTwo.css";
 import vessellaLogo from "../assets/images/logo/vessella-logo.png";
 
 export default function Header() {
+
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hideHeader, setHideHeader] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 10);
+      const currentScrollY = window.scrollY;
+
+      setScrolled(currentScrollY > 10);
+
+      // 🔹 Detect scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // scrolling down
+        setHideHeader(true);
+      } else {
+        // scrolling up
+        setHideHeader(false);
+      }
+
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [lastScrollY]);
+
 
   return (
-    <header className="header">
+    <header className={`header ${hideHeader ? "header-hide" : ""}`}>
+
       <div className={`header-inner ${scrolled ? "scrolled" : ""}`}>
         {/* LOGO */}
         <div className="logo">
@@ -39,12 +58,7 @@ export default function Header() {
 
         {/* RIGHT */}
         <div className="right">
-          <a
-            href="https://vessella.com/contact/"
-            className="contact desktop-only"
-          >
-            CONTACT
-          </a>
+         
 
           <button className="menu-btn" onClick={() => setMenuOpen(!menuOpen)}>
             ☰

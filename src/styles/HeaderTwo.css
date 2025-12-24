@@ -5,7 +5,24 @@
   z-index: 1000;
   padding: 16px;
   background: transparent;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+
 }
+
+/* .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+} */
+
+/* 🔹 Hide on scroll down */
+.header-hide {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
 
 .header-inner {
   padding: 14px 20px;
@@ -160,4 +177,3 @@
     opacity: 1;
   }
 }
-
