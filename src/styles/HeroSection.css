@@ -1,9 +1,9 @@
 .hero-section {
   position: relative;
   /* background: linear-gradient(135deg, #000000, #2a1f5c, #1a1433); */
-  background: url(../assets/images/bg-about.jpeg);
+  background: url(../assets/images/bg-about-2.webp);
   background-repeat: no-repeat;
-  background-position: top;
+  /* background-position: top; */
   background-size: cover;
   color: #cfc9e8;
   overflow: hidden;

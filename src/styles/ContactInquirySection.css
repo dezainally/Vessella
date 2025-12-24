@@ -1,0 +1,136 @@
+/* ================= SECTION ================= */
+.inquiry-container {
+  width: 100%;
+  background: #0b0b0b;
+}
+
+/* ================= MAIN BOX ================= */
+.inquiry-box {
+  background: #111;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* ================= IMAGE ================= */
+.image-content {
+  /* width: 80%; */
+  height: 70vh;
+  object-fit: cover;
+}
+
+/* ================= RIGHT FORM ================= */
+.inquiry-right {
+  background: #0f0f0f;
+}
+
+.form-title {
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+/* ================= INPUT COMMON ================= */
+.inquiry-input {
+  background: transparent;
+  border: 1px solid #333;
+  color: #fff;
+  border-radius: 20px;
+  padding: 14px 12px;
+}
+
+.inquiry-input::placeholder {
+  color: transparent;
+}
+
+.inquiry-input:focus {
+  border-color: #f7c35f;
+  box-shadow: none;
+  background: transparent;
+  color: #fff;
+}
+
+/* ================= FLOATING FIELD ================= */
+.floating-field {
+  position: relative;
+}
+
+.floating-field label {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  color: #777;
+  font-size: 14px;
+  pointer-events: none;
+  transition: 0.3s ease;
+  background: #0f0f0f;
+  padding: 0 6px;
+}
+
+/* Float label up */
+.floating-field input:focus + label,
+.floating-field input:not(:placeholder-shown) + label,
+.floating-field textarea:focus + label,
+.floating-field textarea:not(:placeholder-shown) + label {
+  top: -8px;
+  font-size: 12px;
+  color: #f7c35f;
+}
+
+/* ================= SELECT FIELD ================= */
+.select-field {
+  position: relative;
+}
+
+.select-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #aaa;
+}
+
+/* remove default arrow */
+.select-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+}
+
+/* custom arrow */
+.select-field::after {
+  content: "^";
+  position: absolute;
+  right: 14px;
+  top: 58%;
+  transform: translateY(-50%) rotate(180deg);
+  color: #f7c35f;
+  pointer-events: none;
+  font-size: 14px;
+}
+
+/* ================= CHECKBOX ================= */
+.form-check-label {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.form-check-label span {
+  color: #f7c35f;
+  cursor: pointer;
+}
+
+/* ================= BUTTON ================= */
+.submit-btn {
+  background: #f7c35f;
+  border-radius: 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #000;
+}
+
+.submit-btn:hover {
+  background: #171615;
+  border: 1px solid #f7c35f;
+  color: white;
+}
+

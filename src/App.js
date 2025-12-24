@@ -3,12 +3,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
-import Header from "./components/HeaderTwo";
+import Header from "./components/HeaderThree";
 import IntroOverlay from "./components/IntroOverlay";
 import Home from "./pages/Home";
 import Serene from "./pages/Serene";
 import ScrollToTop from "./components/ScrollToTop";
-import Footer from "./components/MegaFooter";
+import Footer from "./components/Footer3";
 
 import "./styles/style.css";
 

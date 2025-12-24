@@ -1,0 +1,94 @@
+/* HEADER HEIGHT */
+.header {
+    /* height: 90px; */
+    padding: 15px 20px;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    z-index: 1000;
+}
+
+/* LOGO WRAPPER */
+.logo-wrapper {
+    width: 42px;
+    height: 35px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: width 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.logo-wrapper img {
+    height: 100%;
+    width: auto;
+    display: block;
+    opacity: 0.9;
+}
+
+.logo-wrapper:hover {
+    width: 280px;
+}
+
+.logo-wrapper:hover img {
+    opacity: 1;
+}
+
+/* MENU */
+.menu-btn {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+}
+
+/* MENU TEXT */
+.menu-text {
+    font-size: 16px;
+    letter-spacing: 5px;
+    font-weight: 400;
+    color: #000;
+}
+
+/* ICON */
+.menu-icon-three {
+    position: relative;
+    width: 22px;
+    height: 18px;
+    margin-bottom: 10px;
+}
+
+.menu-icon-three i {
+    position: absolute;
+    width: 25px;
+    height: .05em;
+    background: #000;
+    right: 0;
+    transform: rotate(330deg);
+    transition: all 0.45s ease;
+    transform-origin: right center;
+}
+
+.menu-icon-three i:nth-child(1) {
+    top: 1px;
+}
+
+.menu-icon-three i:nth-child(2) {
+    top: 8px;
+    width: 16px;
+}
+
+.menu-icon-three i:nth-child(3) {
+    top: 15px;
+}
+
+/* OPEN → V SHAPE */
+.menu-btn.open .menu-icon-three i:nth-child(1) {
+    top: 6px;
+    transform: rotate(45deg);
+}
+
+.menu-btn.open .menu-icon-three i:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-btn.open .menu-icon-three i:nth-child(3) {
+    top: 6px;
+    transform: rotate(114deg);
+}
