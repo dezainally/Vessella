@@ -13,21 +13,38 @@ const containerVariants = {
   },
 };
 
-/* Child elements animation */
-const itemVariants = {
+const heroText =
+  "At Vessella, we design and build spaces that elevate everyday living. With a focus on quality, design, and detail, we create homes that stand the test of time.";
+
+const heroWords = heroText.trim().split(/\s+/);
+
+
+const wordContainer = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.12,   // slower word gap
+      delayChildren: 0.2,      // calm start
+    },
+  },
+};
+
+const wordVariant = {
   hidden: {
-    opacity: 0,
-    y: 60, // bottom → top
+    y: 40, opacity: 0, filter: "blur(6px)"
   },
   show: {
-    opacity: 1,
-    y: 0,
+    y: 0, opacity: 1, filter: "blur(0px)",
     transition: {
-      duration: 0.8,
+      duration: 0.9,
       ease: "easeOut",
     },
   },
 };
+
+
+
+
 
 export default function HeroSection() {
   return (
@@ -48,30 +65,37 @@ export default function HeroSection() {
             <motion.div className="hero-content">
               <motion.span
                 className="hero-eyebrow"
-                variants={itemVariants}
+              // variants={itemVariants}
               >
                 ABOUT US
               </motion.span>
 
               <motion.h1
+                variants={wordContainer}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.6 }}
                 className="hero-text text-white"
-                variants={itemVariants}
               >
-                At Vessella, we design and build spaces that elevate everyday
-                living. With a focus on quality, design, and detail, we create
-                homes that stand the test of time.
+                {heroWords.map((word, i) => (
+                  <motion.span
+                    key={i}
+                    variants={wordVariant}
+                    style={{ display: "inline-block", marginRight: "0.35em" }}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
               </motion.h1>
+
+
+
             </motion.div>
           </div>
 
           {/* RIGHT IMAGE */}
           <div className="col-lg-5 d-flex align-items-center justify-content-end p-5">
-            {/* <motion.img
-              src={outlineimage}
-              alt=""
-              className="hero-outline-img"
-              variants={itemVariants}
-            /> */}
+
           </div>
         </motion.div>
       </div>

@@ -11,16 +11,22 @@
 
 /* LINKS (BIG LIKE IMAGE) */
 .footer-links li {
+    position: relative;
     font-size: 36px;
     letter-spacing: 4px;
     margin-bottom: 22px;
     cursor: pointer;
-    opacity: 0.9;
-    transition: opacity 0.3s ease;
+    opacity: 0.85;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .footer-links li:hover {
     opacity: 1;
+    transform: translateX(6px) !important;
+}
+
+.footer-links li::after {
+    background: #786354;
 }
 
 /* SOCIALS */
@@ -66,6 +72,17 @@
         font-size: 12px;
     }
 }
+
+@media (hover: none) {
+    .footer-links li:hover {
+        transform: none;
+    }
+
+    .footer-links li::after {
+        display: none;
+    }
+}
+
 
 /* SOCIAL ICONS */
 .socials {

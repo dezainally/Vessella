@@ -384,3 +384,88 @@ html {
   opacity: 1;
   transition: opacity 1s ease 0.2s;
 }
+
+
+
+/* THREE BUTTON  */
+
+.ops-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  overflow: hidden;
+  font-family: inherit;
+}
+
+/* LEFT TEXT AREA */
+.ops-text {
+  position: relative;
+  z-index: 2;
+  padding: 10px 15px;
+  margin-right: 10px;
+  background: #022E56;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  overflow: hidden;
+}
+
+/* RIGHT ICON BOX */
+.ops-icon {
+  position: relative;
+  z-index: 2;
+  padding: 9px 10px;
+  background: #111;
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* OVERLAY FILL (TEXT + ICON) */
+.ops-text::before,
+.ops-icon::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  background: #0779B2;
+  z-index: -1;
+  transition: height 0.45s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* HOVER → FILL UP */
+.ops-btn:hover .ops-text::before,
+.ops-btn:hover .ops-icon::before {
+  height: 100%;
+}
+
+/* ARROW MOVE ANIMATION */
+.ops-btn:hover .ops-icon {
+  animation: arrow-slide 0.45s ease forwards;
+}
+
+/* KEYFRAMES */
+@keyframes arrow-slide {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(4px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+

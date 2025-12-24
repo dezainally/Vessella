@@ -88,10 +88,10 @@ const Intro = () => {
       </div>
 
       {/* 🌈 Gradient Overlay */}
-      <motion.div
+      {/* <motion.div
         className="gradient-overlay vh-100 w-100 position-absolute start-0"
         style={{ opacity: overlayOpacity }}
-      />
+      /> */}
 
     </section>
   );

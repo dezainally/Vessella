@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/ContactInquirySection.css";
-import image1 from "../assets/images/contactsection.jpg";
+import image1 from "../assets/images/form-left-img-1.jpg";
 
 export default function ContactInquirySection() {
   return (
@@ -9,11 +9,11 @@ export default function ContactInquirySection() {
       <div className="container inquiry-containercd-flex justify-content-center align-items-center ">
         <div className="row inquiry-box d-flex justify-content-center align-items-center my-5">
           {/* LEFT IMAGE CONTENT */}
-          <div className="col-md-7  ">
+          <div className="col-md-7  ps-lg-4">
             <img
               src={image1}
               alt="Left Decorative"
-              className="image-content px-lg-5 w-100 "
+              className="image-content w-100 rounded-4"
             />
           </div>
 
@@ -107,9 +107,12 @@ export default function ContactInquirySection() {
                 </label>
               </div>
 
-              <button type="submit" className="btn submit-btn w-100">
-                SUBMIT
-              </button>
+               <div>
+                            <button className="ops-btn">
+                                <span className="ops-text">SUBMIT</span>
+                                <span className="ops-icon">»»</span>
+                            </button>
+                        </div>
             </form>
           </div>
         </div>

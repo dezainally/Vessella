@@ -15,7 +15,6 @@
 .image-content {
   /* width: 80%; */
   height: 70vh;
-  object-fit: cover;
 }
 
 /* ================= RIGHT FORM ================= */
@@ -42,7 +41,7 @@
 }
 
 .inquiry-input:focus {
-  border-color: #f7c35f;
+  border-color: #0779B2;
   box-shadow: none;
   background: transparent;
   color: #fff;
@@ -73,7 +72,7 @@
 .floating-field textarea:not(:placeholder-shown) + label {
   top: -8px;
   font-size: 12px;
-  color: #f7c35f;
+  color: #0779B2;
 }
 
 /* ================= SELECT FIELD ================= */
@@ -103,7 +102,7 @@
   right: 14px;
   top: 58%;
   transform: translateY(-50%) rotate(180deg);
-  color: #f7c35f;
+  color: #0779B2;
   pointer-events: none;
   font-size: 14px;
 }
@@ -115,13 +114,13 @@
 }
 
 .form-check-label span {
-  color: #f7c35f;
+  color: #0779B2;
   cursor: pointer;
 }
 
 /* ================= BUTTON ================= */
 .submit-btn {
-  background: #f7c35f;
+  background: #0779B2;
   border-radius: 30px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -130,7 +129,7 @@
 
 .submit-btn:hover {
   background: #171615;
-  border: 1px solid #f7c35f;
+  border: 1px solid #0779B2;
   color: white;
 }
 

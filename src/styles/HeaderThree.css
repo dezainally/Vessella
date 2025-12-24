@@ -1,12 +1,23 @@
-/* HEADER HEIGHT */
+/* ================= HEADER ================= */
 .header {
-    /* height: 90px; */
-    padding: 15px 20px;
-    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    padding: 25px 50px;
     z-index: 1000;
+    transition: all 0.4s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-/* LOGO WRAPPER */
+.header.scrolled {
+    background: #fff;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* ================= LOGO ================= */
 .logo-wrapper {
     width: 42px;
     height: 35px;
@@ -18,77 +29,433 @@
 .logo-wrapper img {
     height: 100%;
     width: auto;
-    display: block;
-    opacity: 0.9;
 }
 
 .logo-wrapper:hover {
     width: 280px;
 }
 
-.logo-wrapper:hover img {
-    opacity: 1;
-}
-
-/* MENU */
+/* ================= MENU BUTTON ================= */
 .menu-btn {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 22px;
     cursor: pointer;
+    user-select: none;
+    z-index: 1001;
+    padding: 10px;
+    transition: opacity 0.3s ease;
 }
 
-/* MENU TEXT */
+.menu-btn:hover {
+    opacity: 0.8;
+}
+
 .menu-text {
-    font-size: 16px;
+    font-size: 14px;
     letter-spacing: 5px;
-    font-weight: 400;
     color: #000;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-/* ICON */
+/* ================= CARET ================= */
+.caret {
+    display: inline-block;
+    font-size: 14px;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: rotate(180deg);
+    margin-left: 10px;
+}
+
+.caret.open {
+    transform: rotate(0deg);
+}
+
+/* ================= PROJECT DROPDOWN ================= */
+.menu-dropdown {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    position: relative;
+}
+
+.menu-dropdown-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 8px 0;
+    transition: all 0.3s ease;
+}
+
+.menu-dropdown-head:hover {
+    opacity: 0.8;
+}
+
+.menu-dropdown-head span {
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: #6f42c1;
+    transition: color 0.3s ease;
+}
+
+.menu-dropdown-head .active {
+    color: #0779B2;
+}
+
+/* ================= PROJECTS PANEL ================= */
+.projects-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+                margin-top 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    opacity: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 0;
+    padding: 0 10px;
+}
+
+.projects-panel.show {
+    max-height: 600px;
+    opacity: 1;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+/* ================= PROJECT CARD ================= */
+.project-card {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.05);
+}
+
+.project-title {
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+    padding: 5px 0;
+}
+
+.project-title .arrow {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.project-card:hover .arrow {
+    transform: translateX(8px);
+}
+
+/* ================= MENU ICON - SLIGHTLY BENT ================= */
 .menu-icon-three {
     position: relative;
-    width: 22px;
-    height: 18px;
-    margin-bottom: 10px;
+    transform: rotate(321deg);
+    width: 26px;
+    height: 20px;
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.menu-icon-three i {
+.menu-icon-three span {
     position: absolute;
-    width: 25px;
-    height: .05em;
+    height: 0.08rem;
     background: #000;
-    right: 0;
-    transform: rotate(330deg);
-    transition: all 0.45s ease;
-    transform-origin: right center;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border-radius: 1px;
 }
 
-.menu-icon-three i:nth-child(1) {
+/* Normal state - slightly bent/curved */
+.menu-icon-three span:nth-child(1) {
     top: 1px;
+    left: 0;
+    width: 30px;
+    transform-origin: left center;
 }
 
-.menu-icon-three i:nth-child(2) {
-    top: 8px;
-    width: 16px;
+.menu-icon-three span:nth-child(2) {
+    top: 9px;
+    left: 4px;
+    width: 22px;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.menu-icon-three i:nth-child(3) {
-    top: 15px;
+.menu-icon-three span:nth-child(3) {
+    top: 16px;
+    left: 0;
+    width: 30px;
+    transform-origin: left center;
 }
 
-/* OPEN → V SHAPE */
-.menu-btn.open .menu-icon-three i:nth-child(1) {
-    top: 6px;
-    transform: rotate(45deg);
+/* Open state - Perfect V shape */
+.menu-btn.open .menu-icon-three {
+    transform: rotate(0deg);
 }
 
-.menu-btn.open .menu-icon-three i:nth-child(2) {
+.menu-btn.open .menu-icon-three span:nth-child(1) {
+    top: 19px;
+    left: 0;
+    transform: rotate(245deg) scaleX(1.1);
+    width: 23px;
+}
+
+.menu-btn.open .menu-icon-three span:nth-child(2) {
     opacity: 0;
+    transform: translateX(20px);
 }
 
-.menu-btn.open .menu-icon-three i:nth-child(3) {
-    top: 6px;
-    transform: rotate(114deg);
+.menu-btn.open .menu-icon-three span:nth-child(3) {
+    top: 20px;
+    left: 0;
+    transform: rotate(294deg) scaleX(1.1);
+    width: 23px;
+}
+
+/* ================= RIGHT SIDE MENU ================= */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 38%;
+    height: 100vh;
+    background: #fff;
+    z-index: 2000;
+    transform: translateX(100%);
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+    overflow-y: auto;
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.side-menu.show {
+    transform: translateX(0);
+}
+
+/* ================= RIGHT SIDE DECOR IMAGE ================= */
+.side-menu-decor {
+    position: absolute;
+    right: 0;
+    bottom: 50px;
+    opacity: 0.5;
+    z-index: 5;
+    pointer-events: none;
+    max-width: 80%;
+    height: auto;
+    transition: opacity 0.6s ease;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ================= MENU TOP ================= */
+.menu-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 60px;
+    position: relative;
+    z-index: 10;
+    transition: padding 0.3s ease;
+}
+
+.menu-logo {
+    height: 40px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.menu-logo:hover {
+    transform: scale(1.05);
+}
+
+/* ================= MENU LIST ================= */
+.menu-nav {
+    padding-left: 60px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+    z-index: 10;
+}
+
+.menu-nav a {
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: #6f42c1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: inline-block;
+    padding: 8px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-nav a::before {
+    content: '';
+    position: absolute;
+    left: -100%;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: #0779B2;
+    transition: left 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.menu-nav a:hover {
+    color: #0779B2;
+    transform: translateX(10px);
+}
+
+.menu-nav a:hover::before {
+    left: 0;
+}
+
+.menu-nav a.active {
+    color: #0779B2;
+    opacity: 1;
+}
+
+/* ================= Overlay ================= */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    backdrop-filter: blur(2px);
+}
+
+.menu-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 1024px) {
+    .header {
+        padding: 20px 30px;
+    }
+
+    .side-menu {
+        width: 50%;
+    }
+
+    .menu-top {
+        padding: 30px 40px;
+    }
+
+    .menu-nav {
+        padding-left: 40px;
+    }
+    
+    .projects-panel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 20px;
+    }
+
+    .side-menu {
+        width: 100%;
+    }
+
+    .menu-btn {
+        gap: 15px;
+    }
+
+    .menu-text {
+        font-size: 12px;
+        letter-spacing: 3px;
+    }
+
+    .menu-top {
+        padding: 25px 30px;
+    }
+
+    .menu-nav {
+        padding-left: 30px;
+        margin-top: 30px;
+        gap: 15px;
+    }
+
+    .menu-nav a {
+        font-size: 13px;
+        letter-spacing: 3px;
+    }
+
+    .projects-panel {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .project-img {
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-btn {
+        gap: 10px;
+    }
+
+    .menu-icon-three {
+        width: 22px;
+        height: 18px;
+    }
+
+    .menu-icon-three span:nth-child(1) {
+        width: 22px;
+    }
+
+    .menu-icon-three span:nth-child(2) {
+        top: 8px;
+        left: 3px;
+        width: 16px;
+    }
+
+    .menu-icon-three span:nth-child(3) {
+        top: 15px;
+        width: 22px;
+    }
+
+    .menu-btn.open .menu-icon-three span:nth-child(1),
+    .menu-btn.open .menu-icon-three span:nth-child(3) {
+        width: 18px;
+        top: 8px;
+    }
 }

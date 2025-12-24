@@ -144,8 +144,8 @@
 
 /* Checkbox & Button styling */
 .form-check-input:checked {
-  background-color: black;
-  border-color: black;
+  background-color: #0779B2;
+  border-color: #0779B2;
 }
 
 .btn-warning {

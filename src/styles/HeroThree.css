@@ -4,9 +4,12 @@
     background: url(../assets/images/cloud-bg.jpg);
     background-position: bottom;
     background-size: cover;
+    overflow: hidden;
 }
 
 .hero-three-img {
     bottom: 0px;
     right: 0px;
 }
+
+
