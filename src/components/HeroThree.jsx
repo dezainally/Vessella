@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import HeroThreeImg from "../assets/images/hero-three.png";
+import HeroThreeImg from "../assets/images/aa.png";
 import "../styles/HeroThree.css";
 
 export default function HeroThree() {
@@ -98,7 +98,7 @@ export default function HeroThree() {
                             variants={container}
                             initial="hidden"
                             animate="show"
-                            className="pertili-font display-5 fw-bold text-black mb-5"
+                            className="pertili-font display-4 fw-lighter text-black mb-5"
                         >
                             {words.map((wordText, i) => (
                                 <motion.span
@@ -113,7 +113,7 @@ export default function HeroThree() {
 
 
 
-                        <motion.div
+                        {/* <motion.div
                             variants={buttonVariant}
                             initial="hidden"
                             animate="show"
@@ -122,7 +122,7 @@ export default function HeroThree() {
                                 <span className="ops-text">OUR PROJECTS</span>
                                 <span className="ops-icon">»»</span>
                             </button>
-                        </motion.div>
+                        </motion.div> */}
 
 
 

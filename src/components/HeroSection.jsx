@@ -14,7 +14,7 @@ const containerVariants = {
 };
 
 const heroText =
-  "At Vessella, we design and build spaces that elevate everyday living. With a focus on quality, design, and detail, we create homes that stand the test of time.";
+  "We are a growth-leading company, generating superior shareholder returns, with world-class efficiency in terms of low costs and lower carbon emissions.";
 
 const heroWords = heroText.trim().split(/\s+/);
 
@@ -75,7 +75,7 @@ export default function HeroSection() {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.6 }}
-                className="hero-text text-white"
+                className="hero-text fw-lighter text-white"
               >
                 {heroWords.map((word, i) => (
                   <motion.span

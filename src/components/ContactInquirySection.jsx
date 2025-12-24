@@ -9,7 +9,7 @@ export default function ContactInquirySection() {
       <div className="container inquiry-containercd-flex justify-content-center align-items-center ">
         <div className="row inquiry-box d-flex justify-content-center align-items-center my-5">
           {/* LEFT IMAGE CONTENT */}
-          <div className="col-md-7  ps-lg-4">
+          <div className="col-md-6  ps-lg-4">
             <img
               src={image1}
               alt="Left Decorative"

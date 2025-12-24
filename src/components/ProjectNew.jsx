@@ -147,7 +147,7 @@ export default function Services() {
         <span className="services-badge mb-2">OUR PROJECTS</span>
 
         <motion.h2
-          className="services-title col-lg-6"
+          className="services-title fw-light col-lg-6"
           variants={titleContainer}
           initial="hidden"
           whileInView="show"
@@ -218,7 +218,7 @@ export default function Services() {
                       </button>
                     </div>
 
-                    <h3>{service.title}</h3>
+                    <h3 className="fw-light">{service.title}</h3>
                     <img src={service.image} alt={service.title} />
                   </div>
                 </Link>

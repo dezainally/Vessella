@@ -118,14 +118,14 @@ export default function Footer() {
               className="footer-links list-unstyled mb-0"
               variants={socialsContainer}
             >
-              <motion.li variants={socialItem}>OUR STORY</motion.li>
-              <motion.li variants={socialItem}>OUR PROJECTS</motion.li>
-              <motion.li variants={socialItem}>BLOGS</motion.li>
-              <motion.li variants={socialItem}>MEDIA</motion.li>
-              <motion.li variants={socialItem}>EVENTS</motion.li>
-              <motion.li variants={socialItem}>CAREERS</motion.li>
-              <motion.li variants={socialItem}>ENQUIRE</motion.li>
-              <motion.li variants={socialItem}>PARTNER WITH US</motion.li>
+              <motion.li className="fw-light pertili-font" variants={socialItem}>OUR STORY</motion.li>
+              <motion.li className="fw-light pertili-font" variants={socialItem}>OUR PROJECTS</motion.li>
+              <motion.li className="fw-light pertili-font" variants={socialItem}>BLOGS</motion.li>
+              <motion.li className="fw-light pertili-font" variants={socialItem}>MEDIA</motion.li>
+              <motion.li className="fw-light pertili-font" variants={socialItem}>EVENTS</motion.li>
+              <motion.li className="fw-light pertili-font" variants={socialItem}>CAREERS</motion.li>
+              <motion.li className="fw-light pertili-font" variants={socialItem}>ENQUIRE</motion.li>
+              <motion.li className="fw-light pertili-font" variants={socialItem}>PARTNER WITH US</motion.li>
             </motion.ul>
           </div>
         </div>
