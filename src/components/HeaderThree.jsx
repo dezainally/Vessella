@@ -117,14 +117,30 @@ export default function HeaderThree() {
         ${scrolled ? "scrolled" : ""} 
         ${hideHeader ? "hide" : ""}`}
                     >
+
+                        {/* LEFT – LOGO */}
                         <div className="logo-wrapper">
                             <img src={HeaderLogo} alt="Logo" />
                         </div>
 
+                        {/* CENTER – MENU LINKS */}
+                        <nav className="header-nav">
+                            {menuLinks.map((link) => (
+                                <a
+                                    key={link}
+                                    className={`nav-link ${activeLink === link ? "active" : ""}`}
+                                    onClick={() => handleNavClick(link)}
+                                >
+                                    {link}
+                                </a>
+                            ))}
+                        </nav>
+
+                        {/* RIGHT – MENU BUTTON */}
                         <div
                             className={`menu-btn ${open ? "open" : ""}`}
                             onClick={toggleMenu}
-                            style={{ cursor: isAnimating ? 'wait' : 'pointer' }}
+                            style={{ cursor: isAnimating ? "wait" : "pointer" }}
                         >
                             <span className="menu-text">{open ? "CLOSE" : "MENU"}</span>
                             <div className="menu-icon-three">
@@ -133,9 +149,11 @@ export default function HeaderThree() {
                                 <span />
                             </div>
                         </div>
+
                     </div>
                 </div>
             </header>
+
 
 
             {/* Overlay */}
