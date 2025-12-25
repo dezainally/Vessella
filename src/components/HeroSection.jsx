@@ -14,7 +14,7 @@ const containerVariants = {
 };
 
 const heroText =
-  "We are a growth-leading company, generating superior shareholder returns, with world-class efficiency in terms of low costs and lower carbon emissions.";
+  "Vessella Group presents exclusive luxury villas in Hyderabad’s prime locations, crafted for refined living. Discover a home where elegance, comfort, and excellence come together.";
 
 const heroWords = heroText.trim().split(/\s+/);
 

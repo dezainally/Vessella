@@ -9,7 +9,7 @@ export default function ContactInquirySection() {
       <div className="container inquiry-container d-flex justify-content-center align-items-center ">
         <div className="row inquiry-box p-0 col-lg-10 d-flex justify-content-center align-items-center my-5">
           {/* LEFT IMAGE CONTENT */}
-          <div className="col-md-7  p-lg-0">
+          <div className="col-md-6  p-lg-0">
             <img
               src={image1}
               alt="Left Decorative"
@@ -18,7 +18,7 @@ export default function ContactInquirySection() {
           </div>
 
           {/* RIGHT FORM */}
-          <div className="col-md-5 inquiry-right py-5 px-5">
+          <div className="col-md-6 inquiry-right py-5 px-5">
             <h4 className="form-title fs-2">Inquire about this offer</h4>
             <form>
               {/* FULL NAME */}

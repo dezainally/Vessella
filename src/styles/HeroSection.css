@@ -1,7 +1,7 @@
 .hero-section {
   position: relative;
   /* background: linear-gradient(135deg, #000000, #2a1f5c, #1a1433); */
-  background: url(../assets/images/bg-about-2.webp);
+  background: url(../assets/images/about-bg-3.jpg);
   background-repeat: no-repeat;
   /* background-position: top; */
   background-size: cover;
@@ -29,7 +29,7 @@
 }
 
 .hero-text {
-  font-size: 40px;
+  font-size: 35px;
 }
 
 /* bottom diagonal clip */

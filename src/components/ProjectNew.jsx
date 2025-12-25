@@ -29,12 +29,24 @@ const services = [
     link: "https://vessella.com/project/vessella-villas/",
     status: "completed",
   },
+  {
+    title: "Mokilla",
+    // image: VillasImg,
+    link: "https://vessella.com/project/vessella-villas/",
+    status: "upcoming",
+  },
+  {
+    title: "Karimnagar",
+    // image: VillasImg,
+    link: "https://vessella.com/project/vessella-villas/",
+    status: "upcoming",
+  },
 ];
 
 export default function Services() {
 
   // INTRO ANIMATIONS SCRIPT START
-  const titleText = "Take a brief look at some of the services we offer";
+  const titleText = "Explore projects that define our design philosophy";
   const titleWords = titleText.trim().split(/\s+/);
 
   const titleContainer = {

@@ -1,8 +1,12 @@
 .hero-three {
+    height: 120vh;
     background: linear-gradient(0deg, rgba(31, 23, 64, 0) 0%, rgba(135, 206, 235, 1) 80%);
     /* background-color: rgb(227, 248, 252); */
     /* background: url(../assets/images/cloud-bg.jpg); */
     background-position: bottom;
+    /* background: url(../assets/images/footer-bg.png); */
+    background-attachment: fixed;
+
     background-size: cover;
     overflow: hidden;
 }
@@ -14,13 +18,13 @@
 
 /* Gradient Overlay */
 .gradient-overlay-three {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
-    /* background: linear-gradient(180deg, rgba(31, 23, 64, 0) 10%, rgba(26, 24, 63, 1) 50%); */
-    background: rgba(26, 24, 63, 1);
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background-color: #140347; /* SAME as next section */
 }
+
 
 
 /* Content Above Everything */

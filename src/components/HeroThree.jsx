@@ -82,17 +82,23 @@ export default function HeroThree() {
     });
 
     // Map scroll progress to opacity
+    // const overlayOpacity = useTransform(
+    //     scrollYProgress,
+    //     [0, 0.25], 
+    //     [0, 1]    
+    // );
+
     const overlayOpacity = useTransform(
         scrollYProgress,
-        [0, 0.5], // 0% → 80% scroll
-        [0, 1]    // opacity 0 → 1
+        [0.05, 0.5],  // start later, finish before exit
+        [0, 1]
     );
 
 
     return (
         <section
             ref={sectionRef}
-            className="hero-three vh-100 position-relative"
+            className="hero-three position-relative"
         >
             {/* TEXT CONTENT */}
             <div className="container h-100 position-relative hero-content">
@@ -133,6 +139,7 @@ export default function HeroThree() {
                 className="gradient-overlay-three"
                 style={{ opacity: overlayOpacity }}
             />
+
 
         </section>
 
