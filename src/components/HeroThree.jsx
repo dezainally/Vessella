@@ -74,24 +74,28 @@ export default function HeroThree() {
 
     const sectionRef = useRef(null);
 
+
+
     const { scrollYProgress } = useScroll({
         target: sectionRef,
-        offset: ["start start", "end start"],
+        offset: ["start start", "end start"]
     });
 
-    // 🎯 Linear, predictable fade
+    // Map scroll progress to opacity
     const overlayOpacity = useTransform(
         scrollYProgress,
-        [0, 0.8],   // 0% → 80% scroll
-        [0.2, 1]    // 20% → 100% opacity
+        [0, 0.5], // 0% → 80% scroll
+        [0, 1]    // opacity 0 → 1
     );
+
 
     return (
         <section
             ref={sectionRef}
             className="hero-three vh-100 position-relative"
         >
-            <div className="container h-100">
+            {/* TEXT CONTENT */}
+            <div className="container h-100 position-relative hero-content">
                 <div className="row h-100">
                     <div className="col-lg-6 d-flex flex-column justify-content-center">
                         <motion.h1
@@ -110,37 +114,27 @@ export default function HeroThree() {
                                 </motion.span>
                             ))}
                         </motion.h1>
-
-
-
-                        {/* <motion.div
-                            variants={buttonVariant}
-                            initial="hidden"
-                            animate="show"
-                        >
-                            <button className="ops-btn">
-                                <span className="ops-text">OUR PROJECTS</span>
-                                <span className="ops-icon">»»</span>
-                            </button>
-                        </motion.div> */}
-
-
-
-
                     </div>
                 </div>
             </div>
 
+            {/* BACKGROUND IMAGE */}
             <motion.img
                 variants={imageVariant}
                 initial="hidden"
                 animate="show"
-                className="img-fluid hero-three-img position-absolute vh-100 w-100 object-fit-cover"
+                className="hero-three-img position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
                 src={HeroThreeImg}
                 alt=""
             />
 
+            {/* GRADIENT OVERLAY */}
+            <motion.div
+                className="gradient-overlay-three"
+                style={{ opacity: overlayOpacity }}
+            />
 
         </section>
+
     );
 }

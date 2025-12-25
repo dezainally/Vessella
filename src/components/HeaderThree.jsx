@@ -44,11 +44,11 @@ export default function HeaderThree() {
     const [isAnimating, setIsAnimating] = useState(false);
 
     const projects = [
-        { title: "Villa Serene", img: project },
-        { title: "Palm Retreat", img: PalmsImg },
-        { title: "Green Meadows", img: MeadowsImg },
-        { title: "Luxury Villas", img: VillasImg },
-        { title: "Whispering Woods", img: WoodswsImg },
+        { title: "Vessella Serene", img: project },
+        { title: "Vessella Palm", img: PalmsImg },
+        { title: "Vessella Meadows", img: MeadowsImg },
+        { title: "Vessella Woods", img: WoodswsImg },
+        { title: "Vessella Villas", img: VillasImg },
     ];
 
     useEffect(() => {

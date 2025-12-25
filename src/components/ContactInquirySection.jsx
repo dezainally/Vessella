@@ -6,20 +6,20 @@ import image1 from "../assets/images/form-left-img-1.jpg";
 export default function ContactInquirySection() {
   return (
     <section className="container-fluid py-5">
-      <div className="container inquiry-containercd-flex justify-content-center align-items-center ">
-        <div className="row inquiry-box d-flex justify-content-center align-items-center my-5">
+      <div className="container inquiry-container d-flex justify-content-center align-items-center ">
+        <div className="row inquiry-box p-0 col-lg-10 d-flex justify-content-center align-items-center my-5">
           {/* LEFT IMAGE CONTENT */}
-          <div className="col-md-6  ps-lg-4">
+          <div className="col-md-7  p-lg-0">
             <img
               src={image1}
               alt="Left Decorative"
-              className="image-content w-100 rounded-4"
+              className="img-fluid"
             />
           </div>
 
           {/* RIGHT FORM */}
           <div className="col-md-5 inquiry-right py-5 px-5">
-            <h4 className="form-title">Inquire about this offer</h4>
+            <h4 className="form-title fs-2">Inquire about this offer</h4>
             <form>
               {/* FULL NAME */}
               <div className="floating-field mb-4">
@@ -84,7 +84,7 @@ export default function ContactInquirySection() {
               </div>
 
               {/* CHECKBOXES */}
-              <div className="form-check mb-2">
+              <div className="form-check mb-4">
                 <input
                   className="form-check-input"
                   type="checkbox"
@@ -107,7 +107,7 @@ export default function ContactInquirySection() {
                 </label>
               </div>
 
-               <div>
+               <div className="d-flex align-items-center justify-content-end mt-3">
                             <button className="ops-btn">
                                 <span className="ops-text">SUBMIT</span>
                                 <span className="ops-icon">»»</span>

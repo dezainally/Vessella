@@ -21,7 +21,7 @@ const services = [
     title: "Vessella Woods",
     image: WoodswsImg,
     link: "https://vessella.com/project/vessella-woods/",
-    status: "ongoing",
+    status: "completed",
   },
   {
     title: "Vessella Villas",
@@ -143,7 +143,7 @@ export default function Services() {
 
   return (
     <section className="services position-relative">
-      <div className="container">
+      <div className="container pb-lg-5">
         <span className="services-badge mb-2">OUR PROJECTS</span>
 
         <motion.h2
@@ -194,7 +194,7 @@ export default function Services() {
 
         {/* PROJECT ROW */}
         <motion.div
-          className="row g-4"
+          className="row g-4 mb-lg-5 pb-lg-5"
           layout
         >
 
@@ -228,7 +228,7 @@ export default function Services() {
 
         </motion.div>
 
-        <p className="services-footer text-center fs-6 pb-lg-5 fw-semibold mt-5">
+        {/* <p className="services-footer text-center fs-6 pb-lg-5 fw-semibold mt-5">
           Discover top-tier real estate development Projects.
           <a
             href="https://vessella.com/projects/"
@@ -236,7 +236,7 @@ export default function Services() {
           >
             View all Projects
           </a>
-        </p>
+        </p> */}
       </div>
 
 
