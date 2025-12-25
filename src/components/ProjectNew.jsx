@@ -7,6 +7,8 @@ import PalmsImg from "../assets/images/palms.png";
 import MeadowsImg from "../assets/images/meadows.png";
 import VillasImg from "../assets/images/villas.png";
 import WoodswsImg from "../assets/images/woods.png";
+import MokilaImg from "../assets/images/m.png";
+import KarimImg from "../assets/images/k.png";
 
 const services = [
   { title: "Vessella Serene", image: VessellaImg, link: "#", status: "ongoing" },
@@ -31,13 +33,13 @@ const services = [
   },
   {
     title: "Mokilla",
-    // image: VillasImg,
+    image: MokilaImg,
     link: "https://vessella.com/project/vessella-villas/",
     status: "upcoming",
   },
   {
     title: "Karimnagar",
-    // image: VillasImg,
+    image: KarimImg,
     link: "https://vessella.com/project/vessella-villas/",
     status: "upcoming",
   },

@@ -44,7 +44,7 @@
   height: 220%;
   top: -120%;
   right: -120%;
-  background: #022E56;
+  background: #140347;
   border-radius: 50%;
   transform: scale(0);
   transition: transform 0.7s ease;
@@ -114,7 +114,7 @@
 
 .service-card:hover .arrow-btn {
   transform: rotate(45deg);
-  background: #022E56;
+  background: #140347;
   color: #fff;
 }
 
@@ -144,9 +144,9 @@
 
 .filter-btns:hover,
 .filter-btns.active {
-  background: #022E56;
+  background: #140347;
   color: white;
-  border: 1px solid #022E56;
+  border: 1px solid #140347;
 }
 
 .projects-clip {

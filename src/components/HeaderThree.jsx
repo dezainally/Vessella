@@ -8,11 +8,11 @@ import MeadowsImg from "../assets/images/meadows.png";
 import VillasImg from "../assets/images/villas.png";
 import WoodswsImg from "../assets/images/woods.png";
 
-import ImgHome from "../assets/images/woods-1.jpg";
-import ImgAbout from "../assets/images/providers.webp";
-import ImgOperations from "../assets/images/woods-1.jpg";
-import ImgInvestors from "../assets/images/providers.webp";
-import ImgSustainability from "../assets/images/woods-1.jpg";
+import ImgHome from "../assets/images/nav-1.jpg";
+import ImgAbout from "../assets/images/nav-2.jpg";
+import ImgProject from "../assets/images/nav-3.jpg";
+import ImgContact from "../assets/images/nav-4.jpg";
+// import ImgSustainability from "../assets/images/woods-1.jpg";
 
 
 export default function HeaderThree() {
@@ -117,9 +117,8 @@ export default function HeaderThree() {
     const menuImages = {
         HOME: ImgHome,
         "ABOUT US": ImgAbout,
-        OPERATIONS: ImgOperations,
-        INVESTORS: ImgInvestors,
-        SUSTAINABILITY: ImgSustainability,
+        PROJECTS: ImgProject,
+        "CONTACT US": ImgContact,
     };
 
     const [hoveredImage, setHoveredImage] = useState(menuImages.HOME);
@@ -225,7 +224,38 @@ export default function HeaderThree() {
                                         onMouseEnter={handleMouseEnterProjects}
                                         onMouseLeave={handleMouseLeaveProjects}
                                     >
-                                        {/* existing PROJECTS code unchanged */}
+                                        <div
+                                            className="menu-dropdown-head"
+                                            onClick={toggleProjects}
+                                        >
+                                            <span className={activeLink === link ? "active" : ""}>
+                                                {link}
+                                            </span>
+
+                                            <span
+                                                className={`caret fs-2 px-5 ${projectsOpen ? "open" : ""}`}
+                                            >
+                                                ^
+                                            </span>
+                                        </div>
+
+                                        <div
+                                            className={`projects-panel ${projectsOpen ? "show" : ""}`}
+                                        >
+                                            {projects.map((item) => (
+                                                <div key={item.title} className="project-card">
+                                                    <img
+                                                        src={item.img}
+                                                        alt={item.title}
+                                                        className="project-img"
+                                                    />
+                                                    <div className="project-title">
+                                                        {item.title}
+                                                        <span className="arrow">→</span>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
                                 );
                             }
@@ -242,6 +272,7 @@ export default function HeaderThree() {
                             );
                         })}
                     </nav>
+
 
                 </div>
             </aside>
