@@ -1,13 +1,24 @@
 .hero-section {
   position: relative;
   /* background: linear-gradient(135deg, #000000, #2a1f5c, #1a1433); */
-  background: url(../assets/images/about-bg-3.jpg);
+  /* background: url(../assets/images/about-bg-3.png);
   background-repeat: no-repeat;
-  /* background-position: top; */
-  background-size: cover;
-  color: #cfc9e8;
+  background-position: center center;
+  background-size: cover; */
+  /* Prevent browser smoothing issues */
+  image-rendering: auto;
+  color: #ffffff;
   overflow: hidden;
 }
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 
 /* subtle geometric overlay */
 /* .hero-overlay {
@@ -53,4 +64,3 @@
   max-width: 100%;
   height: auto;
 }
-

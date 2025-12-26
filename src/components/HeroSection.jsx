@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/HeroSection.css";
 import outlineimage from "../assets/images/outlinelogo.png";
+import heroBg from "../assets/images/about-bg-3.png";
+
 
 const containerVariants = {
   hidden: {},
@@ -50,6 +52,7 @@ export default function HeroSection() {
   return (
     <section className="hero-section">
       {/* <div className="hero-overlay"></div> */}
+       <img src={heroBg} className="hero-bg" alt="" />
 
       <div className="container">
         <motion.div

@@ -39,14 +39,16 @@
 .sweep-layer {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
+  /* background: linear-gradient(
     90deg,
-    rgba(106, 76, 255, 0) 0%,
-    rgba(106, 76, 255, 0.4) 30%,
-    rgba(143, 123, 255, 0.9) 55%,
-    rgba(143, 123, 255, 0.4) 75%,
-    rgba(143, 123, 255, 0) 100%
-  );
+    #6a4cff00 0%,
+    #6a4cff66 30%,
+    #8f7bffe6 55%,
+    #8f7bff66 75%,
+    #8f7bff00 100%
+  ); */
+
+  background: linear-gradient(90deg, rgba(106, 76, 255, 0) 30%, rgba(106, 76, 255, 0.6) 45%, rgba(143, 123, 255, 0.8) 58%, rgba(143, 123, 255, 0.6) 70%, #8f7bff00 85%);
   transform: translateX(-100%);
   z-index: 3;
   transition: transform 2.8s cubic-bezier(0.4, 0, 0.2, 1);
