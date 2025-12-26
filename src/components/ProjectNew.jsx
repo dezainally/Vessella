@@ -11,39 +11,57 @@ import MokilaImg from "../assets/images/m.png";
 import KarimImg from "../assets/images/k.png";
 
 const services = [
-  { title: "Vessella Serene", image: VessellaImg, link: "#", status: "ongoing" },
-  { title: "Vessella Palms", image: PalmsImg, link: "#", status: "upcoming" },
+  {
+    title: "Vessella Serene",
+    image: VessellaImg,
+    link: "#",
+    status: "ongoing",
+    type: "residential",
+  },
+  {
+    title: "Vessella Palms",
+    image: PalmsImg,
+    link: "#",
+    status: "upcoming",
+    type: "residential",
+  },
   {
     title: "Vessella Meadows",
     image: MeadowsImg,
     link: "https://vessella.com/project/vessella-meadows/",
     status: "completed",
+    type: "residential",
   },
   {
     title: "Vessella Woods",
     image: WoodswsImg,
     link: "https://vessella.com/project/vessella-woods/",
     status: "completed",
+    type: "residential",
   },
   {
     title: "Vessella Villas",
     image: VillasImg,
     link: "https://vessella.com/project/vessella-villas/",
     status: "completed",
+    type: "residential",
   },
   {
     title: "Mokilla",
     image: MokilaImg,
-    link: "https://vessella.com/project/vessella-villas/",
+    link: "#",
     status: "upcoming",
+    type: "commercial",
   },
   {
     title: "Karimnagar",
     image: KarimImg,
-    link: "https://vessella.com/project/vessella-villas/",
+    link: "#",
     status: "upcoming",
+    type: "commercial",
   },
 ];
+
 
 export default function Services() {
 
@@ -149,11 +167,30 @@ export default function Services() {
 
 
   const [activeFilter, setActiveFilter] = useState("all");
+  const [activeSubFilter, setActiveSubFilter] = useState("all");
 
-  const filteredServices =
-    activeFilter === "all"
-      ? services
-      : services.filter((item) => item.status === activeFilter);
+
+  const handleMainFilter = (key) => {
+    setActiveFilter(key);
+    setActiveSubFilter("all");
+  };
+
+
+
+  // const [activeFilter, setActiveFilter] = useState("all");
+
+  const filteredServices = services.filter((item) => {
+    const statusMatch =
+      activeFilter === "all" || item.status === activeFilter;
+
+    const typeMatch =
+      activeSubFilter === "all" || item.type === activeSubFilter;
+
+    return statusMatch && typeMatch;
+  });
+
+
+
 
   return (
     <section className="services position-relative">
@@ -179,15 +216,13 @@ export default function Services() {
         </motion.h2>
 
 
-        {/* FILTERS */}
         <motion.div
-          className="project-filters mt-4 mb-5"
+          className="project-filters my-4 gap-3 d-flex flex-wrap"
           variants={filtersContainer}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.5 }}
         >
-
           {[
             { key: "all", label: "All Projects" },
             { key: "ongoing", label: "Ongoing Projects" },
@@ -202,9 +237,37 @@ export default function Services() {
             >
               {btn.label}
             </motion.button>
-
           ))}
         </motion.div>
+
+        <motion.div
+          className="project-sub-filters mt-2 mb-4"
+          variants={filtersContainer}
+          initial="hidden"
+          whileInView="show"
+        >
+          {[
+            { key: "all", label: "All Types" },
+            { key: "residential", label: "Residential" },
+            { key: "commercial", label: "Commercial" },
+          ].map((btn) => (
+            <motion.button
+              key={btn.key}
+              variants={filterItem}
+              className={`sub-filter-btn ${activeSubFilter === btn.key ? "active" : ""
+                }`}
+              onClick={() => setActiveSubFilter(btn.key)}
+            >
+              {btn.label}
+            </motion.button>
+          ))}
+        </motion.div>
+
+
+
+
+
+
 
         {/* PROJECT ROW */}
         <motion.div
@@ -242,15 +305,7 @@ export default function Services() {
 
         </motion.div>
 
-        {/* <p className="services-footer text-center fs-6 pb-lg-5 fw-semibold mt-5">
-          Discover top-tier real estate development Projects.
-          <a
-            href="https://vessella.com/projects/"
-            className="text-decoration-none text-black ms-2"
-          >
-            View all Projects
-          </a>
-        </p> */}
+
       </div>
 
 

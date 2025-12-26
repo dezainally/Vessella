@@ -90,7 +90,7 @@ export default function HeroThree() {
 
     const overlayOpacity = useTransform(
         scrollYProgress,
-        [0.05, 0.5],  // start later, finish before exit
+        [0.05, 0.6],  // start later, finish before exit
         [0, 1]
     );
 

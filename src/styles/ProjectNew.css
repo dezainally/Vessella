@@ -23,12 +23,14 @@
 /* CARD */
 .service-card {
   background: #ffffff;
-  border-radius: 28px;
+  border-radius: 15px;
   /* padding: 36px; */
   /* height: 340px; */
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border-end-end-radius: 60px;
+  border-start-end-radius: 30px;
 }
 
 .service-card:hover {
@@ -119,13 +121,7 @@
 }
 
 /* FILTERS */
-.project-filters {
-  display: flex;
-  /* justify-content: center; */
-  gap: 10px;
-  margin: 30px 0 50px;
-  flex-wrap: wrap;
-}
+.project-filters {}
 
 .filter-btns {
   padding: 5px 15px;
@@ -157,4 +153,25 @@
   background: white;
   left: 0;
   clip-path: polygon(0% 100%, 100% 60%, 100% 100%, 0% 100%);
+}
+
+.project-sub-filters {
+  display: flex;
+  gap: 14px;
+}
+
+.sub-filter-btn {
+  background: transparent;
+  border: none;
+  font-size: 13px;
+  padding: 6px 0;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sub-filter-btn.active,
+.sub-filter-btn:hover {
+  opacity: 1;
+  font-weight: 500;
 }

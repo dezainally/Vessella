@@ -339,14 +339,6 @@
     overflow: hidden;
 }
 
-.side-menu-image {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 0.3s ease, transform 0.6s ease;
-}
 
 .image-overlay {
     position: absolute;
@@ -461,23 +453,65 @@
 }
 
 /* Smooth fade animation for images */
-@keyframes fadeIn {
+
+
+
+.menu-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    opacity: 1;
+    transition: opacity 0.6s ease;
+}
+
+/* current visible image */
+.menu-img.active {
+    opacity: 1;
+    transform: scale(1.05);
+    filter: blur(0);
+    z-index: 1;
+}
+
+.side-menu.first-open .menu-img.active {
+  animation: firstOpenImage 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
+.menu-img.fade-out {
+    transform: scale(1.2);
+}
+
+
+@keyframes firstOpenImage {
     from {
-        opacity: 0;
-        transform: scale(1.02);
+        transform: translateY(40px) scale(1.05);
     }
     to {
-        opacity: 1;
-        transform: scale(1);
+        transform: translateY(0) scale(1.05);
     }
 }
 
-.side-menu-image.fade-in {
-    animation: fadeIn 0.3s ease forwards;
+/* next image hidden */
+.menu-img.next {
+    opacity: 0;
+ /* transform: scale(1.15); */
+    z-index: 2;
 }
 
+/* incoming image */
+.menu-img.fade-in {
+    opacity: 1;
+    /* transform: scale(1.05); */
+      /* filter: blur(0); */
+}
+
+
+
 /* Floating animation for decorative elements */
-@keyframes float {
+/* @keyframes float {
 
     0%,
     100% {
@@ -487,7 +521,7 @@
     50% {
         transform: translateY(-10px);
     }
-}
+} */
 
 /* ================= MOBILE RESPONSIVE ================= */
 @media (max-width: 1024px) {
@@ -607,3 +641,4 @@
         letter-spacing: 2px;
     }
 }
+
