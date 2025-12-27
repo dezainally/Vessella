@@ -1,14 +1,15 @@
 import { useEffect, useState, useRef } from "react";
 import "../styles/HeaderThree.css";
+import { Link } from "react-router-dom";
 import HeaderLogo from "../assets/images/logo/blue-v-logo.png";
 import SideDecorImage from "../assets/images/v-logo-30.png";
-import project from "../assets/images/serene-logo.png";
-import PalmsImg from "../assets/images/palms-logo.png";
-import MeadowsImg from "../assets/images/meadows-logo.png";
-import VillasImg from "../assets/images/villas-logo.png";
-import WoodswsImg from "../assets/images/woods-logo.png";
-import MokilaImg from "../assets/images/mokila-logo.png";
-import KarimnagarImg from "../assets/images/karimnagar-logo.png";
+import project from "../assets/images/serene-logo-gray.png";
+import PalmsImg from "../assets/images/palms-logo-gray.png";
+import MeadowsImg from "../assets/images/meadows-logo-gray.png";
+import VillasImg from "../assets/images/villas-logo-gray.png";
+import WoodswsImg from "../assets/images/woods-logo-gray.png";
+import MokilaImg from "../assets/images/mokila-logo-gray.png";
+import KarimnagarImg from "../assets/images/karimnagar-logo-gray.png";
 
 import ImgHome from "../assets/images/nav-1.jpg";
 import ImgAbout from "../assets/images/nav-2.jpg";
@@ -23,20 +24,20 @@ export default function HeaderThree() {
   const [activeLink, setActiveLink] = useState("HOME");
   const [projectsOpen, setProjectsOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [hoveredImage, setHoveredImage] = useState(ImgHome);
-  const [isImageChanging, setIsImageChanging] = useState(false);
+  // const [hoveredImage, setHoveredImage] = useState(ImgHome);
+  // const [isImageChanging, setIsImageChanging] = useState(false);
   const [isHoveringImage, setIsHoveringImage] = useState(false);
-  const [nextImage, setNextImage] = useState(ImgHome);
-  const isTransitioningRef = useRef(false);
+  // const [nextImage, setNextImage] = useState(ImgHome);
+  // const isTransitioningRef = useRef(false);
   const hasOpenedOnceRef = useRef(false);
   const [isFirstOpen, setIsFirstOpen] = useState(true);
 
   const projects = [
-    { title: "Vessella Serene", img: project, navImg: ImgProject },
-    { title: "Vessella Palms", img: PalmsImg, navImg: ImgProject },
-    { title: "Vessella Meadows", img: MeadowsImg, navImg: ImgProject },
-    { title: "Vessella Woods", img: WoodswsImg, navImg: ImgProject },
-    { title: "Vessella Villas", img: VillasImg, navImg: ImgProject },
+    { title: " Serene", img: project, navImg: ImgProject },
+    { title: " Palms", img: PalmsImg, navImg: ImgProject },
+    { title: " Meadows", img: MeadowsImg, navImg: ImgProject },
+    { title: " Woods", img: WoodswsImg, navImg: ImgProject },
+    { title: " Villas", img: VillasImg, navImg: ImgProject },
     { title: "Mokilla", img: MokilaImg, navImg: ImgProject },
     { title: "Karimnagar", img: KarimnagarImg, navImg: ImgProject },
   ];
@@ -82,27 +83,7 @@ export default function HeaderThree() {
   }, [open]);
 
   // Reset hovered image when menu closes
-  useEffect(() => {
-    if (!open) {
-      setHoveredImage(menuImages.HOME);
-      setActiveLink("HOME");
-    }
-  }, [open]);
-  const changeImage = (newImage) => {
-    if (newImage === hoveredImage || isTransitioningRef.current) return;
 
-    isTransitioningRef.current = true;
-
-    setNextImage(newImage);
-    setIsImageChanging(true);
-
-  setTimeout(() => {
-  setHoveredImage(newImage);
-  setIsImageChanging(false);
-  isTransitioningRef.current = false;
-}, 600); // must match opacity duration
-
-  };
 
   const handleNavClick = (linkName) => {
     setActiveLink(linkName);
@@ -139,7 +120,7 @@ export default function HeaderThree() {
 
   const handleMouseEnterProjects = () => {
     setProjectsOpen(true);
-    changeImage(menuImages.PROJECTS);
+    setActiveLink("PROJECTS");
   };
 
   const handleMouseLeaveProjects = () => {
@@ -147,13 +128,13 @@ export default function HeaderThree() {
     // setProjectsOpen(false);
   };
 
-  const handleProjectHover = (projectItem) => {
-    changeImage(projectItem.navImg || menuImages.PROJECTS);
+  const handleProjectHover = () => {
+    setActiveLink("PROJECTS");
   };
 
   const handleLinkHover = (link) => {
     if (link !== "PROJECTS") {
-      changeImage(menuImages[link]);
+      setActiveLink(link);
     }
   };
 
@@ -210,25 +191,35 @@ export default function HeaderThree() {
 
       {/* RIGHT SIDE MENU */}
       <aside
-        className={`side-menu ${open ? "show" : ""} ${
-          isFirstOpen ? "first-open" : ""
-        }`}
+        className={`side-menu ${open ? "show" : ""} ${isFirstOpen ? "first-open" : ""
+          }`}
       >
         {/* LEFT IMAGE PANEL */}
         <div className="side-menu-left">
           <div className="image-container">
             {/* Current image */}
             <img
-              src={hoveredImage}
+              src={ImgHome}
+              className={`menu-img ${activeLink === "HOME" ? "active" : ""}`}
               alt=""
-              className={`menu-img active ${isImageChanging ? "fade-out" : ""}`}
             />
-
-            {/* Next image */}
             <img
-              src={nextImage}
+              src={ImgAbout}
+              className={`menu-img ${activeLink === "ABOUT US" ? "active" : ""
+                }`}
               alt=""
-              className={`menu-img next ${isImageChanging ? "fade-in" : ""}`}
+            />
+            <img
+              src={ImgProject}
+              className={`menu-img ${activeLink === "PROJECTS" ? "active" : ""
+                }`}
+              alt=""
+            />
+            <img
+              src={ImgContact}
+              className={`menu-img ${activeLink === "CONTACT US" ? "active" : ""
+                }`}
+              alt=""
             />
 
             <div className="image-overlay" />
@@ -267,21 +258,19 @@ export default function HeaderThree() {
                         {link}
                       </span>
                       <span
-                        className={`caret fs-2 px-5 ${
-                          projectsOpen ? "open" : ""
-                        }`}
+                        className={`caret fs-2 px-5 ${projectsOpen ? "open" : ""
+                          }`}
                       >
                         ^
                       </span>
                     </div>
 
                     <div
-                      className={`projects-panel     flex-wrap h-100 ${
-                        projectsOpen ? "show" : ""
-                      }`}
+                      className={`projects-panel flex-wrap h-100 ${projectsOpen ? "show" : ""
+                        }`}
                     >
                       {projects.map((item) => (
-                        <div key={item.title} className="col-lg-3 d-flex">
+                        <div key={item.title} className="col-lg-3 d-flex p-2">
                           <div
                             className="project-card d-flex flex-column justify-content-between p-3 w-100 h-100"
                             onMouseEnter={() => handleProjectHover(item)}
@@ -301,6 +290,41 @@ export default function HeaderThree() {
                         </div>
                       ))}
                     </div>
+
+                    {/* <motion.div
+                      className="row g-4 mb-lg-5 pb-lg-5"
+                      layout
+                    >
+
+
+                      <AnimatePresence mode="popLayout">
+                        {filteredServices.map((service) => (
+                          <motion.div
+                            key={service.title} 
+                            className="col-md-4 text-start"
+                            variants={cardVariant}
+                            initial="hidden"
+                            animate="show"
+                            exit="exit"
+                            layout
+                          >
+                            <Link to={service.link} className="service-link">
+                              <div className="service-card position-relative h-100">
+                                <div className="arrow-card position-absolute">
+                                  <button className="arrow-btn">
+                                    <span>↗</span>
+                                  </button>
+                                </div>
+
+                                <h3 className="fw-light">{service.title}</h3>
+                                <img src={service.image} alt={service.title} />
+                              </div>
+                            </Link>
+                          </motion.div>
+                        ))}
+                      </AnimatePresence>
+
+                    </motion.div> */}
                   </div>
                 );
               }

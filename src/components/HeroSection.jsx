@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/HeroSection.css";
 import outlineimage from "../assets/images/outlinelogo.png";
-import heroBg from "../assets/images/about-bg-3.png";
+import heroBg from "../assets/images/about-bg-3-1.png";
 
 
 const containerVariants = {
