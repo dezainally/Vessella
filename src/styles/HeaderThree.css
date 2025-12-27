@@ -158,17 +158,18 @@
 
 .menu-dropdown-head:hover {
     opacity: 0.8;
+    color: #0779B2;
 }
 
 .menu-dropdown-head span {
     font-size: 20px;
     letter-spacing: 4px;
-    color: #6f42c1;
+    color: #000000;
     transition: color 0.3s ease;
 }
 
 .menu-dropdown-head .active {
-    color: #0779B2;
+    color: #000000;
 }
 
 /* ================= PROJECTS PANEL ================= */
@@ -180,13 +181,16 @@
         margin-top 0.3s ease;
     opacity: 0;
     display: flex;
-    /* gap: 20px; */
+    gap: 20px;
     margin-top: 0;
+    padding: 0 10px;
 }
 
 .projects-panel.show {
     max-height: 800px;
     opacity: 1;
+    margin-top: 20px;
+    padding: 10px;
 }
 
 /* ================= PROJECT CARD ================= */
@@ -195,8 +199,7 @@
     transition: transform 0.3s ease;
     overflow: hidden;
     border-radius: 8px;
-    border-end-end-radius: 40px;
-    background: #ffffff;
+    background: white;
 }
 
 .project-card:hover {
@@ -212,10 +215,7 @@
     transition: transform 0.3s ease;
 }
 
-
-
 .project-card:hover .project-img {
-    filter: brightness(0) invert(1);
     transform: scale(1.05);
 }
 
@@ -224,13 +224,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #C7C7C7;
+    color: white;
     padding: 5px 15px;
     transition: color 0.3s ease;
 }
 
 .project-card:hover .project-title {
-    color: white;
+    color: #0779B2;
 }
 
 .project-title .arrow {
@@ -355,7 +355,7 @@
 .side-menu-right {
     width: 50%;
     height: 100vh;
-    background: #f6f3ec;
+    background: #F6F3EC;
     padding: 40px;
     overflow-y: auto;
     position: relative;
@@ -406,7 +406,7 @@
 .menu-nav a {
     font-size: 20px;
     letter-spacing: 4px;
-    color: #6f42c1;
+    color: black;
     text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -474,7 +474,7 @@
     transform: scale(1.2);
     filter: blur(10px);
 
-    transition: opacity 0.7s ease, transform 0.7s ease, filter 0.7s ease;
+    transition: opacity 0.7s ease, transform 0.9s ease, filter 0.7s ease;
     will-change: opacity, transform, filter;
 }
 
@@ -605,7 +605,7 @@
 
     .projects-panel {
         grid-template-columns: 1fr;
-        /* gap: 15px; */
+        gap: 15px;
     }
 
     .project-img {

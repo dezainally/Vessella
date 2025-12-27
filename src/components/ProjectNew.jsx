@@ -62,10 +62,7 @@ const services = [
   },
 ];
 
-
 export default function Services() {
-
-  // INTRO ANIMATIONS SCRIPT START
   const titleText = "Explore projects that define our design philosophy";
   const titleWords = titleText.trim().split(/\s+/);
 
@@ -100,7 +97,8 @@ export default function Services() {
     hidden: {},
     show: {
       transition: {
-        staggerChildren: 0.18,
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
       },
     },
   };
@@ -108,26 +106,28 @@ export default function Services() {
   const cardVariant = {
     hidden: {
       opacity: 0,
-      y: 30,
+      scale: 0.98,
+      y: 10,
     },
     show: {
       opacity: 1,
+      scale: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.35,
         ease: [0.22, 1, 0.36, 1],
       },
     },
     exit: {
       opacity: 0,
-      y: 20,
+      scale: 0.98,
+      y: 10,
       transition: {
-        duration: 0.4,
-        ease: "easeIn",
+        duration: 0.25,
+        ease: "easeOut",
       },
     },
   };
-
 
   const filtersContainer = {
     hidden: {
@@ -161,36 +161,19 @@ export default function Services() {
     },
   };
 
-
-
-  // INTRO ANIMATIONS SCRIPT END
-
-
   const [activeFilter, setActiveFilter] = useState("all");
   const [activeSubFilter, setActiveSubFilter] = useState("all");
-
 
   const handleMainFilter = (key) => {
     setActiveFilter(key);
     setActiveSubFilter("all");
   };
 
-
-
-  // const [activeFilter, setActiveFilter] = useState("all");
-
   const filteredServices = services.filter((item) => {
-    const statusMatch =
-      activeFilter === "all" || item.status === activeFilter;
-
-    const typeMatch =
-      activeSubFilter === "all" || item.type === activeSubFilter;
-
+    const statusMatch = activeFilter === "all" || item.status === activeFilter;
+    const typeMatch = activeSubFilter === "all" || item.type === activeSubFilter;
     return statusMatch && typeMatch;
   });
-
-
-
 
   return (
     <section className="services position-relative">
@@ -215,102 +198,95 @@ export default function Services() {
           ))}
         </motion.h2>
 
+        {/* MAIN FILTER */}
+<motion.div
+  className="project-filters my-4"
+  variants={filtersContainer}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, amount: 0.5 }}
+>
+  {[
+    { key: "all", label: "All Projects" },
+    { key: "ongoing", label: "Ongoing Projects" },
+    { key: "upcoming", label: "Upcoming Projects" },
+    { key: "completed", label: "Completed Projects" },
+  ].map((btn) => (
+    <motion.button
+      key={btn.key}
+      variants={filterItem}
+      className={`filter-btn ${activeFilter === btn.key ? "active" : ""}`}
+      onClick={() => handleMainFilter(btn.key)}
+    >
+      {btn.label}
+    </motion.button>
+  ))}
+</motion.div>
 
-        <motion.div
-          className="project-filters my-4 gap-3 d-flex flex-wrap"
-          variants={filtersContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          {[
-            { key: "all", label: "All Projects" },
-            { key: "ongoing", label: "Ongoing Projects" },
-            { key: "upcoming", label: "Upcoming Projects" },
-            { key: "completed", label: "Completed Projects" },
-          ].map((btn) => (
-            <motion.button
-              key={btn.key}
-              variants={filterItem}
-              className={`filter-btns ${activeFilter === btn.key ? "active" : ""}`}
-              onClick={() => setActiveFilter(btn.key)}
+{/* SUB FILTER */}
+<motion.div
+  className="project-sub-filters mb-4"
+  variants={filtersContainer}
+  initial="hidden"
+  whileInView="show"
+>
+  {[
+    { key: "all", label: "All Types" },
+    { key: "residential", label: "Residential" },
+    { key: "commercial", label: "Commercial" },
+  ].map((btn) => (
+    <motion.button
+      key={btn.key}
+      variants={filterItem}
+      className={`filter-btn ${activeSubFilter === btn.key ? "active" : ""}`}
+      onClick={() => setActiveSubFilter(btn.key)}
+    >
+      {btn.label}
+    </motion.button>
+  ))}
+</motion.div>
+
+
+        {/* PROJECT ROW - FIXED VERSION */}
+<div className="row g-4 mb-lg-5 pb-lg-5 position-relative projects-grid">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`${activeFilter}-${activeSubFilter}`}
+              className="row g-4"
+              variants={cardsContainer}
+              initial="hidden"
+              animate="show"
+              exit="hidden"
+              // layout
             >
-              {btn.label}
-            </motion.button>
-          ))}
-        </motion.div>
+              {filteredServices.map((service) => (
+                <motion.div
+                  key={service.title}
+                  className="col-md-4 text-start"
+                  variants={cardVariant}
+                  layout
+                >
+                  <Link to={service.link} className="service-link">
+                    <div className="service-card position-relative h-100">
+                      <div className="arrow-card position-absolute">
+                        <button className="arrow-btn">
+                          <span>↗</span>
+                        </button>
+                      </div>
 
-        <motion.div
-          className="project-sub-filters mt-2 mb-4"
-          variants={filtersContainer}
-          initial="hidden"
-          whileInView="show"
-        >
-          {[
-            { key: "all", label: "All Types" },
-            { key: "residential", label: "Residential" },
-            { key: "commercial", label: "Commercial" },
-          ].map((btn) => (
-            <motion.button
-              key={btn.key}
-              variants={filterItem}
-              className={`sub-filter-btn ${activeSubFilter === btn.key ? "active" : ""
-                }`}
-              onClick={() => setActiveSubFilter(btn.key)}
-            >
-              {btn.label}
-            </motion.button>
-          ))}
-        </motion.div>
-
-
-
-
-
-
-
-        {/* PROJECT ROW */}
-        <motion.div
-          className="row g-4 mb-lg-5 pb-lg-5"
-          layout
-        >
-
-
-          <AnimatePresence mode="popLayout">
-            {filteredServices.map((service) => (
-              <motion.div
-                key={service.title} // IMPORTANT: stable key
-                className="col-md-4 text-start"
-                variants={cardVariant}
-                initial="hidden"
-                animate="show"
-                exit="exit"
-                layout
-              >
-                <Link to={service.link} className="service-link">
-                  <div className="service-card position-relative h-100">
-                    <div className="arrow-card position-absolute">
-                      <button className="arrow-btn">
-                        <span>↗</span>
-                      </button>
+                      <h3 className="fw-light">{service.title}</h3>
+                      <img src={service.image} alt={service.title} />
                     </div>
-
-                    <h3 className="fw-light">{service.title}</h3>
-                    <img src={service.image} alt={service.title} />
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.div>
           </AnimatePresence>
-
-        </motion.div>
-
-
+        </div>
       </div>
 
-
       {/* BOTTOM CLIP */}
-      <div
+      <motion.div
         className="projects-clip"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}

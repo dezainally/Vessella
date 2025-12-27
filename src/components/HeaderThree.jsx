@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 import "../styles/HeaderThree.css";
-import { Link } from "react-router-dom";
 import HeaderLogo from "../assets/images/logo/blue-v-logo.png";
 import SideDecorImage from "../assets/images/v-logo-30.png";
 import project from "../assets/images/serene-logo-gray.png";
@@ -33,11 +32,11 @@ export default function HeaderThree() {
   const [isFirstOpen, setIsFirstOpen] = useState(true);
 
   const projects = [
-    { title: " Serene", img: project, navImg: ImgProject },
-    { title: " Palms", img: PalmsImg, navImg: ImgProject },
-    { title: " Meadows", img: MeadowsImg, navImg: ImgProject },
-    { title: " Woods", img: WoodswsImg, navImg: ImgProject },
-    { title: " Villas", img: VillasImg, navImg: ImgProject },
+    { title: "Vessella Serene", img: project, navImg: ImgProject },
+    { title: "Vessella Palms", img: PalmsImg, navImg: ImgProject },
+    { title: "Vessella Meadows", img: MeadowsImg, navImg: ImgProject },
+    { title: "Vessella Woods", img: WoodswsImg, navImg: ImgProject },
+    { title: "Vessella Villas", img: VillasImg, navImg: ImgProject },
     { title: "Mokilla", img: MokilaImg, navImg: ImgProject },
     { title: "Karimnagar", img: KarimnagarImg, navImg: ImgProject },
   ];
@@ -272,7 +271,7 @@ export default function HeaderThree() {
                       {projects.map((item) => (
                         <div key={item.title} className="col-lg-3 d-flex p-2">
                           <div
-                            className="project-card d-flex flex-column justify-content-between p-3 w-100 h-100"
+                            className="project-card position-relative d-flex flex-column justify-content-between p-3 w-100 h-100"
                             onMouseEnter={() => handleProjectHover(item)}
                             onClick={() => handleNavClick("PROJECTS")}
                           >
@@ -282,7 +281,13 @@ export default function HeaderThree() {
                               className="project-img"
                             />
 
-                            <div className="project-title">
+                            <div className="arrow-card position-absolute">
+                              <button className="arrow-btn">
+                                <span>↗</span>
+                              </button>
+                            </div>
+
+                            <div className="project-title d-none">
                               {item.title}
                               <span className="arrow">→</span>
                             </div>
