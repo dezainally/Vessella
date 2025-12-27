@@ -67,7 +67,7 @@ export default function HeroSection() {
           <div className="col-lg-7">
             <motion.div className="hero-content">
               <motion.span
-                className="hero-eyebrow"
+                className="hero-eyebrow geist-font"
               // variants={itemVariants}
               >
                 ABOUT US

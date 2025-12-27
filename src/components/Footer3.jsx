@@ -132,7 +132,7 @@ export default function Footer() {
 
         {/* BOTTOM BAR */}
         <motion.div
-          className="footer-bottoms mt-5 pt-4"
+          className="footer-bottoms geist-font mt-5 pt-4"
           variants={fadeUp}
         >
 

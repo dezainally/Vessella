@@ -178,7 +178,7 @@ export default function Services() {
   return (
     <section className="services position-relative">
       <div className="container pb-lg-5">
-        <span className="services-badge mb-2">OUR PROJECTS</span>
+        <span className="services-badge mb-2 geist-font">OUR PROJECTS</span>
 
         <motion.h2
           className="services-title fw-light col-lg-6"
@@ -199,56 +199,56 @@ export default function Services() {
         </motion.h2>
 
         {/* MAIN FILTER */}
-<motion.div
-  className="project-filters my-4"
-  variants={filtersContainer}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true, amount: 0.5 }}
->
-  {[
-    { key: "all", label: "All Projects" },
-    { key: "ongoing", label: "Ongoing Projects" },
-    { key: "upcoming", label: "Upcoming Projects" },
-    { key: "completed", label: "Completed Projects" },
-  ].map((btn) => (
-    <motion.button
-      key={btn.key}
-      variants={filterItem}
-      className={`filter-btn ${activeFilter === btn.key ? "active" : ""}`}
-      onClick={() => handleMainFilter(btn.key)}
-    >
-      {btn.label}
-    </motion.button>
-  ))}
-</motion.div>
+        <motion.div
+          className="project-filters my-4"
+          variants={filtersContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.5 }}
+        >
+          {[
+            { key: "all", label: "All Projects" },
+            { key: "ongoing", label: "Ongoing Projects" },
+            { key: "upcoming", label: "Upcoming Projects" },
+            { key: "completed", label: "Completed Projects" },
+          ].map((btn) => (
+            <motion.button
+              key={btn.key}
+              variants={filterItem}
+              className={`filter-btn pertili-font ${activeFilter === btn.key ? "active" : ""}`}
+              onClick={() => handleMainFilter(btn.key)}
+            >
+              {btn.label}
+            </motion.button>
+          ))}
+        </motion.div>
 
-{/* SUB FILTER */}
-<motion.div
-  className="project-sub-filters mb-4"
-  variants={filtersContainer}
-  initial="hidden"
-  whileInView="show"
->
-  {[
-    { key: "all", label: "All Types" },
-    { key: "residential", label: "Residential" },
-    { key: "commercial", label: "Commercial" },
-  ].map((btn) => (
-    <motion.button
-      key={btn.key}
-      variants={filterItem}
-      className={`filter-btn ${activeSubFilter === btn.key ? "active" : ""}`}
-      onClick={() => setActiveSubFilter(btn.key)}
-    >
-      {btn.label}
-    </motion.button>
-  ))}
-</motion.div>
+        {/* SUB FILTER */}
+        <motion.div
+          className="project-sub-filters mb-4"
+          variants={filtersContainer}
+          initial="hidden"
+          whileInView="show"
+        >
+          {[
+            { key: "all", label: "All Types" },
+            { key: "residential", label: "Residential" },
+            { key: "commercial", label: "Commercial" },
+          ].map((btn) => (
+            <motion.button
+              key={btn.key}
+              variants={filterItem}
+              className={`filter-btn pertili-font ${activeSubFilter === btn.key ? "active" : ""}`}
+              onClick={() => setActiveSubFilter(btn.key)}
+            >
+              {btn.label}
+            </motion.button>
+          ))}
+        </motion.div>
 
 
         {/* PROJECT ROW - FIXED VERSION */}
-<div className="row g-4 mb-lg-5 pb-lg-5 position-relative projects-grid">
+        <div className="row g-4 mb-lg-5 pb-lg-5 position-relative projects-grid">
           <AnimatePresence mode="wait">
             <motion.div
               key={`${activeFilter}-${activeSubFilter}`}
@@ -257,7 +257,7 @@ export default function Services() {
               initial="hidden"
               animate="show"
               exit="hidden"
-              // layout
+            // layout
             >
               {filteredServices.map((service) => (
                 <motion.div

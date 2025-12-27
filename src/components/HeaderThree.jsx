@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import "../styles/HeaderThree.css";
 import HeaderLogo from "../assets/images/logo/blue-v-logo.png";
+import { motion, AnimatePresence } from "framer-motion";
 import SideDecorImage from "../assets/images/v-logo-30.png";
 import project from "../assets/images/serene-logo-gray.png";
 import PalmsImg from "../assets/images/palms-logo-gray.png";
@@ -30,14 +31,13 @@ export default function HeaderThree() {
   // const isTransitioningRef = useRef(false);
   const hasOpenedOnceRef = useRef(false);
   // const [isFirstOpen, setIsFirstOpen] = useState(true);
-  
 
   const projects = [
-    { title: "Vessella Serene", img: project, navImg: ImgProject },
-    { title: "Vessella Palms", img: PalmsImg, navImg: ImgProject },
-    { title: "Vessella Meadows", img: MeadowsImg, navImg: ImgProject },
-    { title: "Vessella Woods", img: WoodswsImg, navImg: ImgProject },
-    { title: "Vessella Villas", img: VillasImg, navImg: ImgProject },
+    { title: "Serene", img: project, navImg: ImgProject },
+    { title: "Palms", img: PalmsImg, navImg: ImgProject },
+    { title: "Meadows", img: MeadowsImg, navImg: ImgProject },
+    { title: "Woods", img: WoodswsImg, navImg: ImgProject },
+    { title: "Villas", img: VillasImg, navImg: ImgProject },
     { title: "Mokilla", img: MokilaImg, navImg: ImgProject },
     { title: "Karimnagar", img: KarimnagarImg, navImg: ImgProject },
   ];
@@ -51,12 +51,11 @@ export default function HeaderThree() {
     "CONTACT US": ImgContact,
   };
 
-
   // Handle scroll effects
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setScrolled(currentScrollY > 50);
+      setScrolled(currentScrollY > 500);
 
       if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
         setHideHeader(true);
@@ -96,31 +95,57 @@ export default function HeaderThree() {
     }
   };
 
-const toggleMenu = () => {
-  if (isAnimating) return;
+  const menuContainer = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.15,
+      },
+    },
+  };
 
-  setIsAnimating(true);
+  const menuItem = {
+    hidden: {
+      opacity: 0,
+      y: 25,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.45,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
 
-  if (!open) {
-    // 🔥 only first time EVER
-    if (!hasOpenedOnceRef.current) {
-      document.body.classList.add("menu-first-open");
-      hasOpenedOnceRef.current = true;
+  const toggleMenu = () => {
+    if (isAnimating) return;
 
-      // remove after animation finishes
-      setTimeout(() => {
-        document.body.classList.remove("menu-first-open");
-      }, 1100);
+    setIsAnimating(true);
+
+    if (!open) {
+      // 🔥 only first time EVER
+      if (!hasOpenedOnceRef.current) {
+        document.body.classList.add("menu-first-open");
+        hasOpenedOnceRef.current = true;
+
+        // remove after animation finishes
+        setTimeout(() => {
+          document.body.classList.remove("menu-first-open");
+        }, 1100);
+      }
+
+      setOpen(true);
+    } else {
+      setOpen(false);
+      setProjectsOpen(false);
     }
 
-    setOpen(true);
-  } else {
-    setOpen(false);
-    setProjectsOpen(false);
-  }
-
-  setTimeout(() => setIsAnimating(false), 600);
-};
+    setTimeout(() => setIsAnimating(false), 600);
+  };
 
   const toggleProjects = () => {
     setProjectsOpen(!projectsOpen);
@@ -162,7 +187,7 @@ const toggleMenu = () => {
             </div>
 
             {/* CENTER – MENU LINKS */}
-            <nav className="header-nav">
+            <nav className="header-nav pertili-font">
               {menuLinks.map((link) => (
                 <a
                   key={link}
@@ -180,7 +205,9 @@ const toggleMenu = () => {
               onClick={toggleMenu}
               style={{ cursor: isAnimating ? "wait" : "pointer" }}
             >
-              <span className="menu-text">{open ? "CLOSE" : "MENU"}</span>
+              <span className="menu-text pertili-font">
+                {open ? "CLOSE" : "MENU"}
+              </span>
               <div className="menu-icon-three">
                 <span />
                 <span />
@@ -248,7 +275,12 @@ const toggleMenu = () => {
             </div>
           </div>
 
-          <nav className="menu-nav pertili-font">
+          <motion.nav
+            className="menu-nav pertili-font"
+            variants={menuContainer}
+            initial="hidden"
+            animate={open ? "show" : "hidden"}
+          >
             {menuLinks.map((link) => {
               if (link === "PROJECTS") {
                 return (
@@ -275,7 +307,7 @@ const toggleMenu = () => {
                     </div>
 
                     <div
-                      className={`projects-panel flex-wrap h-100 ${
+                      className={`projects-panel p-0 flex-wrap h-100 ${
                         projectsOpen ? "show" : ""
                       }`}
                     >
@@ -298,9 +330,9 @@ const toggleMenu = () => {
                               </button>
                             </div>
 
-                            <div className="project-title d-none">
+                            <div className="project-title">
                               {item.title}
-                              <span className="arrow">→</span>
+                              {/* <span className="arrow">→</span> */}
                             </div>
                           </div>
                         </div>
@@ -346,17 +378,18 @@ const toggleMenu = () => {
               }
 
               return (
-                <a
+                <motion.a
                   key={link}
+                  variants={menuItem}
                   className={activeLink === link ? "active" : ""}
                   onMouseEnter={() => handleLinkHover(link)}
                   onClick={() => handleNavClick(link)}
                 >
                   {link}
-                </a>
+                </motion.a>
               );
             })}
-          </nav>
+          </motion.nav>
         </div>
       </aside>
     </>
