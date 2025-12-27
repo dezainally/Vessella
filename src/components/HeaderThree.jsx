@@ -29,7 +29,8 @@ export default function HeaderThree() {
   // const [nextImage, setNextImage] = useState(ImgHome);
   // const isTransitioningRef = useRef(false);
   const hasOpenedOnceRef = useRef(false);
-  const [isFirstOpen, setIsFirstOpen] = useState(true);
+  // const [isFirstOpen, setIsFirstOpen] = useState(true);
+  
 
   const projects = [
     { title: "Vessella Serene", img: project, navImg: ImgProject },
@@ -49,11 +50,7 @@ export default function HeaderThree() {
     PROJECTS: ImgProject,
     "CONTACT US": ImgContact,
   };
-  useEffect(() => {
-    if (open && isFirstOpen) {
-      setIsFirstOpen(false);
-    }
-  }, [open, isFirstOpen]);
+
 
   // Handle scroll effects
   useEffect(() => {
@@ -83,7 +80,6 @@ export default function HeaderThree() {
 
   // Reset hovered image when menu closes
 
-
   const handleNavClick = (linkName) => {
     setActiveLink(linkName);
     setOpen(false);
@@ -100,18 +96,31 @@ export default function HeaderThree() {
     }
   };
 
-  const toggleMenu = () => {
-    if (isAnimating) return;
+const toggleMenu = () => {
+  if (isAnimating) return;
 
-    setIsAnimating(true);
-    if (!open) {
-      setOpen(true);
-    } else {
-      setOpen(false);
-      setProjectsOpen(false);
+  setIsAnimating(true);
+
+  if (!open) {
+    // 🔥 only first time EVER
+    if (!hasOpenedOnceRef.current) {
+      document.body.classList.add("menu-first-open");
+      hasOpenedOnceRef.current = true;
+
+      // remove after animation finishes
+      setTimeout(() => {
+        document.body.classList.remove("menu-first-open");
+      }, 1100);
     }
-    setTimeout(() => setIsAnimating(false), 600);
-  };
+
+    setOpen(true);
+  } else {
+    setOpen(false);
+    setProjectsOpen(false);
+  }
+
+  setTimeout(() => setIsAnimating(false), 600);
+};
 
   const toggleProjects = () => {
     setProjectsOpen(!projectsOpen);
@@ -189,10 +198,7 @@ export default function HeaderThree() {
       />
 
       {/* RIGHT SIDE MENU */}
-      <aside
-        className={`side-menu ${open ? "show" : ""} ${isFirstOpen ? "first-open" : ""
-          }`}
-      >
+      <aside className={`side-menu ${open ? "show" : ""}`}>
         {/* LEFT IMAGE PANEL */}
         <div className="side-menu-left">
           <div className="image-container">
@@ -204,20 +210,23 @@ export default function HeaderThree() {
             />
             <img
               src={ImgAbout}
-              className={`menu-img ${activeLink === "ABOUT US" ? "active" : ""
-                }`}
+              className={`menu-img ${
+                activeLink === "ABOUT US" ? "active" : ""
+              }`}
               alt=""
             />
             <img
               src={ImgProject}
-              className={`menu-img ${activeLink === "PROJECTS" ? "active" : ""
-                }`}
+              className={`menu-img ${
+                activeLink === "PROJECTS" ? "active" : ""
+              }`}
               alt=""
             />
             <img
               src={ImgContact}
-              className={`menu-img ${activeLink === "CONTACT US" ? "active" : ""
-                }`}
+              className={`menu-img ${
+                activeLink === "CONTACT US" ? "active" : ""
+              }`}
               alt=""
             />
 
@@ -257,16 +266,18 @@ export default function HeaderThree() {
                         {link}
                       </span>
                       <span
-                        className={`caret fs-2 px-5 ${projectsOpen ? "open" : ""
-                          }`}
+                        className={`caret fs-2 px-5 ${
+                          projectsOpen ? "open" : ""
+                        }`}
                       >
                         ^
                       </span>
                     </div>
 
                     <div
-                      className={`projects-panel flex-wrap h-100 ${projectsOpen ? "show" : ""
-                        }`}
+                      className={`projects-panel flex-wrap h-100 ${
+                        projectsOpen ? "show" : ""
+                      }`}
                     >
                       {projects.map((item) => (
                         <div key={item.title} className="col-lg-3 d-flex p-2">
