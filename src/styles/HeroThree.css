@@ -18,11 +18,12 @@
 
 /* Gradient Overlay */
 .gradient-overlay-three {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background-color: #140347; /* SAME as next section */
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background-color: #140347;
+    /* SAME as next section */
 }
 
 
@@ -31,4 +32,73 @@
 .hero-content {
     position: relative;
     /* z-index: 3; */
+}
+
+.explore-btn {
+    position: absolute;
+    left: 40px;
+    bottom: 25%;
+    z-index: 2;
+
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    transform: rotate(-90deg) translateX(-6px);
+    transform-origin: left;
+
+    color: #000000;
+}
+
+/* Arrows wrapper */
+.explore-arrows {
+    display: flex;
+}
+
+/* SVG arrows */
+.explore-arrows svg {
+    width: 4px;
+    height: 8px;
+    margin-right: 2px;
+
+    opacity: 1;
+    transition: all 0.5s cubic-bezier(0.85, 0.09, 0.15, 0.91);
+}
+
+.explore-arrows svg:nth-child(2) {
+    opacity: 0.5;
+    transition-delay: 75ms;
+}
+
+.explore-arrows svg:nth-child(3) {
+    opacity: 0.2;
+    transition-delay: 120ms;
+}
+
+.explore-arrows path {
+    stroke: #000000;
+    stroke-width: 0.9;
+    fill: none;
+    stroke-linecap: square;
+}
+
+/* Text */
+.explore-text {
+    font-size: 7px;
+    letter-spacing: 0.35rem;
+    text-transform: uppercase;
+    transition: transform 0.5s cubic-bezier(0.85, 0.09, 0.15, 0.91);
+}
+
+/* Hover effects */
+.explore-btn:hover .explore-arrows svg {
+    transform: translateX(-4px) scale(1.25);
+}
+
+.explore-btn:hover .explore-text {
+    transform: translateX(4px);
 }

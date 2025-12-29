@@ -132,12 +132,12 @@ export default function Footer() {
 
         {/* BOTTOM BAR */}
         <motion.div
-          className="footer-bottoms mt-5 pt-4"
+          className="footer-bottoms geist-font mt-5 pt-4"
           variants={fadeUp}
         >
 
-          <span>© VESSELLA ALL RIGHTS RESERVED</span>
-          <span>Designed and Developed by <a href="https://www.dezainally.com" target="_blank" rel="noopener noreferrer" style={{ color: '#530befff', textDecoration: 'none'  }}>Dezainally</a></span>
+          <span>© VESSELLA ALL RIGHTS RESERVED. Designed and Developed by <a href="https://www.dezainally.com" target="_blank" rel="noopener noreferrer" style={{ color: '#ffffffff', textDecoration: 'none' }}>Dezainally</a></span>
+          <span></span>
           <span>Cookies & Privacy Policy</span>
           <span>Terms & Conditions</span>
           {/* <span>Refunds / Cancellations</span> */}

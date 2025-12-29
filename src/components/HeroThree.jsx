@@ -90,7 +90,7 @@ export default function HeroThree() {
 
     const overlayOpacity = useTransform(
         scrollYProgress,
-        [0.05, 0.8],  // start later, finish before exit
+        [0.05, 0.4],  // start later, finish before exit
         [0, 1]
     );
 
@@ -139,6 +139,32 @@ export default function HeroThree() {
                 className="gradient-overlay-three"
                 style={{ opacity: overlayOpacity }}
             />
+
+            <button
+                className="explore-btn"
+                onClick={() =>
+                    document
+                        .getElementById("about-section")
+                        .scrollIntoView({ behavior: "smooth" })
+                }
+            >
+                <span className="explore-arrows">
+                    <svg viewBox="0 0 4 8">
+                        <path d="M2.86 0.89L1.15 3.89L2.86 6.9" />
+                    </svg>
+                    <svg viewBox="0 0 4 8">
+                        <path d="M2.86 0.89L1.15 3.89L2.86 6.9" />
+                    </svg>
+                    <svg viewBox="0 0 4 8">
+                        <path d="M2.86 0.89L1.15 3.89L2.86 6.9" />
+                    </svg>
+                </span>
+
+                <span className="explore-text geist-font">EXPLORE</span>
+            </button>
+
+
+
 
 
         </section>

@@ -51,7 +51,7 @@ const services = [
     image: MokilaImg,
     link: "#",
     status: "upcoming",
-    type: "commercial",
+    type: "residential",
   },
   {
     title: "Karimnagar",
@@ -184,7 +184,7 @@ export default function Services() {
   return (
     <section className="services position-relative">
       <div className="container pb-lg-5">
-        <span className="services-badge mb-2">OUR PROJECTS</span>
+        <span className="services-badge mb-2 geist-font">OUR PROJECTS</span>
 
         <motion.h2
           className="services-title fw-light col-lg-6"
@@ -221,7 +221,7 @@ export default function Services() {
             <motion.button
               key={btn.key}
               variants={filterItem}
-              className={`filter-btn ${
+              className={`filter-btn geist-font ${
                 activeFilter === btn.key ? "active" : ""
               }`}
               onClick={() => handleMainFilter(btn.key)}
@@ -246,7 +246,7 @@ export default function Services() {
               <motion.button
                 key={btn.key}
                 variants={filterItem}
-                className={`filter-btn ${
+                className={`filter-btn geist-font ${
                   activeSubFilter === btn.key ? "active" : ""
                 }`}
                 onClick={() => setActiveSubFilter(btn.key)}

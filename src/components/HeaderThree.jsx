@@ -51,6 +51,49 @@ export default function HeaderThree() {
     "CONTACT US": ImgContact,
   };
 
+  const rightPanelVariant = {
+    hidden: {
+      x: 120,
+      opacity: 0,
+    },
+    show: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 110,
+        damping: 14,   // controls bounce (lower = more bounce)
+        mass: 0.9,
+      },
+    },
+    exit: {
+      x: 120,
+      opacity: 0,
+      transition: { duration: 0.3 },
+    },
+  };
+
+  const leftPanelVariant = {
+    hidden: {
+      y: 120,
+      opacity: 0,
+    },
+    show: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+    exit: {
+      y: 120,
+      opacity: 0,
+      transition: { duration: 0.3 },
+    },
+  };
+
+
   // Handle scroll effects
   useEffect(() => {
     const handleScroll = () => {
@@ -69,6 +112,21 @@ export default function HeaderThree() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Handle menu animations on first open
+  useEffect(() => {
+    if (open) {
+      // Force reflow to trigger CSS animations
+      const leftPanel = document.querySelector(".side-menu-left");
+      const rightPanel = document.querySelector(".side-menu-right");
+
+      if (leftPanel && rightPanel && hasOpenedOnceRef.current) {
+        // Trigger reflow for smooth animations
+        void leftPanel.offsetHeight;
+        void rightPanel.offsetHeight;
+      }
+    }
+  }, [open]);
+
   // Prevent body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto";
@@ -76,6 +134,14 @@ export default function HeaderThree() {
       document.body.style.overflow = "auto";
     };
   }, [open]);
+  useEffect(() => {
+    const images = [ImgHome, ImgAbout, ImgProject, ImgContact];
+
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
   // Reset hovered image when menu closes
 
@@ -121,30 +187,63 @@ export default function HeaderThree() {
     },
   };
 
+  // Add this useEffect right after your other useEffects
+  useEffect(() => {
+    // Preload all images and force GPU rendering
+    const preloadImages = () => {
+      const allImages = [
+        ImgHome, ImgAbout, ImgProject, ImgContact,
+        project, PalmsImg, MeadowsImg, VillasImg,
+        WoodswsImg, MokilaImg, KarimnagarImg
+      ];
+
+      allImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+      });
+    };
+
+    preloadImages();
+
+    // Force GPU acceleration for smooth animations
+    const style = document.createElement('style');
+    style.textContent = `
+    .side-menu * {
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+  `;
+    document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+
   const toggleMenu = () => {
     if (isAnimating) return;
 
     setIsAnimating(true);
 
     if (!open) {
-      // 🔥 only first time EVER
-      if (!hasOpenedOnceRef.current) {
-        document.body.classList.add("menu-first-open");
-        hasOpenedOnceRef.current = true;
-
-        // remove after animation finishes
-        setTimeout(() => {
-          document.body.classList.remove("menu-first-open");
-        }, 1100);
-      }
-
+      // Set open immediately to show the menu
       setOpen(true);
+      // Force a reflow to trigger CSS transitions
+      setTimeout(() => {
+        const leftPanel = document.querySelector(".side-menu-left");
+        const rightPanel = document.querySelector(".side-menu-right");
+        if (leftPanel && rightPanel) {
+          // This triggers the browser to recognize the element for transitions
+          void leftPanel.offsetWidth;
+          void rightPanel.offsetWidth;
+        }
+      }, 10);
     } else {
       setOpen(false);
       setProjectsOpen(false);
     }
 
-    setTimeout(() => setIsAnimating(false), 600);
+    setTimeout(() => setIsAnimating(false), 700);
   };
 
   const toggleProjects = () => {
@@ -225,121 +324,132 @@ export default function HeaderThree() {
       />
 
       {/* RIGHT SIDE MENU */}
-      <aside className={`side-menu ${open ? "show" : ""}`}>
-        {/* LEFT IMAGE PANEL */}
-        <div className="side-menu-left">
-          <div className="image-container">
-            {/* Current image */}
-            <img
-              src={ImgHome}
-              className={`menu-img ${activeLink === "HOME" ? "active" : ""}`}
-              alt=""
-            />
-            <img
-              src={ImgAbout}
-              className={`menu-img ${
-                activeLink === "ABOUT US" ? "active" : ""
-              }`}
-              alt=""
-            />
-            <img
-              src={ImgProject}
-              className={`menu-img ${
-                activeLink === "PROJECTS" ? "active" : ""
-              }`}
-              alt=""
-            />
-            <img
-              src={ImgContact}
-              className={`menu-img ${
-                activeLink === "CONTACT US" ? "active" : ""
-              }`}
-              alt=""
-            />
 
-            <div className="image-overlay" />
-          </div>
-        </div>
+      <AnimatePresence>
+        {open && (
+          <aside className={`side-menu ${open ? "show" : ""}`}>
+            {/* LEFT IMAGE PANEL */}
+            <motion.div
+              className="side-menu-left"
+              variants={leftPanelVariant}
+              initial="hidden"
+              animate={open ? "show" : "hidden"}
+              exit="exit"
+            >
+              <div className="image-container">
+                {/* Current image */}
+                <img
+                  src={ImgHome}
+                  className={`menu-img ${activeLink === "HOME" ? "active" : ""}`}
+                  alt=""
+                />
+                <img
+                  src={ImgAbout}
+                  className={`menu-img ${activeLink === "ABOUT US" ? "active" : ""
+                    }`}
+                  alt=""
+                />
+                <img
+                  src={ImgProject}
+                  className={`menu-img ${activeLink === "PROJECTS" ? "active" : ""
+                    }`}
+                  alt=""
+                />
+                <img
+                  src={ImgContact}
+                  className={`menu-img ${activeLink === "CONTACT US" ? "active" : ""
+                    }`}
+                  alt=""
+                />
 
-        {/* RIGHT NAV PANEL */}
-        <div className="side-menu-right">
-          <div className="menu-top">
-            <img src={HeaderLogo} alt="Logo" className="menu-logo" />
-            <div className="menu-btn open" onClick={toggleMenu}>
-              <span className="menu-text">CLOSE</span>
-              <div className="menu-icon-three">
-                <span />
-                <span />
-                <span />
+                <div className="image-overlay" />
               </div>
-            </div>
-          </div>
+            </motion.div>
 
-          <motion.nav
-            className="menu-nav pertili-font"
-            variants={menuContainer}
-            initial="hidden"
-            animate={open ? "show" : "hidden"}
-          >
-            {menuLinks.map((link) => {
-              if (link === "PROJECTS") {
-                return (
-                  <div
-                    key={link}
-                    className="menu-dropdown"
-                    onMouseEnter={handleMouseEnterProjects}
-                    onMouseLeave={handleMouseLeaveProjects}
-                  >
-                    <div
-                      className="menu-dropdown-head"
-                      onClick={toggleProjects}
-                    >
-                      <span className={activeLink === link ? "active" : ""}>
-                        {link}
-                      </span>
-                      <span
-                        className={`caret fs-2 px-5 ${
-                          projectsOpen ? "open" : ""
-                        }`}
+            {/* RIGHT NAV PANEL */}
+            <motion.div
+              className="side-menu-right"
+              variants={rightPanelVariant}
+              initial="hidden"
+              animate={open ? "show" : "hidden"}
+              exit="exit"
+            >
+
+              <div className="menu-top">
+                <img src={HeaderLogo} alt="Logo" className="menu-logo" />
+                <div className="menu-btn open" onClick={toggleMenu}>
+                  <span className="menu-text">CLOSE</span>
+                  <div className="menu-icon-three">
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                </div>
+              </div>
+
+              <motion.nav
+                className="menu-nav pertili-font"
+                variants={menuContainer}
+                initial="hidden"
+                animate={open ? "show" : "hidden"}
+              >
+                {menuLinks.map((link) => {
+                  if (link === "PROJECTS") {
+                    return (
+                      <div
+                        key={link}
+                        className="menu-dropdown"
+                        onMouseEnter={handleMouseEnterProjects}
+                        onMouseLeave={handleMouseLeaveProjects}
                       >
-                        ^
-                      </span>
-                    </div>
-
-                    <div
-                      className={`projects-panel p-0 flex-wrap h-100 ${
-                        projectsOpen ? "show" : ""
-                      }`}
-                    >
-                      {projects.map((item) => (
-                        <div key={item.title} className="col-lg-3 d-flex p-2">
-                          <div
-                            className="project-card position-relative d-flex flex-column justify-content-between p-3 w-100 h-100"
-                            onMouseEnter={() => handleProjectHover(item)}
-                            onClick={() => handleNavClick("PROJECTS")}
+                        <div
+                          className="menu-dropdown-head"
+                          onClick={toggleProjects}
+                        >
+                          <span className={activeLink === link ? "active" : ""}>
+                            {link}
+                          </span>
+                          <span
+                            className={`caret fs-2 px-5 ${projectsOpen ? "open" : ""
+                              }`}
                           >
-                            <img
-                              src={item.img}
-                              alt={item.title}
-                              className="project-img"
-                            />
-
-                            <div className="arrow-card position-absolute">
-                              <button className="arrow-btn">
-                                <span>↗</span>
-                              </button>
-                            </div>
-
-                            <div className="project-title">
-                              {item.title}
-                              {/* <span className="arrow">→</span> */}
-                            </div>
-                          </div>
+                            ^
+                          </span>
                         </div>
-                      ))}
-                    </div>
 
-                    {/* <motion.div
+                        <div
+                          className={`projects-panel p-0 flex-wrap h-100 ${projectsOpen ? "show" : ""
+                            }`}
+                        >
+                          {projects.map((item) => (
+                            <div key={item.title} className="col-lg-3 d-flex p-2">
+                              <div
+                                className="project-card position-relative d-flex flex-column justify-content-between p-3 w-100 h-100"
+                                onMouseEnter={() => handleProjectHover(item)}
+                                onClick={() => handleNavClick("PROJECTS")}
+                              >
+                                <img
+                                  src={item.img}
+                                  alt={item.title}
+                                  className="project-img"
+                                />
+
+                                <div className="arrow-card position-absolute">
+                                  <button className="arrow-btn">
+                                    <span>↗</span>
+                                  </button>
+                                </div>
+
+                                <div className="project-title">
+                                  {item.title}
+                                  {/* <span className="arrow">→</span> */}
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* <motion.div
                       className="row g-4 mb-lg-5 pb-lg-5"
                       layout
                     >
@@ -373,25 +483,28 @@ export default function HeaderThree() {
                       </AnimatePresence>
 
                     </motion.div> */}
-                  </div>
-                );
-              }
+                      </div>
+                    );
+                  }
 
-              return (
-                <motion.a
-                  key={link}
-                  variants={menuItem}
-                  className={activeLink === link ? "active" : ""}
-                  onMouseEnter={() => handleLinkHover(link)}
-                  onClick={() => handleNavClick(link)}
-                >
-                  {link}
-                </motion.a>
-              );
-            })}
-          </motion.nav>
-        </div>
-      </aside>
+                  return (
+                    <motion.a
+                      key={link}
+                      variants={menuItem}
+                      className={activeLink === link ? "active" : ""}
+                      onMouseEnter={() => handleLinkHover(link)}
+                      onClick={() => handleNavClick(link)}
+                    >
+                      {link}
+                    </motion.a>
+                  );
+                })}
+              </motion.nav>
+            </motion.div>
+          </aside>
+        )}
+      </AnimatePresence>
+
     </>
   );
 }

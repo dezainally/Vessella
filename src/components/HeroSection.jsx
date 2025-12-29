@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/HeroSection.css";
 import outlineimage from "../assets/images/outlinelogo.png";
-import heroBg from "../assets/images/about-bg-3-1.png";
+import heroBg from "../assets/images/about-bg-3-2.png";
 
 
 const containerVariants = {
@@ -50,7 +50,7 @@ const wordVariant = {
 
 export default function HeroSection() {
   return (
-    <section className="hero-section">
+    <section className="hero-section" id="about-section">
       {/* <div className="hero-overlay"></div> */}
        <img src={heroBg} className="hero-bg" alt="" />
 
@@ -67,7 +67,7 @@ export default function HeroSection() {
           <div className="col-lg-7">
             <motion.div className="hero-content">
               <motion.span
-                className="hero-eyebrow"
+                className="hero-eyebrow geist-font"
               // variants={itemVariants}
               >
                 ABOUT US
