@@ -166,12 +166,18 @@ export default function Services() {
 
   const handleMainFilter = (key) => {
     setActiveFilter(key);
-    setActiveSubFilter("all");
+
+    if (key === "upcoming") {
+      setActiveSubFilter("residential"); // default
+    } else {
+      setActiveSubFilter("all"); // ignored since UI hidden
+    }
   };
 
   const filteredServices = services.filter((item) => {
     const statusMatch = activeFilter === "all" || item.status === activeFilter;
-    const typeMatch = activeSubFilter === "all" || item.type === activeSubFilter;
+    const typeMatch =
+      activeSubFilter === "all" || item.type === activeSubFilter;
     return statusMatch && typeMatch;
   });
 
@@ -199,56 +205,78 @@ export default function Services() {
         </motion.h2>
 
         {/* MAIN FILTER */}
-<motion.div
-  className="project-filters my-4"
-  variants={filtersContainer}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true, amount: 0.5 }}
->
-  {[
-    { key: "all", label: "All Projects" },
-    { key: "ongoing", label: "Ongoing Projects" },
-    { key: "upcoming", label: "Upcoming Projects" },
-    { key: "completed", label: "Completed Projects" },
-  ].map((btn) => (
-    <motion.button
-      key={btn.key}
-      variants={filterItem}
-      className={`filter-btn ${activeFilter === btn.key ? "active" : ""}`}
-      onClick={() => handleMainFilter(btn.key)}
-    >
-      {btn.label}
-    </motion.button>
-  ))}
-</motion.div>
+        <motion.div
+          className="project-filters my-4"
+          variants={filtersContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.5 }}
+        >
+          {[
+            { key: "all", label: "All Projects" },
+            { key: "ongoing", label: "Ongoing Projects" },
+            { key: "upcoming", label: "Upcoming Projects" },
+            { key: "completed", label: "Completed Projects" },
+          ].map((btn) => (
+            <motion.button
+              key={btn.key}
+              variants={filterItem}
+              className={`filter-btn ${
+                activeFilter === btn.key ? "active" : ""
+              }`}
+              onClick={() => handleMainFilter(btn.key)}
+            >
+              {btn.label}
+            </motion.button>
+          ))}
+        </motion.div>
 
-{/* SUB FILTER */}
-<motion.div
-  className="project-sub-filters mb-4"
-  variants={filtersContainer}
-  initial="hidden"
-  whileInView="show"
->
-  {[
-    { key: "all", label: "All Types" },
-    { key: "residential", label: "Residential" },
-    { key: "commercial", label: "Commercial" },
-  ].map((btn) => (
-    <motion.button
-      key={btn.key}
-      variants={filterItem}
-      className={`filter-btn ${activeSubFilter === btn.key ? "active" : ""}`}
-      onClick={() => setActiveSubFilter(btn.key)}
-    >
-      {btn.label}
-    </motion.button>
-  ))}
-</motion.div>
+        {/* SUB FILTER */}
+        {activeFilter === "upcoming" && (
+          <motion.div
+            className="project-sub-filters mb-4"
+            variants={filtersContainer}
+            initial="hidden"
+            animate="show"
+          >
+            {[
+              { key: "residential", label: "Residential" },
+              { key: "commercial", label: "Commercial" },
+            ].map((btn) => (
+              <motion.button
+                key={btn.key}
+                variants={filterItem}
+                className={`filter-btn ${
+                  activeSubFilter === btn.key ? "active" : ""
+                }`}
+                onClick={() => setActiveSubFilter(btn.key)}
+              >
+                {btn.label}
+              </motion.button>
+            ))}
+          </motion.div>
+        )}
 
+        {/* {[
+          { key: "all", label: "All Types" },
+          { key: "residential", label: "Residential" },
+          { key: "commercial", label: "Commercial" },
+        ].map((btn) => (
+          <motion.button
+            key={btn.key}
+            variants={filterItem}
+            className={`filter-btn ${
+              activeSubFilter === btn.key ? "active" : ""
+            }`}
+            onClick={() => setActiveSubFilter(btn.key)}
+          >
+            {btn.label}
+          </motion.button>
+        ))} */}
+        {/* </motion.div> */}
 
         {/* PROJECT ROW - FIXED VERSION */}
-<div className="row g-4 mb-lg-5 pb-lg-5 position-relative projects-grid">
+        <div className="row g-4 mb-lg-5 pb-lg-5 position-relative projects-grid">
           <AnimatePresence mode="wait">
             <motion.div
               key={`${activeFilter}-${activeSubFilter}`}

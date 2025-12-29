@@ -137,9 +137,10 @@ export default function Footer() {
         >
 
           <span>© VESSELLA ALL RIGHTS RESERVED</span>
+          <span>Designed and Developed by <a href="https://www.dezainally.com" target="_blank" rel="noopener noreferrer" style={{ color: '#530befff', textDecoration: 'none'  }}>Dezainally</a></span>
           <span>Cookies & Privacy Policy</span>
           <span>Terms & Conditions</span>
-          <span>Refunds / Cancellations</span>
+          {/* <span>Refunds / Cancellations</span> */}
         </motion.div>
       </div>
     </motion.footer>
