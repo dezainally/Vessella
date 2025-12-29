@@ -326,130 +326,130 @@ export default function HeaderThree() {
       {/* RIGHT SIDE MENU */}
 
       <AnimatePresence>
-        {open && (
-          <aside className={`side-menu ${open ? "show" : ""}`}>
-            {/* LEFT IMAGE PANEL */}
-            <motion.div
-              className="side-menu-left"
-              variants={leftPanelVariant}
-              initial="hidden"
-              animate={open ? "show" : "hidden"}
-              exit="exit"
-            >
-              <div className="image-container">
-                {/* Current image */}
-                <img
-                  src={ImgHome}
-                  className={`menu-img ${activeLink === "HOME" ? "active" : ""}`}
-                  alt=""
-                />
-                <img
-                  src={ImgAbout}
-                  className={`menu-img ${activeLink === "ABOUT US" ? "active" : ""
-                    }`}
-                  alt=""
-                />
-                <img
-                  src={ImgProject}
-                  className={`menu-img ${activeLink === "PROJECTS" ? "active" : ""
-                    }`}
-                  alt=""
-                />
-                <img
-                  src={ImgContact}
-                  className={`menu-img ${activeLink === "CONTACT US" ? "active" : ""
-                    }`}
-                  alt=""
-                />
+  {open && (
+     <aside className={`side-menu ${open ? "show" : ""}`}>
+        {/* LEFT IMAGE PANEL */}
+        <motion.div
+          className="side-menu-left"
+          variants={leftPanelVariant}
+          initial="hidden"
+          animate={open ? "show" : "hidden"}
+          exit="exit"
+        >
+          <div className="image-container">
+            {/* Current image */}
+            <img
+              src={ImgHome}
+              className={`menu-img ${activeLink === "HOME" ? "active" : ""}`}
+              alt=""
+            />
+            <img
+              src={ImgAbout}
+              className={`menu-img ${activeLink === "ABOUT US" ? "active" : ""
+                }`}
+              alt=""
+            />
+            <img
+              src={ImgProject}
+              className={`menu-img ${activeLink === "PROJECTS" ? "active" : ""
+                }`}
+              alt=""
+            />
+            <img
+              src={ImgContact}
+              className={`menu-img ${activeLink === "CONTACT US" ? "active" : ""
+                }`}
+              alt=""
+            />
 
-                <div className="image-overlay" />
+            <div className="image-overlay" />
+          </div>
+        </motion.div>
+
+        {/* RIGHT NAV PANEL */}
+        <motion.div
+          className="side-menu-right"
+          variants={rightPanelVariant}
+          initial="hidden"
+          animate={open ? "show" : "hidden"}
+          exit="exit"
+        >
+
+          <div className="menu-top">
+            <img src={HeaderLogo} alt="Logo" className="menu-logo" />
+            <div className="menu-btn open" onClick={toggleMenu}>
+              <span className="menu-text">CLOSE</span>
+              <div className="menu-icon-three">
+                <span />
+                <span />
+                <span />
               </div>
-            </motion.div>
+            </div>
+          </div>
 
-            {/* RIGHT NAV PANEL */}
-            <motion.div
-              className="side-menu-right"
-              variants={rightPanelVariant}
-              initial="hidden"
-              animate={open ? "show" : "hidden"}
-              exit="exit"
-            >
-
-              <div className="menu-top">
-                <img src={HeaderLogo} alt="Logo" className="menu-logo" />
-                <div className="menu-btn open" onClick={toggleMenu}>
-                  <span className="menu-text">CLOSE</span>
-                  <div className="menu-icon-three">
-                    <span />
-                    <span />
-                    <span />
-                  </div>
-                </div>
-              </div>
-
-              <motion.nav
-                className="menu-nav pertili-font"
-                variants={menuContainer}
-                initial="hidden"
-                animate={open ? "show" : "hidden"}
-              >
-                {menuLinks.map((link) => {
-                  if (link === "PROJECTS") {
-                    return (
-                      <div
-                        key={link}
-                        className="menu-dropdown"
-                        onMouseEnter={handleMouseEnterProjects}
-                        onMouseLeave={handleMouseLeaveProjects}
+          <motion.nav
+            className="menu-nav pertili-font"
+            variants={menuContainer}
+            initial="hidden"
+            animate={open ? "show" : "hidden"}
+          >
+            {menuLinks.map((link) => {
+              if (link === "PROJECTS") {
+                return (
+                  <div
+                    key={link}
+                    className="menu-dropdown"
+                    onMouseEnter={handleMouseEnterProjects}
+                    onMouseLeave={handleMouseLeaveProjects}
+                  >
+                    <div
+                      className="menu-dropdown-head"
+                      onClick={toggleProjects}
+                    >
+                      <span className={activeLink === link ? "active" : ""}>
+                        {link}
+                      </span>
+                      <span
+                        className={`caret fs-2 px-5 ${projectsOpen ? "open" : ""
+                          }`}
                       >
-                        <div
-                          className="menu-dropdown-head"
-                          onClick={toggleProjects}
-                        >
-                          <span className={activeLink === link ? "active" : ""}>
-                            {link}
-                          </span>
-                          <span
-                            className={`caret fs-2 px-5 ${projectsOpen ? "open" : ""
-                              }`}
+                        ^
+                      </span>
+                    </div>
+
+                    <div
+                      className={`projects-panel p-0 flex-wrap h-100 ${projectsOpen ? "show" : ""
+                        }`}
+                    >
+                      {projects.map((item) => (
+                        <div key={item.title} className="col-lg-3 d-flex p-2">
+                          <div
+                            className="project-card position-relative d-flex flex-column justify-content-between p-3 w-100 h-100"
+                            onMouseEnter={() => handleProjectHover(item)}
+                            onClick={() => handleNavClick("PROJECTS")}
                           >
-                            ^
-                          </span>
-                        </div>
+                            <img
+                              src={item.img}
+                              alt={item.title}
+                              className="project-img"
+                            />
 
-                        <div
-                          className={`projects-panel p-0 flex-wrap h-100 ${projectsOpen ? "show" : ""
-                            }`}
-                        >
-                          {projects.map((item) => (
-                            <div key={item.title} className="col-lg-3 d-flex p-2">
-                              <div
-                                className="project-card position-relative d-flex flex-column justify-content-between p-3 w-100 h-100"
-                                onMouseEnter={() => handleProjectHover(item)}
-                                onClick={() => handleNavClick("PROJECTS")}
-                              >
-                                <img
-                                  src={item.img}
-                                  alt={item.title}
-                                  className="project-img"
-                                />
-
-                                <div className="arrow-card position-absolute">
-                                  <button className="arrow-btn">
-                                    <span>↗</span>
-                                  </button>
-                                </div>
-
-                                <div className="project-title">
-                                  {item.title}
-                                  {/* <span className="arrow">→</span> */}
-                                </div>
-                              </div>
+                            <div className="arrow-card position-absolute">
+                              <button className="arrow-btn">
+                                <span>↗</span>
+                              </button>
                             </div>
-                          ))}
-                        </div>
 
-                        {/* <motion.div
+                            <div className="project-title">
+                              {item.title}
+                              {/* <span className="arrow">→</span> */}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* <motion.div
                       className="row g-4 mb-lg-5 pb-lg-5"
                       layout
                     >
@@ -483,28 +483,28 @@ export default function HeaderThree() {
                       </AnimatePresence>
 
                     </motion.div> */}
-                      </div>
-                    );
-                  }
+                  </div>
+                );
+              }
 
-                  return (
-                    <motion.a
-                      key={link}
-                      variants={menuItem}
-                      className={activeLink === link ? "active" : ""}
-                      onMouseEnter={() => handleLinkHover(link)}
-                      onClick={() => handleNavClick(link)}
-                    >
-                      {link}
-                    </motion.a>
-                  );
-                })}
-              </motion.nav>
-            </motion.div>
-          </aside>
-        )}
-      </AnimatePresence>
-
+              return (
+                <motion.a
+                  key={link}
+                  variants={menuItem}
+                  className={activeLink === link ? "active" : ""}
+                  onMouseEnter={() => handleLinkHover(link)}
+                  onClick={() => handleNavClick(link)}
+                >
+                  {link}
+                </motion.a>
+              );
+            })}
+          </motion.nav>
+        </motion.div>
+      </aside>
+     )}
+</AnimatePresence>
+     
     </>
   );
 }

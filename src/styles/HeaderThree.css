@@ -128,16 +128,15 @@
 
 /* ================= CARET ================= */
 .caret {
-    display: inline-block;
-    font-size: 14px;
-    transition: transform 0.3s ease;
-    transform: rotate(180deg);
-    margin-left: 10px;
+  display: inline-block;
+  transition: transform 1s ease;
+  transform: rotate(180deg);
 }
 
 .caret.open {
-    transform: rotate(0deg);
+  transform: rotate(0deg);
 }
+
 
 /* ================= PROJECT DROPDOWN ================= */
 .menu-dropdown {
