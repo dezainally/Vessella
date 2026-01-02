@@ -111,7 +111,7 @@
 .about-dot {
     width: 6px;
     height: 6px;
-    background-color: #5b4fff;
+    background-color: #302996;
     margin-right: 12px;
 }
 
@@ -124,7 +124,7 @@
 
 /* Heading */
 .about-heading {
-    font-size: 56px;
+    font-size: 60px;
     line-height: 1.2;
     font-weight: 300;
     color: #1b153f;

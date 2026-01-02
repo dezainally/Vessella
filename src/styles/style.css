@@ -280,6 +280,10 @@ h6 {
   /* background: #2e4b65 !important; */
 }
 
+.text-gray-vessella {
+  color: #3c3c3c !important;
+}
+
 
 html {
   scroll-behavior: smooth;

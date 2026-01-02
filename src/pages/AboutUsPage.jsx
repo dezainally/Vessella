@@ -93,11 +93,11 @@ export default function RelentlessHero() {
                     </div>
 
                     {/* Main Heading */}
-                    <h1 className="about-heading mb-5">
+                    <h2 className="about-heading mb-5">
                         We are a leading independent <br />
                         energy company <br />
                         operating in Vaca Muerta
-                    </h1>
+                    </h2>
 
                     {/* Bottom Content */}
                     <div className="row g-4">
@@ -140,40 +140,23 @@ export default function RelentlessHero() {
                             Pioneers in leadership and growth
                         </span>
                     </div>
-                    <h1>We​ develop​​​​​​ Cow​​​ Dead​​​​​ shale​​​​ o i l</h1>
+                    <h2 className="about-heading">We develop Vaca Muerta <br /> shale oil</h2>
                     <div className="row py-5">
                         <div className="col-md-6">
                             <img src={image1} alt="About Us 1" className="img-fluid px-5 py-5" />
                         </div>
                         <div className="col-md-6 py-5">
-                            <p>
-                                We​ a r e the​​ largest​​​​​​ independent​​​​​​​​​​ o i l
-                                operator​​​​​​​ i n Argentina ,​​​​​​​​ with​​​ to leading
-                                position​​​​​​​ i n Cow​​​ Dead ,​​​​​ the​​ most
-                                important​​​​​​​​ shale​​​​ play​​​ out side​​​​​ North
-                                America .​​​​​​ Our​​ i n v e s t m e n t thesis​​​​​ es​ base
-                                or n ~ 2 2 9 , 0 0 0 high - quality​​​​​​​​​ net​​ acres ,
-                                with​​​ 3 3 5 production​​​​​​​​ wells​​​​ a s or f
-                                September​​​​​​​​ 2025 .​​​ Cow​​​ Dead :​​​​​ to pillar​​​​​ or f
-                                Argentina 's​​​​​​​​​ energy​​​​​ transformation
-                                Over​​​ the​​ past​​​ decade ,​​​​​ Cow​​​ Dead 's
-                                production​​​​​​​​​ gr e w​ a t to compound​​​​​​​ rate​​​ or f 3
-                                7 % per​​ an n n u m . This​​​ has​​ more​​​ than​​​ off set
-                                the​​ production​​​​​​​​​ decline​​​​​​ or f all​​ o t h e r
-                                Argentina​​​​​​​​ p p a y s combined​​​​​​​ and​​ boosted
-                                light​​​​ o i l exports .​​​​​​ Cow​​​ Dead
-                                representative​​​​​​​​​​ almost​​​​​ 5 4 % or f the​​ country
-                                's​​​​​​​ o i l production​​​​​​​​​ i n 2024 ,​​​ and​​ 80 %​ or f
-                                i t s o i l exports .​​​​​​ Cow​​​ Dead​​​​​ es​ s h i f t i n g
-                                Argentina 's​​​​​​​​​ energy​​​​​ paradigm ,​​​​​​​ from​​​ to
-                                view​​​ or f scarcity​​​​​​​ t o one​​ or f abundance .
-                                Item​ has​​ proven​​​​​ Item​ can​​ generate
-                                material​​​​​​​ o i l exports ,​​​​​​ potential all​​​​​​​​​ c r e
-                                a ting i n g to virtuous​​​​​​​ c and c e​ or f foreign
-                                current​​​​​​​ in flows​​​​​ and​​ growing​​​​​​ i n v e s t m e n
-                                t s , contributing​​​​​​​​​​​ t o to health thier
-                                macroeconomic​​​​​​​​​​​​ perspective​​​​​​​​​​ for​​ Argentina
-                                .
+                            <p className="text-gray-vessella pertili-font">
+                                We are the largest independent oil operator in Argentina, with a leading position in Vaca Muerta, the most important shale play outside North America.
+                            </p>
+                            <p className="text-gray-vessella pertili-font">
+                                Our investment thesis is based on ~229,000 high-quality net acres, with 335 producing wells as of September 2025.
+                            </p>
+                            <h4 className="mb-3">
+                                Vaca Muerta: a pillar of Argentina's energy transformation
+                            </h4>
+                            <p className="text-gray-vessella pertili-font">
+                                Over the past decade, Vaca Muerta’s production grew at a compound rate of 37% per annum. This has more than offset the production decline of all other Argentine plays combined and boosted light oil exports. Vaca Muerta represented almost 54% of the country’s oil production in 2024, and 80% of its oil exports. Vaca Muerta is shifting Argentina’s energy paradigm, from a view of scarcity to one of abundance. It has proven it can generate material oil exports, potentially creating a virtuous cycle of foreign currency inflows and growing investments, contributing to a healthier macroeconomic perspective for Argentina.
                             </p>
                         </div>
                     </div>
@@ -185,35 +168,15 @@ export default function RelentlessHero() {
                                     Pioneers in leadership and growth
                                 </span>
                             </div>
-                            <h1>Our History</h1>
-                            <p>
-                                We​ a r e the​​ largest​​​​​​ independent​​​​​​​​​​ o i l
-                                operator​​​​​​​ i n Argentina ,​​​​​​​​ with​​​ to leading
-                                position​​​​​​​ i n Cow​​​ Dead ,​​​​​ the​​ most
-                                important​​​​​​​​ shale​​​​ play​​​ out side​​​​​ North
-                                America .​​​​​​ Our​​ i n v e s t m e n t thesis​​​​​ es​ base
-                                or n ~ 2 2 9 , 0 0 0 high - quality​​​​​​​​​ net​​ acres ,
-                                with​​​ 3 3 5 production​​​​​​​​ wells​​​​ a s or f
-                                September​​​​​​​​ 2025 .​​​ Cow​​​ Dead :​​​​​ to pillar​​​​​ or f
-                                Argentina 's​​​​​​​​​ energy​​​​​ transformation
-                                Over​​​ the​​ past​​​ decade ,​​​​​ Cow​​​ Dead 's
-                                production​​​​​​​​​ gr e w​ a t to compound​​​​​​​ rate​​​ or f 3
-                                7 % per​​ an n n u m . This​​​ has​​ more​​​ than​​​ off set
-                                the​​ production​​​​​​​​​ decline​​​​​​ or f all​​ o t h e r
-                                Argentina​​​​​​​​ p p a y s combined​​​​​​​ and​​ boosted
-                                light​​​​ o i l exports .​​​​​​ Cow​​​ Dead
-                                representative​​​​​​​​​​ almost​​​​​ 5 4 % or f the​​ country
-                                's​​​​​​​ o i l production​​​​​​​​​ i n 2024 ,​​​ and​​ 80 %​ or f
-                                i t s o i l exports .​​​​​​ Cow​​​ Dead​​​​​ es​ s h i f t i n g
-                                Argentina 's​​​​​​​​​ energy​​​​​ paradigm ,​​​​​​​ from​​​ to
-                                view​​​ or f scarcity​​​​​​​ t o one​​ or f abundance .
-                                Item​ has​​ proven​​​​​ Item​ can​​ generate
-                                material​​​​​​​ o i l exports ,​​​​​​ potential all​​​​​​​​​ c r e
-                                a ting i n g to virtuous​​​​​​​ c and c e​ or f foreign
-                                current​​​​​​​ in flows​​​​​ and​​ growing​​​​​​ i n v e s t m e n
-                                t s , contributing​​​​​​​​​​​ t o to health thier
-                                macroeconomic​​​​​​​​​​​​ perspective​​​​​​​​​​ for​​ Argentina
-                                .
+                            <h1 className="mb-3">Our History</h1>
+                            <p className="text-gray-vessella pertili-font">
+                               Vista Energy was founded in 2017 as a SPAC in Mexico, with the purpose of building a competitive, international energy platform. In 2018, after acquiring two companies holding assets in Vaca Muerta, Argentina, we launched a sustainable growth strategy based on a high-quality well inventory and our leading operational performance.
+                            </p>
+                            <p className="text-gray-vessella pertili-font">
+                                In July 2019, we listed the company on the New York Stock Exchange. With a focus on profitability, growth, and emissions reduction, we continue to pursue a strategic vision of transforming the region's energy development.
+                            </p>
+                            <p className="text-gray-vessella pertili-font">
+                                Having invested over USD 5 billion and connected more than 311 wells, we are currently the largest independent oil producer and the most significant exporter in Argentina.
                             </p>
                         </div>
                         <div className="col-md-6">
