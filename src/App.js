@@ -24,6 +24,8 @@ function App() {
 
       {!showIntro && (
         <>
+                  <ScrollToTop />
+
           <Header />
 
           <Routes>

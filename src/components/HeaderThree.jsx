@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/HeaderThree.css";
 import HeaderLogo from "../assets/images/logo/blue-v-logo.png";
 import { motion, AnimatePresence } from "framer-motion";
@@ -51,6 +52,8 @@ export default function HeaderThree() {
     "CONTACT US": ImgContact,
   };
 
+  const navigate = useNavigate();
+
   // Handle scroll effects
   useEffect(() => {
     const handleScroll = () => {
@@ -83,15 +86,25 @@ export default function HeaderThree() {
     setActiveLink(linkName);
     setOpen(false);
 
-    // Smooth scroll to sections
+    // HOME -> scroll to top
     if (linkName === "HOME") {
+      navigate("/");
+
       window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      const sectionId = linkName.toLowerCase().replace(" ", "-");
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+      return;
+    }
+
+    // ABOUT US -> navigate to About page
+    if (linkName === "ABOUT US") {
+      navigate("/about-us");
+      return;
+    }
+
+    // Other links -> try to scroll to a section with matching id
+    const sectionId = linkName.toLowerCase().replace(/\s+/g, "-");
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
