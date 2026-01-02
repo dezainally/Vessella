@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { ArrowUp } from "lucide-react";
 import "../styles/ScrollToTop.css";
 
@@ -19,6 +20,13 @@ const ScrollToTop = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Scroll to top on route change
+  const location = useLocation();
+  useEffect(() => {
+    // Smooth scroll to top whenever the pathname changes
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [location.pathname]);
 
   const scrollToTop = () => {
     window.scrollTo({
