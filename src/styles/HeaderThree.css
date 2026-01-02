@@ -194,8 +194,8 @@
     position: relative;
     cursor: pointer;
     overflow: hidden;
-    border-radius: 8px;
-    border-end-end-radius: 30px;
+    /* border-radius: 8px; */
+    border-end-end-radius: 30px !important;
     background: white;
     transition: transform 0.8s ease;
     isolation: isolate;
@@ -312,7 +312,7 @@
 }
 
 .menu-btn.open .menu-icon-three span:nth-child(1) {
-    top: 19px;
+    top: 20px;
     left: 0;
     transform: rotate(245deg) scaleX(1.1);
     width: 23px;
