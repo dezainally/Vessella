@@ -50,6 +50,7 @@ export default function HeaderThree() {
     "ABOUT US": ImgAbout,
     PROJECTS: ImgProject,
     "CONTACT US": ImgContact,
+    
   };
 
   const navigate = useNavigate();
@@ -97,6 +98,11 @@ export default function HeaderThree() {
     // ABOUT US -> navigate to About page
     if (linkName === "ABOUT US") {
       navigate("/about-us");
+      return;
+    }
+
+     if (linkName === "PROJECTS") {
+      navigate("/projects");
       return;
     }
 
