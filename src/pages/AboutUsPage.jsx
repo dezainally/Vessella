@@ -1,16 +1,21 @@
 import { useEffect, useRef, useState } from "react";
 import "../styles/AboutUsPage.css";
-import image1 from "../assets/images/aboutus1.jpg";
-import image2 from "../assets/images/aboutus2.jpg";
+import image1 from "../assets/images/vision.jpg";
+import image2 from "../assets/images/mission.jpg";
 import AboutBg from "../assets/images/about-us-img.svg";
 import { executiveData } from "../data/leadershipData";
+
+import TrustIcon from "../assets/icons/trusted-seller.png";
+import EmpathyIcon from "../assets/icons/customer-engagement.png";
+import CreativityIcon from "../assets/icons/creativity.png";
+
 
 export default function RelentlessHero() {
     const bgRef = useRef(null);
     const sectionRef = useRef(null);
 
     const [activeTab, setActiveTab] = useState("executive");
-    const [leaders, setLeaders] = useState(executiveData);  
+    const [leaders, setLeaders] = useState(executiveData);
     const [index, setIndex] = useState(0);
 
     useEffect(() => {
@@ -38,7 +43,7 @@ export default function RelentlessHero() {
     //   const [progress, setProgress] = useState(0);
     //   const [lineDirection, setLineDirection] = useState("to-right");
 
-   
+
 
     /* reset line when tab changes */
     const switchTab = (tab) => {
@@ -117,18 +122,18 @@ export default function RelentlessHero() {
                 {/* <div className="about-hero-label">EXPLORE</div> */}
             </section>
 
-            {/* <div
-                ref={containerRef}
-                className="relative overflow-hidden aspect-[375/500] max-h-screen w-full md:aspect-[1440/600]"
+            <div
+
+                className="container-fluid p-0"
             >
                 <img
-                    ref={imageRef}
-                    src="/images/about/hero-2.jpg"
+
+                    src={AboutBg}
                     alt=""
-                    className="h-full w-full object-cover will-change-transform"
-                    style={{ transform: "translate3d(0px, 0%, 0px) scale(1.2)" }}
+                    className="img-fluid"
+
                 />
-            </div> */}
+            </div>
             <section className="about-section-three py-5 mt-5">
                 <div className="container">
                     {/* Top label */}
@@ -148,6 +153,8 @@ export default function RelentlessHero() {
                     <div className="row g-4">
                         <div className="col-md-4">
                             <div className="about-card">
+                                <img src={TrustIcon} className="mb-3" alt="" 
+                                style={{width:"50px"}}/>
                                 <p>
                                     We adhere to high standards of honesty and strong business ethics. We do right by all our customers and stakeholders every time with no exceptions
                                 </p>
@@ -156,6 +163,8 @@ export default function RelentlessHero() {
 
                         <div className="col-md-4">
                             <div className="about-card">
+                                 <img src={EmpathyIcon} className="mb-3" alt="" 
+                                style={{width:"50px"}}/>
                                 <p>
                                     We strive to motivate, influence, energize and stimulate our employees through the most conducive work environment.
                                 </p>
@@ -164,6 +173,8 @@ export default function RelentlessHero() {
 
                         <div className="col-md-4">
                             <div className="about-card">
+                                 <img src={CreativityIcon} className="mb-3" alt="" 
+                                style={{width:"50px"}}/>
                                 <p>
                                     We encourage progressive and forward-thinkers who engage in fresh ideas for better solutions and superior outcomes.
                                 </p>
@@ -179,47 +190,42 @@ export default function RelentlessHero() {
                             Pioneers in leadership and growth
                         </span>
                     </div>
-                    <h2 className="about-heading">We develop Vaca Muerta <br /> shale oil</h2>
+                    <h2 className="about-heading">Building Excellence, Creating Timeless Living</h2>
                     <div className="row py-5">
-                        <div className="col-md-6">
-                            <img src={image1} alt="About Us 1" className="img-fluid px-5 py-5" />
+                        <div className="col-md-6 p-lg-3">
+                            <img src={image1} alt="About Us 1" className="img-fluid " 
+                            style={{borderRadius: "10px", borderEndEndRadius: "50px"}}
+                            />
                         </div>
                         <div className="col-md-6 py-5">
-                            <p className="text-gray-vessella pertili-font">
-                                We are the largest independent oil operator in Argentina, with a leading position in Vaca Muerta, the most important shale play outside North America.
+
+                            <h1 className="mb-3">Vision</h1>
+                            <p className="text-gray-vessella pertili-font   ">
+                                Our vision is to be recognized for unsurpassed excellence in construction and design, setting new benchmarks in quality, innovation, and reliability. We strive to achieve leadership not only in business performance but also in brand credibility and trust. By consistently delivering superior value, we aim to secure a lasting place in the hearts and minds of our customers.
                             </p>
-                            <p className="text-gray-vessella pertili-font">
-                                Our investment thesis is based on ~229,000 high-quality net acres, with 335 producing wells as of September 2025.
-                            </p>
-                            <h4 className="mb-3">
-                                Vaca Muerta: a pillar of Argentina's energy transformation
-                            </h4>
-                            <p className="text-gray-vessella pertili-font">
-                                Over the past decade, Vaca Muerta’s production grew at a compound rate of 37% per annum. This has more than offset the production decline of all other Argentine plays combined and boosted light oil exports. Vaca Muerta represented almost 54% of the country’s oil production in 2024, and 80% of its oil exports. Vaca Muerta is shifting Argentina’s energy paradigm, from a view of scarcity to one of abundance. It has proven it can generate material oil exports, potentially creating a virtuous cycle of foreign currency inflows and growing investments, contributing to a healthier macroeconomic perspective for Argentina.
+
+                            <p className="text-gray-vessella pertili-font   ">
+                                We envision shaping communities that stand as symbols of architectural excellence and refined living. By embracing innovation, precision, and sustainable practices, we aim to redefine standards in the construction industry. Our focus is on creating developments that inspire confidence, pride, and long-term value for generations to come.
                             </p>
                         </div>
                     </div>
                     <div className="row py-5 mt-4">
                         <div className="col-md-6 py-5">
-                            <div className="about-label mb-4">
-                                <span className="about-dot"></span>
-                                <span className="about-label-text">
-                                    Pioneers in leadership and growth
-                                </span>
-                            </div>
-                            <h1 className="mb-3">Our History</h1>
+
+                            <h1 className="mb-3">Mission</h1>
                             <p className="text-gray-vessella pertili-font   ">
-                                Vista Energy was founded in 2017 as a SPAC in Mexico, with the purpose of building a competitive, international energy platform. In 2018, after acquiring two companies holding assets in Vaca Muerta, Argentina, we launched a sustainable growth strategy based on a high-quality well inventory and our leading operational performance.
+                                Our mission is to design and develop luxury living spaces in life-friendly, thoughtfully chosen locations that enhance everyday living. We are committed to creating world-class ambience within well-planned gated communities that balance modern architecture with comfort and sustainability. Through transparency, quality craftsmanship, and customer-centric values, we seek to build strong, long-term relationships with those who choose to live with us.
                             </p>
+
                             <p className="text-gray-vessella pertili-font   ">
-                                In July 2019, we listed the company on the New York Stock Exchange. With a focus on profitability, growth, and emissions reduction, we continue to pursue a strategic vision of transforming the region's energy development.
+                                We are dedicated to delivering thoughtfully designed homes that elevate lifestyles while respecting the environment and surrounding communities. Through meticulous planning, superior materials, and skilled craftsmanship, we ensure every project reflects quality and care. Our mission extends beyond construction—to continuously support our customers and nurture relationships built on trust, integrity, and shared growth.
                             </p>
-                            <p className="text-gray-vessella pertili-font   ">
-                                Having invested over USD 5 billion and connected more than 311 wells, we are currently the largest independent oil producer and the most significant exporter in Argentina.
-                            </p>
+
                         </div>
-                        <div className="col-md-6">
-                            <img src={image2} alt="About Us 1" className="img-fluid px-5 py-5" />
+                        <div className="col-md-6 p-lg-3">
+                            <img src={image2} alt="About Us 1" className="img-fluid " 
+                             style={{borderRadius: "10px", borderEndEndRadius: "50px"}}
+                             />
                         </div>
                     </div>
                 </div>
@@ -228,8 +234,8 @@ export default function RelentlessHero() {
             <section className="leadership-section py-5">
                 <div className="container">
                     <div className="d-flex align-items-center mb-3">
-                        <span className="dot"></span>
-                        <span className="section-label">GET TO KNOW</span>
+                        <span className="about-dot"></span>
+                        <span className="section-label">PIONEERS IN LEADERSHIP AND GROWTH</span>
                     </div>
 
                     <h2 className="section-title mb-4">
@@ -237,20 +243,7 @@ export default function RelentlessHero() {
                     </h2>
 
                     {/* Tabs */}
-                    <div className="d-flex gap-4 mb-4 leadership-tabs">
-                        <span
-                            className={activeTab === "executive" ? "active" : ""}
-                            onClick={() => switchTab("executive")}
-                        >
-                            EQUIPMENT EXECUTIVE
-                        </span>
-                        {/* <span
-              className={activeTab === "admin" ? "active" : ""}
-              onClick={() => switchTab("admin")}
-            >
-              ADVICE OF ADMINISTRATION
-            </span> */}
-                    </div>
+                    
 
                     {/* Slider */}
                     <div className="slider-wrapper">
@@ -266,7 +259,7 @@ export default function RelentlessHero() {
                                     >
                                         <div className="icon">+</div>
                                         <div className="leader-info">
-                                            <h5>{item.name}</h5>
+                                            <h4 className="display-6">{item.name}</h4>
                                             <p>{item.role}</p>
                                         </div>
                                     </div>
@@ -319,8 +312,8 @@ export default function RelentlessHero() {
                             ✕
                         </button>
 
-                        <h2>{selectedLeader.name}</h2>
-                        <h4>{selectedLeader.role}</h4>
+                        <h2 className="display-5">{selectedLeader.name}</h2>
+                        <h4 className="display-6">{selectedLeader.role}</h4>
 
                         {selectedLeader.bio.map((para, i) => (
                             <p key={i}>{para}</p>

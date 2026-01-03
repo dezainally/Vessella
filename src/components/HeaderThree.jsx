@@ -106,6 +106,11 @@ export default function HeaderThree() {
       return;
     }
 
+     if (linkName === "CONTACT US") {
+      navigate("/contact");
+      return;
+    }
+
     // Other links -> try to scroll to a section with matching id
     const sectionId = linkName.toLowerCase().replace(/\s+/g, "-");
     const element = document.getElementById(sectionId);

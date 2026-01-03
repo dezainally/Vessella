@@ -10,6 +10,7 @@ import Serene from "./pages/Serene";
 import ScrollToTop from "./components/ScrollToTop";
 import Footer from "./components/Footer3";
 import ProjectUspage from "./pages/ProjectUspage";
+import ContactUs from "./pages/ContactUsPage";
 
 
 import "./styles/style.css";
@@ -34,6 +35,7 @@ function App() {
             <Route path="/serene" element={<Serene />} />
             <Route path="/about-us" element={<AboutPage />} />
             <Route path="/projects" element={<ProjectUspage />} />
+            <Route path="/contact" element={<ContactUs />} />
           </Routes>
 
           <ScrollToTop />
