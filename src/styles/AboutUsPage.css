@@ -1,6 +1,6 @@
 .about-hero {
     position: relative;
-    height: 90vh;
+    height: 95vh;
     overflow: hidden;
     background: #fff;
 }
@@ -24,10 +24,8 @@
 } */
 
 .about-content h1 {
-    font-size: clamp(48px, 6vw, 96px);
-    font-weight: 300;
+
     color: #1b1340;
-    line-height: 1.05;
 }
 
 .about-content h1 span {
@@ -35,8 +33,6 @@
 }
 
 .about-subtext {
-    max-width: 360px;
-    font-size: 16px;
     color: black;
 }
 
@@ -86,11 +82,24 @@
     z-index: 1;
 
     background: radial-gradient(ellipse at right center,
-            rgba(108, 99, 255, 0.35) 0%,
-            rgba(108, 99, 255, 0.22) 25%,
+            rgba(108, 99, 255, 0.5) 0%,
+            rgba(108, 99, 255, 0.4) 25%,
             rgba(108, 99, 255, 0.12) 45%,
             rgba(108, 99, 255, 0.05) 60%,
             rgba(108, 99, 255, 0) 75%);
+
+
+    /* rgba(108, 99, 255, 0.5) 0%,
+            rgba(108, 99, 255, 0.4) 25%,
+            rgba(108, 99, 255, 0.12) 45%,
+            rgba(108, 99, 255, 0.05) 60%,
+            rgba(108, 99, 255, 0) 75%); */
+
+    /* rgba(135, 206, 235, 0.7) 0%,
+            rgba(135, 206, 235, 0.5) 25%,
+            rgba(135, 206, 235, 0.12) 45%,
+            rgba(135, 206, 235, 0.05) 60%,
+            rgba(135, 206, 235, 0) 75%); */
 }
 
 .hero-blue-overlay {
@@ -180,4 +189,275 @@
     .about-image--crop {
         height: 200px;
     }
+}
+
+.leadership-section {
+    background: #fff;
+}
+
+/* Small label */
+.dot {
+    width: 6px;
+    height: 6px;
+    background: #5b4fff;
+    margin-right: 10px;
+}
+
+.section-label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #6c757d;
+}
+
+/* Title */
+.section-title {
+    font-size: 56px;
+    font-weight: 300;
+    color: #1b153f;
+}
+
+
+
+
+/* direction */
+.slide-right .leader-card::before {
+    transform-origin: left;
+}
+
+.slide-left .leader-card::before {
+    transform-origin: right;
+}
+
+/* tabs */
+.leadership-tabs span {
+    font-size: 13px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    color: #6c757d;
+}
+
+.leadership-tabs .active {
+    color: #5b4fff;
+    border-bottom: 1px solid #5b4fff;
+    padding-bottom: 6px;
+}
+
+/* slider */
+.slider-wrapper {
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slider-item {
+    min-width: 25%;
+    padding-right: 16px;
+}
+
+/* card */
+.leader-card {
+    position: relative;
+    height: 260px;
+    border: 1px solid #e9ecef;
+    padding: 24px;
+    overflow: hidden;
+    background: #fff;
+}
+
+/* overlay FROM TOP */
+.leader-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #5b4fff;
+    transform: translateY(-100%);
+    transition: transform 0.35s ease;
+    z-index: 0;
+}
+
+.leader-card:hover::before {
+    transform: translateY(0);
+}
+
+.leader-card:hover {
+    color: #fff;
+}
+
+.leader-card * {
+    position: relative;
+    z-index: 1;
+}
+
+/* icon */
+.icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid currentColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* bottom info */
+.leader-info {
+    position: absolute;
+    bottom: 24px;
+}
+
+/* arrows */
+
+
+/* tabs */
+.leadership-tabs span {
+    cursor: pointer;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #6c757d;
+}
+
+.leadership-tabs .active {
+    color: #5b4fff;
+    border-bottom: 1px solid #5b4fff;
+    padding-bottom: 6px;
+}
+
+
+
+/* controls layout */
+
+
+/* progress track */
+.embla-progress {
+    position: relative;
+    height: 1px;
+    width: 100%;
+    background: #e5e5e5;
+    overflow: hidden;
+}
+
+/* progress bar */
+.embla-progress-bar {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #6748d8;
+    transition: transform 0.45s ease;
+}
+
+.embla-controls {
+    display: grid;
+    grid-template-columns: 1fr auto;
+
+    gap: 1.2rem;
+    margin-top: 40px;
+    align-items: center;
+    z-index: 10;
+    min-height: 40px;
+}
+
+.embla-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 40px);
+    gap: 10px;
+    align-self: flex-end;
+    z-index: 11;
+}
+
+.nav-btns {
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid #6748d8;
+    background: #fff;
+    color: #6748d8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: #6748d8;
+    color: #fff;
+}
+
+
+
+.leader-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(28, 23, 60, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.leader-modal {
+    width: 90%;
+    max-width: 760px;
+    background: linear-gradient(135deg, #ffffff 60%, #e6e1ff);
+    padding: 40px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.leader-modal h2 {
+    margin-bottom: 6px;
+}
+
+.leader-modal h4 {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.leader-modal p {
+    line-height: 1.6;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.close-btn {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: transparent;
+    color: #6a5cff;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+/* 🔥 Gradient glow */
+.close-btn::before {
+    content: "";
+    position: absolute;
+    inset: -158px;
+    right: -25px;
+    top: -70px;
+    background: radial-gradient(circle at center,
+            rgba(108, 99, 255, 0.45),
+            rgba(108, 99, 255, 0.15),
+            transparent 70%);
+    filter: blur(10px);
+    opacity: 0.9;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+/* Hover enhancement (optional) */
+.close-btn:hover::before {
+    opacity: 1;
+}
+
+.close-btn:hover {
+    color: #4b3dff;
 }

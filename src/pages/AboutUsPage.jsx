@@ -1,11 +1,17 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../styles/AboutUsPage.css";
 import image1 from "../assets/images/aboutus1.jpg";
 import image2 from "../assets/images/aboutus2.jpg";
+import AboutBg from "../assets/images/about-us-img.svg";
+import { executiveData } from "../data/leadershipData";
 
 export default function RelentlessHero() {
     const bgRef = useRef(null);
     const sectionRef = useRef(null);
+
+    const [activeTab, setActiveTab] = useState("executive");
+    const [leaders, setLeaders] = useState(executiveData);  
+    const [index, setIndex] = useState(0);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -27,15 +33,43 @@ export default function RelentlessHero() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const [selectedLeader, setSelectedLeader] = useState(null);
+
+    //   const [progress, setProgress] = useState(0);
+    //   const [lineDirection, setLineDirection] = useState("to-right");
+
+   
+
+    /* reset line when tab changes */
+    const switchTab = (tab) => {
+        setActiveTab(tab);
+        setLeaders(tab === "executive");
+        setIndex(0);
+    };
+
+    const visibleSlides = 4;
+    const maxIndex = leaders.length - visibleSlides;
+
+    // progress goes from -100% → 0%
+    const progress = maxIndex <= 0 ? 0 : (index / maxIndex) * 100;
+
+    const nextSlide = () => {
+        if (index < maxIndex) setIndex(index + 1);
+    };
+
+    const prevSlide = () => {
+        if (index > 0) setIndex(index - 1);
+    };
+
     return (
         <>
             <section className="about-hero container-fluid py-5">
-                <div className="container h-100 py-5">
-                    <div className="about-content row h-100">
-                        <div className="col-lg-8 d-flex flex-column left-side">
-                            <h1>
-                                We are a <br />
-                                <span>relentless team</span>
+                <div className="container h-100 py-5 px-lg-0">
+                    <div className="about-content py-5 row h-100">
+                        <div className="col-lg-7 px-lg-0  d-flex flex-column left-side">
+                            <h1 className="display-3">
+                                We build our projects <br />
+                                <span>with your dreams and ideas</span>
                             </h1>
 
 
@@ -43,10 +77,10 @@ export default function RelentlessHero() {
 
                         </div>
 
-                        <div className="col-lg-4 d-flex justify-content-end flex-column right-side">
+                        <div className="col-lg-5 px-lg-0 d-flex justify-content-end flex-column right-side">
                             <p className="about-subtext pertili-font">
-                                Energy for tomorrow. <span>We drive sustainable growth and create shared
-                                    value.</span>
+                                The Vessella Group stands a level above with a strong foundation and wealth of experience in building homes. <span>we like to think of ourselves as ‘fine home connoisseurs’ delivering innovative, premium experiences to residents looking for a touch of class and calm in their living spaces.
+                                </span>
                             </p>
                         </div>
 
@@ -82,21 +116,32 @@ export default function RelentlessHero() {
 
                 {/* <div className="about-hero-label">EXPLORE</div> */}
             </section>
+
+            {/* <div
+                ref={containerRef}
+                className="relative overflow-hidden aspect-[375/500] max-h-screen w-full md:aspect-[1440/600]"
+            >
+                <img
+                    ref={imageRef}
+                    src="/images/about/hero-2.jpg"
+                    alt=""
+                    className="h-full w-full object-cover will-change-transform"
+                    style={{ transform: "translate3d(0px, 0%, 0px) scale(1.2)" }}
+                />
+            </div> */}
             <section className="about-section-three py-5 mt-5">
                 <div className="container">
                     {/* Top label */}
                     <div className="about-label mb-4">
                         <span className="about-dot"></span>
                         <span className="about-label-text">
-                            Pioneers in leadership and growth
+                            Our Capabilities
                         </span>
                     </div>
 
                     {/* Main Heading */}
                     <h2 className="about-heading mb-5">
-                        We are a leading independent <br />
-                        energy company <br />
-                        operating in Vaca Muerta
+                        Unique solutions for your home through a personalized process.
                     </h2>
 
                     {/* Bottom Content */}
@@ -104,9 +149,7 @@ export default function RelentlessHero() {
                         <div className="col-md-4">
                             <div className="about-card">
                                 <p>
-                                    We unlock Argentina's energy potential by positioning the
-                                    country as an exporter of reliable, affordable, and low-carbon
-                                    energy.
+                                    We adhere to high standards of honesty and strong business ethics. We do right by all our customers and stakeholders every time with no exceptions
                                 </p>
                             </div>
                         </div>
@@ -114,9 +157,7 @@ export default function RelentlessHero() {
                         <div className="col-md-4">
                             <div className="about-card">
                                 <p>
-                                    Driven by the professionalism of a world-class team and an
-                                    entrepreneurial mindset, we build sustainable value in every
-                                    step and decision we take.
+                                    We strive to motivate, influence, energize and stimulate our employees through the most conducive work environment.
                                 </p>
                             </div>
                         </div>
@@ -124,9 +165,7 @@ export default function RelentlessHero() {
                         <div className="col-md-4">
                             <div className="about-card">
                                 <p>
-                                    We innovate daily through an agile, efficient, and
-                                    future-oriented operating model, with the ambition to lead the
-                                    development of Vaca Muerta.
+                                    We encourage progressive and forward-thinkers who engage in fresh ideas for better solutions and superior outcomes.
                                 </p>
                             </div>
                         </div>
@@ -169,13 +208,13 @@ export default function RelentlessHero() {
                                 </span>
                             </div>
                             <h1 className="mb-3">Our History</h1>
-                            <p className="text-gray-vessella pertili-font">
-                               Vista Energy was founded in 2017 as a SPAC in Mexico, with the purpose of building a competitive, international energy platform. In 2018, after acquiring two companies holding assets in Vaca Muerta, Argentina, we launched a sustainable growth strategy based on a high-quality well inventory and our leading operational performance.
+                            <p className="text-gray-vessella pertili-font   ">
+                                Vista Energy was founded in 2017 as a SPAC in Mexico, with the purpose of building a competitive, international energy platform. In 2018, after acquiring two companies holding assets in Vaca Muerta, Argentina, we launched a sustainable growth strategy based on a high-quality well inventory and our leading operational performance.
                             </p>
-                            <p className="text-gray-vessella pertili-font">
+                            <p className="text-gray-vessella pertili-font   ">
                                 In July 2019, we listed the company on the New York Stock Exchange. With a focus on profitability, growth, and emissions reduction, we continue to pursue a strategic vision of transforming the region's energy development.
                             </p>
-                            <p className="text-gray-vessella pertili-font">
+                            <p className="text-gray-vessella pertili-font   ">
                                 Having invested over USD 5 billion and connected more than 311 wells, we are currently the largest independent oil producer and the most significant exporter in Argentina.
                             </p>
                         </div>
@@ -185,6 +224,110 @@ export default function RelentlessHero() {
                     </div>
                 </div>
             </section>
+
+            <section className="leadership-section py-5">
+                <div className="container">
+                    <div className="d-flex align-items-center mb-3">
+                        <span className="dot"></span>
+                        <span className="section-label">GET TO KNOW</span>
+                    </div>
+
+                    <h2 className="section-title mb-4">
+                        Leadership with <br /> vision of future
+                    </h2>
+
+                    {/* Tabs */}
+                    <div className="d-flex gap-4 mb-4 leadership-tabs">
+                        <span
+                            className={activeTab === "executive" ? "active" : ""}
+                            onClick={() => switchTab("executive")}
+                        >
+                            EQUIPMENT EXECUTIVE
+                        </span>
+                        {/* <span
+              className={activeTab === "admin" ? "active" : ""}
+              onClick={() => switchTab("admin")}
+            >
+              ADVICE OF ADMINISTRATION
+            </span> */}
+                    </div>
+
+                    {/* Slider */}
+                    <div className="slider-wrapper">
+                        <div
+                            className="slider-track"
+                            style={{ transform: `translateX(-${index * 25}%)` }}
+                        >
+                            {executiveData.map((item, i) => (
+                                <div className="slider-item" key={i}>
+                                    <div
+                                        className="leader-card"
+                                        onClick={() => setSelectedLeader(item)}
+                                    >
+                                        <div className="icon">+</div>
+                                        <div className="leader-info">
+                                            <h5>{item.name}</h5>
+                                            <p>{item.role}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Bottom line */}
+                    {/* Bottom line */}
+                    {/* Controls */}
+                    <div className="embla-controls">
+                        <div className="embla-progress">
+                            <div
+                                className="embla-progress-bar"
+                                style={{
+                                    transform: `translate3d(${progress}%, 0, 0)`,
+                                }}
+                            />
+                        </div>
+
+                        <div className="embla-buttons">
+                            <button
+                                className="nav-btns"
+                                onClick={prevSlide}
+                            // disabled={index === 0}
+                            >
+                                ←
+                            </button>
+
+                            <button
+                                className="nav-btns"
+                                onClick={nextSlide}
+                            // disabled={index >= leaders.length - visibleSlides}
+                            >
+                                →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {selectedLeader && (
+                <div className="leader-modal-overlay">
+                    <div className="leader-modal">
+                        <button
+                            className="close-btn"
+                            onClick={() => setSelectedLeader(null)}
+                        >
+                            ✕
+                        </button>
+
+                        <h2>{selectedLeader.name}</h2>
+                        <h4>{selectedLeader.role}</h4>
+
+                        {selectedLeader.bio.map((para, i) => (
+                            <p key={i}>{para}</p>
+                        ))}
+                    </div>
+                </div>
+            )}
         </>
 
 

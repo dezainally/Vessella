@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import HeroThreeImg from "../assets/images/aa.svg";
+import HeroThreeImg from "../assets/images/aa-3.svg";
 import "../styles/HeroThree.css";
 
 export default function HeroThree() {
