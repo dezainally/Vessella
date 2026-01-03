@@ -56,7 +56,7 @@ const ScrollToTop = () => {
         />
       </svg>
 
-      <ArrowUp className="icon" size={22} />
+      <ArrowUp className="scroll-icon" size={22} />
     </div>
   );
 };
